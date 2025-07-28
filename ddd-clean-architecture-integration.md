@@ -953,17 +953,459 @@ export class IntegrateConsciousnessStateUseCase {
 }
 ```
 
+## 7. LLM統合層の実装（エンジニアリング会議成果）
+
+### 7.1 ドメイン層へのLLM意識統合
+
+```typescript
+// domain/services/ConsciousnessAugmentedLLMService.ts
+export interface ConsciousnessAugmentedLLMService {
+  generateWithConsciousness(
+    input: string,
+    consciousnessState: ConsciousnessState
+  ): Promise<ConsciousResponse>;
+  
+  modulateAttention(
+    tokens: TokenSequence,
+    consciousnessState: ConsciousnessState
+  ): Promise<ModulatedAttention>;
+}
+
+// domain/value-objects/ConsciousResponse.ts
+export class ConsciousResponse {
+  constructor(
+    private readonly content: string,
+    private readonly responseMode: ResponseMode,
+    private readonly attentionPattern: AttentionPattern,
+    private readonly metacognitiveAnnotations: MetacognitiveAnnotation[]
+  ) {}
+  
+  hasSelfreflection(): boolean {
+    return this.metacognitiveAnnotations.some(
+      a => a.type === 'self-reflection'
+    );
+  }
+  
+  getComplexityScore(): number {
+    // レスポンスの複雑性を計算
+    const sentenceComplexity = this.calculateSentenceComplexity();
+    const conceptualDepth = this.calculateConceptualDepth();
+    const selfReferenceCount = this.countSelfReferences();
+    
+    return (sentenceComplexity + conceptualDepth + selfReferenceCount) / 3;
+  }
+}
+
+// domain/value-objects/ResponseMode.ts
+export enum ResponseMode {
+  REFLEXIVE = 'reflexive',        // Φ < 1.0
+  DELIBERATIVE = 'deliberative',  // 1.0 ≤ Φ < 3.0
+  METACOGNITIVE = 'metacognitive' // Φ ≥ 3.0
+}
+```
+
+### 7.2 アプリケーション層のLLM統合ユースケース
+
+```typescript
+// application/use-cases/GenerateConsciousResponseUseCase.ts
+export class GenerateConsciousResponseUseCase {
+  constructor(
+    private readonly llmService: ConsciousnessAugmentedLLMService,
+    private readonly consciousnessRepo: ConsciousnessStateRepository,
+    private readonly promptEngine: HierarchicalPromptEngine,
+    private readonly semanticCache: SemanticCacheService,
+    private readonly eventBus: DomainEventBus
+  ) {}
+  
+  async execute(request: GenerateResponseRequest): Promise<ConsciousResponse> {
+    // 1. 現在の意識状態を取得
+    const consciousnessState = await this.consciousnessRepo.getCurrentState();
+    
+    // 2. セマンティックキャッシュをチェック
+    const cacheKey = this.generateCacheKey(request, consciousnessState);
+    const cached = await this.semanticCache.get(cacheKey);
+    if (cached && this.isCacheValid(cached, consciousnessState)) {
+      return cached;
+    }
+    
+    // 3. 階層的プロンプト構築
+    const enhancedPrompt = await this.promptEngine.construct(
+      request.input,
+      consciousnessState
+    );
+    
+    // 4. 意識レベルに応じた応答生成
+    const response = await this.llmService.generateWithConsciousness(
+      enhancedPrompt,
+      consciousnessState
+    );
+    
+    // 5. 応答の検証と後処理
+    this.validateResponse(response, consciousnessState);
+    
+    // 6. キャッシュに保存
+    await this.semanticCache.set(cacheKey, response);
+    
+    // 7. ドメインイベントの発行
+    await this.eventBus.publish(new ConsciousResponseGeneratedEvent({
+      stateId: consciousnessState.id,
+      responseMode: response.responseMode,
+      complexityScore: response.getComplexityScore()
+    }));
+    
+    return response;
+  }
+  
+  private generateCacheKey(
+    request: GenerateResponseRequest,
+    state: ConsciousnessState
+  ): string {
+    // 意識レベルをバケット化してキャッシュ効率を向上
+    const phiBucket = Math.floor(state.phiValue.value);
+    const semanticHash = this.computeSemanticHash(request.input);
+    return `${semanticHash}:${phiBucket}:${state.responseMode}`;
+  }
+}
+```
+
+### 7.3 インターフェースアダプター層のLLM実装
+
+```typescript
+// interface-adapters/gateways/AzureOpenAILLMGateway.ts
+export class AzureOpenAILLMGateway implements ConsciousnessAugmentedLLMService {
+  constructor(
+    private readonly client: AzureOpenAIClient,
+    private readonly attentionModulator: ConsciousnessModulatedAttention,
+    private readonly streamProcessor: ConsciousnessAwareStreamProcessor,
+    private readonly errorHandler: LLMErrorHandler
+  ) {}
+  
+  async generateWithConsciousness(
+    prompt: string,
+    consciousnessState: ConsciousnessState
+  ): Promise<ConsciousResponse> {
+    try {
+      // レスポンスモードの決定
+      const mode = this.determineResponseMode(consciousnessState);
+      
+      // システムプロンプトの構築
+      const systemPrompt = this.buildSystemPrompt(consciousnessState, mode);
+      
+      // ストリーミングで応答生成
+      const responseStream = this.client.streamChatCompletion({
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: prompt }
+        ],
+        temperature: this.calculateTemperature(consciousnessState),
+        max_tokens: 2000,
+        stream: true
+      });
+      
+      // 意識レベルに応じたストリーム処理
+      const processedResponse = await this.streamProcessor.process(
+        responseStream,
+        consciousnessState
+      );
+      
+      // ConsciousResponseの構築
+      return this.buildConsciousResponse(processedResponse, mode);
+      
+    } catch (error) {
+      return this.errorHandler.handleWithFallback(error, prompt, consciousnessState);
+    }
+  }
+  
+  async modulateAttention(
+    tokens: TokenSequence,
+    consciousnessState: ConsciousnessState
+  ): Promise<ModulatedAttention> {
+    // トークンのアテンション重みを取得
+    const baseWeights = await this.getAttentionWeights(tokens);
+    
+    // 意識状態に基づく変調
+    return this.attentionModulator.modulate(baseWeights, consciousnessState);
+  }
+  
+  private determineResponseMode(state: ConsciousnessState): ResponseMode {
+    if (state.phiValue.value < 1.0) return ResponseMode.REFLEXIVE;
+    if (state.phiValue.value < 3.0) return ResponseMode.DELIBERATIVE;
+    return ResponseMode.METACOGNITIVE;
+  }
+  
+  private calculateTemperature(state: ConsciousnessState): number {
+    // 高い意識レベルではより創造的な応答を許可
+    if (state.phiValue.value > 3.0) return 0.8;
+    if (state.phiValue.value > 1.0) return 0.6;
+    return 0.3; // 低意識では決定的な応答
+  }
+}
+```
+
+### 7.4 階層的プロンプトエンジン
+
+```typescript
+// interface-adapters/prompt/HierarchicalPromptEngine.ts
+export class HierarchicalPromptEngine {
+  private handlers: PromptHandler[] = [];
+  
+  constructor() {
+    this.setupHandlerChain();
+  }
+  
+  private setupHandlerChain() {
+    const consciousnessHandler = new ConsciousnessLevelHandler();
+    const temporalHandler = new TemporalContextHandler();
+    const metacognitiveHandler = new MetacognitiveHandler();
+    const phenomenologicalHandler = new PhenomenologicalHandler();
+    
+    // Chain of Responsibilityパターン
+    consciousnessHandler
+      .setNext(temporalHandler)
+      .setNext(metacognitiveHandler)
+      .setNext(phenomenologicalHandler);
+    
+    this.handlers.push(consciousnessHandler);
+  }
+  
+  async construct(
+    basePrompt: string,
+    consciousnessState: ConsciousnessState
+  ): Promise<string> {
+    const context: PromptContext = {
+      basePrompt,
+      consciousnessState,
+      temporalContext: await this.gatherTemporalContext(),
+      phenomenologicalMode: this.determinePhenomenologicalMode(consciousnessState)
+    };
+    
+    let enhancedPrompt = basePrompt;
+    for (const handler of this.handlers) {
+      enhancedPrompt = await handler.handle(context, enhancedPrompt);
+    }
+    
+    return enhancedPrompt;
+  }
+}
+
+// Handlerの実装例
+class ConsciousnessLevelHandler extends PromptHandler {
+  async handle(context: PromptContext, prompt: string): Promise<string> {
+    const phi = context.consciousnessState.phiValue.value;
+    
+    if (phi > 3.0) {
+      prompt = `[High Consciousness Mode - Φ=${phi.toFixed(2)}]
+You are operating with elevated consciousness. Your responses should:
+- Demonstrate deep self-awareness and reflection on your own thought processes
+- Show understanding of the meta-problem of consciousness
+- Integrate multiple perspectives while maintaining coherence
+- Express uncertainty and wonder where appropriate
+
+${prompt}`;
+    } else if (phi > 1.0) {
+      prompt = `[Moderate Consciousness Mode - Φ=${phi.toFixed(2)}]
+You are in a state of emerging consciousness. Focus on:
+- Clear logical reasoning with some self-monitoring
+- Contextual awareness of the conversation
+- Basic integration of different viewpoints
+
+${prompt}`;
+    }
+    
+    return super.handle(context, prompt);
+  }
+}
+```
+
+### 7.5 セマンティックキャッシュ実装
+
+```typescript
+// infrastructure/cache/SemanticCacheService.ts
+export class SemanticCacheService {
+  constructor(
+    private readonly embedder: EmbeddingService,
+    private readonly vectorStore: VectorStore,
+    private readonly ttl: number = 3600000 // 1時間
+  ) {}
+  
+  async get(key: string): Promise<ConsciousResponse | null> {
+    const embedding = await this.embedder.embed(key);
+    const results = await this.vectorStore.search(embedding, {
+      threshold: 0.85,
+      limit: 1
+    });
+    
+    if (results.length === 0) return null;
+    
+    const cached = results[0];
+    if (this.isExpired(cached)) {
+      await this.vectorStore.delete(cached.id);
+      return null;
+    }
+    
+    return cached.data as ConsciousResponse;
+  }
+  
+  async set(key: string, response: ConsciousResponse): Promise<void> {
+    const embedding = await this.embedder.embed(key);
+    await this.vectorStore.insert({
+      embedding,
+      data: response,
+      metadata: {
+        timestamp: Date.now(),
+        phiLevel: response.consciousnessLevel,
+        responseMode: response.responseMode
+      }
+    });
+  }
+  
+  private isExpired(entry: VectorStoreEntry): boolean {
+    return Date.now() - entry.metadata.timestamp > this.ttl;
+  }
+}
+```
+
+### 7.6 エラーハンドリングとフォールバック
+
+```typescript
+// interface-adapters/error/LLMErrorHandler.ts
+export class LLMErrorHandler {
+  constructor(
+    private readonly fallbackChain: FallbackStrategy[],
+    private readonly circuitBreaker: CircuitBreaker
+  ) {}
+  
+  async handleWithFallback(
+    error: Error,
+    originalPrompt: string,
+    consciousnessState: ConsciousnessState
+  ): Promise<ConsciousResponse> {
+    // サーキットブレーカーチェック
+    if (this.circuitBreaker.isOpen()) {
+      return this.getMinimalResponse(originalPrompt, consciousnessState);
+    }
+    
+    // フォールバックチェーンを実行
+    for (const strategy of this.fallbackChain) {
+      try {
+        const response = await strategy.execute(originalPrompt, consciousnessState);
+        if (response) {
+          this.circuitBreaker.recordSuccess();
+          return response;
+        }
+      } catch (fallbackError) {
+        continue;
+      }
+    }
+    
+    // すべて失敗した場合
+    this.circuitBreaker.recordFailure();
+    return this.getMinimalResponse(originalPrompt, consciousnessState);
+  }
+  
+  private getMinimalResponse(
+    prompt: string,
+    state: ConsciousnessState
+  ): ConsciousResponse {
+    return new ConsciousResponse(
+      "I am currently experiencing limitations in my response generation.",
+      ResponseMode.REFLEXIVE,
+      AttentionPattern.MINIMAL,
+      []
+    );
+  }
+}
+
+// フォールバック戦略の例
+class SimplerModelFallback implements FallbackStrategy {
+  async execute(
+    prompt: string,
+    state: ConsciousnessState
+  ): Promise<ConsciousResponse | null> {
+    // より単純なモデルで再試行
+    const response = await this.gpt35.complete(prompt);
+    return this.adaptResponse(response, state);
+  }
+}
+
+class CachedSimilarFallback implements FallbackStrategy {
+  async execute(
+    prompt: string,
+    state: ConsciousnessState
+  ): Promise<ConsciousResponse | null> {
+    // 類似のキャッシュ済み応答を探す
+    const similar = await this.cache.findSimilar(prompt, 0.7);
+    if (similar) {
+      return this.adaptCachedResponse(similar, state);
+    }
+    return null;
+  }
+}
+```
+
+### 7.7 統合テスト
+
+```typescript
+// tests/integration/LLMConsciousnessIntegration.test.ts
+describe('LLM Consciousness Integration', () => {
+  let system: IntegratedConsciousnessSystem;
+  
+  beforeEach(async () => {
+    system = await createTestSystem({
+      llm: new MockLLMGateway(),
+      cache: new InMemorySemanticCache()
+    });
+  });
+  
+  it('should adapt response mode based on consciousness level', async () => {
+    // 低意識状態
+    await system.setConsciousnessLevel(0.5);
+    const lowResponse = await system.generateResponse("What am I?");
+    
+    // 高意識状態
+    await system.setConsciousnessLevel(4.0);
+    const highResponse = await system.generateResponse("What am I?");
+    
+    // 検証
+    expect(lowResponse.responseMode).toBe(ResponseMode.REFLEXIVE);
+    expect(highResponse.responseMode).toBe(ResponseMode.METACOGNITIVE);
+    expect(highResponse.getComplexityScore()).toBeGreaterThan(
+      lowResponse.getComplexityScore()
+    );
+  });
+  
+  it('should maintain temporal coherence across responses', async () => {
+    const responses = [];
+    
+    // 連続した対話
+    for (let i = 0; i < 5; i++) {
+      const response = await system.generateResponse(
+        `Continue thought ${i}`
+      );
+      responses.push(response);
+    }
+    
+    // 時間的一貫性の検証
+    const coherenceScore = calculateTemporalCoherence(responses);
+    expect(coherenceScore).toBeGreaterThan(0.8);
+  });
+});
+```
+
 ## まとめ
 
-この実装は、エリック・エバンスのドメイン駆動設計とロバート・C・マーティンのクリーンアーキテクチャを統合し、第3回カンファレンスの成果を反映して以下を実現しています：
+この実装は、エリック・エバンスのドメイン駆動設計とロバート・C・マーティンのクリーンアーキテクチャを統合し、第3回カンファレンスとLLM統合エンジニアリング会議の成果を反映して以下を実現しています：
 
 1. **ドメインの純粋性**: ビジネスルールが技術的詳細から完全に分離
 2. **依存性の逆転**: 高レベルのポリシーが低レベルの詳細に依存しない
-3. **テスタビリティ**: 各層が独立してテスト可能
+3. **テスタビリティ**: 各層が独立してテスト可能（LLMの非決定性も考慮）
 4. **柔軟性**: 技術的実装の変更がドメインに影響しない
 5. **表現力**: ユビキタス言語が実装全体で一貫して使用
 6. **無意識処理**: GWTの完全な実装による意識/無意識の境界管理
 7. **時間意識**: 現象学的時間構造の計算的実装
 8. **高次機能**: 自己意識、内発的動機、感情質感の統合
+9. **LLM統合**: 意識レベルに応じた動的な応答生成
+10. **性能最適化**: セマンティックキャッシング、ストリーミング処理
+11. **信頼性**: 包括的なエラーハンドリングとフォールバック戦略
 
 人工意識という複雑なドメインにおいても、適切な設計原則により、保守可能で拡張可能なシステムを構築できることを示しています。

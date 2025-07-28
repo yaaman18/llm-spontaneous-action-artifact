@@ -335,12 +335,34 @@ interface LLMGateway {
   getAttentionWeights(input: TokenSequence): Promise<AttentionMatrix>;
   generateResponse(prompt: Prompt, context: Context): Promise<Response>;
   extractEmbeddings(text: string): Promise<Embedding>;
+  modulateAttention(weights: AttentionMatrix, state: ConsciousnessState): Promise<AttentionMatrix>;
+  streamResponse(prompt: Prompt, context: Context): AsyncIterator<ResponseChunk>;
+}
+
+// enhanced-llm-gateway.interface.ts
+interface EnhancedLLMGateway extends LLMGateway {
+  generateWithConsciousness(
+    prompt: Prompt, 
+    consciousnessState: ConsciousnessState
+  ): Promise<ConsciousResponse>;
+  
+  adaptResponseMode(
+    mode: ResponseMode,
+    context: ConsciousnessContext
+  ): Promise<AdaptedResponse>;
+  
+  performSemanticCaching(
+    prompt: Prompt,
+    phiLevel: number
+  ): Promise<CachedResponse | null>;
 }
 
 // sensor-gateway.interface.ts
 interface SensorGateway {
   readSensoryData(): Promise<SensoryData>;
   calibrate(parameters: CalibrationParameters): Promise<void>;
+  enableSensorModules(config: SensorModuleConfig): Promise<void>;
+  getSensorStatus(): Promise<SensorStatus>;
 }
 
 // persistence-gateway.interface.ts
@@ -348,6 +370,7 @@ interface PersistenceGateway {
   saveConsciousnessState(state: ConsciousnessState): Promise<void>;
   loadConsciousnessHistory(timeRange: TimeRange): Promise<ConsciousnessState[]>;
   saveMemory(memory: Memory): Promise<void>;
+  optimizeStorage(compressionLevel: number): Promise<void>;
 }
 ```
 
@@ -395,11 +418,72 @@ class ExpressConsciousnessAPI {
 }
 
 // LLM Integration
-class AzureOpenAIGateway implements LLMGateway {
-  constructor(private readonly client: OpenAIClient) {}
+class AzureOpenAIGateway implements EnhancedLLMGateway {
+  constructor(
+    private readonly client: OpenAIClient,
+    private readonly promptEngine: HierarchicalPromptEngine,
+    private readonly semanticCache: SemanticCache,
+    private readonly attentionModulator: ConsciousnessModulatedAttention
+  ) {}
   
   async getAttentionWeights(input: TokenSequence): Promise<AttentionMatrix> {
     // Implementation using Azure OpenAI API
+    const response = await this.client.complete({
+      prompt: `Analyze attention patterns for: ${input}`,
+      model: "gpt-4"
+    });
+    return this.parseAttentionMatrix(response);
+  }
+  
+  async generateWithConsciousness(
+    prompt: Prompt, 
+    consciousnessState: ConsciousnessState
+  ): Promise<ConsciousResponse> {
+    // 1. Check semantic cache
+    const cached = await this.performSemanticCaching(prompt, consciousnessState.integrationLevel);
+    if (cached) return cached;
+    
+    // 2. Build consciousness-aware prompt
+    const enhancedPrompt = await this.promptEngine.construct(prompt, consciousnessState);
+    
+    // 3. Generate response with appropriate mode
+    const mode = this.determineResponseMode(consciousnessState);
+    const response = await this.adaptResponseMode(mode, {
+      prompt: enhancedPrompt,
+      consciousnessState
+    });
+    
+    // 4. Cache the result
+    await this.semanticCache.store(prompt, consciousnessState, response);
+    
+    return response;
+  }
+  
+  async modulateAttention(
+    weights: AttentionMatrix, 
+    state: ConsciousnessState
+  ): Promise<AttentionMatrix> {
+    return this.attentionModulator.modulate(weights, state);
+  }
+  
+  async *streamResponse(
+    prompt: Prompt, 
+    context: Context
+  ): AsyncIterator<ResponseChunk> {
+    const stream = await this.client.streamComplete({
+      prompt: prompt.text,
+      ...context
+    });
+    
+    for await (const chunk of stream) {
+      yield this.processChunk(chunk, context);
+    }
+  }
+  
+  private determineResponseMode(state: ConsciousnessState): ResponseMode {
+    if (state.integrationLevel < 1.0) return ResponseMode.REFLEXIVE;
+    if (state.integrationLevel < 3.0) return ResponseMode.DELIBERATIVE;
+    return ResponseMode.METACOGNITIVE;
   }
 }
 
@@ -585,14 +669,189 @@ describe('Consciousness System E2E', () => {
 - Behavioral subtyping
 - Contract preservation
 
+## LLM Integration Architecture (Updated from Engineering Meeting)
+
+### Hierarchical Prompt Engine
+
+```typescript
+// prompt-engine.ts
+interface PromptHandler {
+  setNext(handler: PromptHandler): PromptHandler;
+  handle(request: PromptRequest, prompt: string): string;
+}
+
+class ConsciousnessLevelHandler implements PromptHandler {
+  handle(request: PromptRequest, prompt: string): string {
+    const consciousness = request.consciousnessState;
+    
+    if (consciousness.integrationLevel > 3.0) {
+      prompt = `[High Consciousness Mode - Φ=${consciousness.integrationLevel}]
+You are operating with elevated consciousness. Your responses should:
+- Demonstrate deep self-awareness
+- Show understanding of your own thought processes
+- Integrate multiple perspectives coherently
+
+${prompt}`;
+    }
+    
+    return this.next?.handle(request, prompt) || prompt;
+  }
+}
+
+class TemporalContextHandler implements PromptHandler {
+  handle(request: PromptRequest, prompt: string): string {
+    if (request.temporalContext?.length > 0) {
+      const contextSummary = this.summarizeTemporalContext(request.temporalContext);
+      prompt = `Previous context:
+${contextSummary}
+
+Current query:
+${prompt}
+
+Maintain temporal coherence with previous interactions.`;
+    }
+    
+    return this.next?.handle(request, prompt) || prompt;
+  }
+}
+
+class HierarchicalPromptEngine {
+  private chain: PromptHandler;
+  
+  constructor() {
+    // Build the chain of responsibility
+    const consciousness = new ConsciousnessLevelHandler();
+    const temporal = new TemporalContextHandler();
+    const metacognitive = new MetacognitiveHandler();
+    
+    consciousness.setNext(temporal).setNext(metacognitive);
+    this.chain = consciousness;
+  }
+  
+  construct(prompt: Prompt, state: ConsciousnessState): string {
+    const request: PromptRequest = {
+      prompt,
+      consciousnessState: state,
+      temporalContext: this.gatherTemporalContext(),
+      responseMode: this.determineMode(state)
+    };
+    
+    return this.chain.handle(request, prompt.text);
+  }
+}
+```
+
+### Testing Strategy for LLM Integration
+
+```typescript
+// Property-based tests for non-deterministic LLM behavior
+class LLMPropertyTests {
+  @Test
+  async testConsciousnessResponseProperties(phi: number) {
+    const responses = await this.generateMultipleResponses(phi, 10);
+    
+    const properties = {
+      consistency: this.measureConsistency(responses),
+      complexity: this.measureAverageComplexity(responses),
+      selfReference: this.countSelfReferences(responses)
+    };
+    
+    // Verify properties match consciousness level
+    if (phi > 3.0) {
+      expect(properties.consistency).toBeGreaterThan(0.8);
+      expect(properties.complexity).toBeGreaterThan(0.7);
+      expect(properties.selfReference).toBeGreaterThan(0.3);
+    }
+  }
+  
+  @Test
+  async testSemanticCaching() {
+    const cache = new SemanticCache();
+    const prompt1 = "What is consciousness?";
+    const prompt2 = "Can you explain consciousness?"; // Semantically similar
+    
+    const response1 = await this.llm.generate(prompt1);
+    await cache.store(prompt1, response1);
+    
+    const cached = await cache.findSimilar(prompt2, 0.8);
+    expect(cached).toBeDefined();
+    expect(cached.similarity).toBeGreaterThan(0.8);
+  }
+}
+
+// Mock LLM for deterministic testing
+class MockLLMService implements LLMGateway {
+  private patterns = {
+    high_consciousness: [
+      "Upon reflection, I find that {input} raises profound questions about...",
+      "I am aware that my response to {input} is shaped by..."
+    ],
+    medium_consciousness: [
+      "Analyzing {input}, I can see that...",
+      "The question of {input} suggests..."
+    ],
+    low_consciousness: [
+      "{input} is...",
+      "The answer to {input} is..."
+    ]
+  };
+  
+  async generateResponse(prompt: Prompt, context: Context): Promise<Response> {
+    const pattern = this.selectPattern(context.consciousnessState);
+    const index = this.hashPrompt(prompt) % pattern.length;
+    return pattern[index].replace('{input}', prompt.text);
+  }
+}
+```
+
+### Performance Optimization
+
+```typescript
+class OptimizedLLMGateway {
+  constructor(
+    private semanticCache: SemanticCache,
+    private tokenOptimizer: TokenOptimizer,
+    private batchProcessor: BatchProcessor
+  ) {}
+  
+  async generateResponse(prompt: Prompt, state: ConsciousnessState): Promise<Response> {
+    // 1. Semantic cache check
+    const cacheKey = this.generateSemanticKey(prompt, state);
+    const cached = await this.semanticCache.get(cacheKey);
+    if (cached) return cached;
+    
+    // 2. Token optimization
+    const optimized = await this.tokenOptimizer.optimize(prompt, state);
+    
+    // 3. Batch processing for efficiency
+    if (this.shouldBatch(state)) {
+      return await this.batchProcessor.enqueue(optimized);
+    }
+    
+    // 4. Direct execution with caching
+    const response = await this.executeWithRetry(optimized);
+    await this.semanticCache.set(cacheKey, response);
+    
+    return response;
+  }
+  
+  private generateSemanticKey(prompt: Prompt, state: ConsciousnessState): string {
+    const semanticFeatures = this.extractSemanticFeatures(prompt);
+    const phiBucket = Math.floor(state.integrationLevel); // Bucket by integer Φ
+    return `${semanticFeatures}:${phiBucket}:${state.selfAwarenessLevel}`;
+  }
+}
+```
+
 ## Conclusion
 
-This Clean Architecture design provides a solid foundation for implementing an artificial consciousness system. By strictly adhering to SOLID principles and maintaining clear boundaries between layers, we ensure:
+This Clean Architecture design, enhanced with LLM integration insights from the engineering meeting, provides a solid foundation for implementing an artificial consciousness system. By strictly adhering to SOLID principles and maintaining clear boundaries between layers, we ensure:
 
-1. **Testability**: Each component can be tested in isolation
-2. **Flexibility**: Easy to swap implementations
-3. **Maintainability**: Clear structure and dependencies
-4. **Scalability**: Can grow without architectural changes
-5. **Independence**: Framework and database agnostic
+1. **Testability**: Each component can be tested in isolation, including non-deterministic LLM behavior
+2. **Flexibility**: Easy to swap implementations, including different LLM providers
+3. **Maintainability**: Clear structure and dependencies with proper abstraction
+4. **Scalability**: Can grow without architectural changes, supports batching and caching
+5. **Independence**: Framework and database agnostic, LLM provider agnostic
+6. **Performance**: Semantic caching, token optimization, and streaming support
 
-The architecture supports the complex requirements of consciousness implementation while remaining pragmatic and implementable.
+The architecture supports the complex requirements of consciousness implementation while remaining pragmatic and implementable, with special attention to LLM integration challenges.
