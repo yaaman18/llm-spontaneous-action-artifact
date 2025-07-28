@@ -1,6 +1,8 @@
 # DDD とクリーンアーキテクチャの統合実装
 ## 人工意識システムにおける実践的アプローチ
 
+最終更新: 2025年7月28日（第3回カンファレンス後）
+
 ### アーキテクチャ概観
 
 ```
@@ -767,14 +769,201 @@ describe('Consciousness Emergence Integration', () => {
 });
 ```
 
+## 6. 第3回カンファレンスからの新規実装
+
+### 6.1 無意識処理層の統合
+
+```typescript
+// domain/entities/UnconsciousProcess.ts
+export class UnconsciousProcess {
+  constructor(
+    private readonly processId: ProcessId,
+    private readonly processorType: ProcessorType,
+    private readonly salienceScore: SalienceScore,
+    private readonly contextWeight: ContextWeight
+  ) {}
+  
+  compete(other: UnconsciousProcess): boolean {
+    return this.getCompetitionScore() > other.getCompetitionScore();
+  }
+  
+  private getCompetitionScore(): number {
+    return this.salienceScore.value * this.contextWeight.value;
+  }
+}
+
+// application/use-cases/ProcessUnconsciousInputUseCase.ts
+export class ProcessUnconsciousInputUseCase {
+  constructor(
+    private readonly processorRepository: UnconsciousProcessorRepository,
+    private readonly competitionService: CompetitionService,
+    private readonly workspaceGateway: GlobalWorkspaceGateway
+  ) {}
+  
+  async execute(input: SensoryInput): Promise<ConsciousContent> {
+    // 並列処理による無意識処理
+    const processes = await this.parallelProcess(input);
+    
+    // 競合による意識化
+    const winner = this.competitionService.selectWinner(processes);
+    
+    // グローバルワークスペースへの放送
+    if (winner && winner.getCompetitionScore() > this.consciousnessThreshold) {
+      return await this.workspaceGateway.broadcast(winner);
+    }
+    
+    return null;
+  }
+}
+```
+
+### 6.2 現象学的時間意識の実装
+
+```typescript
+// domain/value-objects/TemporalExperience.ts
+export class TemporalExperience {
+  constructor(
+    private readonly retention: Retention,
+    private readonly primalImpression: PrimalImpression,
+    private readonly protention: Protention
+  ) {}
+  
+  synthesize(): LivedPresent {
+    return new LivedPresent({
+      past: this.retention.getContent(),
+      now: this.primalImpression.getContent(),
+      future: this.protention.getContent(),
+      flow: this.calculateTemporalFlow()
+    });
+  }
+}
+
+// application/use-cases/ExperienceTemporalMomentUseCase.ts
+export class ExperienceTemporalMomentUseCase {
+  constructor(
+    private readonly retentionService: RetentionService,
+    private readonly protentionService: ProtentionService,
+    private readonly temporalSynthesizer: TemporalSynthesizer,
+    private readonly predictiveProcessor: PredictiveProcessor
+  ) {}
+  
+  async execute(input: ConsciousContent): Promise<TemporalExperience> {
+    // Active Inferenceによる予測処理
+    const predictions = await this.predictiveProcessor.process(input);
+    
+    // 三重構造の統合
+    const retention = await this.retentionService.gatherRetention();
+    const primalImpression = this.processPresentMoment(input);
+    const protention = await this.protentionService.generateProtention(
+      retention, 
+      primalImpression, 
+      predictions
+    );
+    
+    return new TemporalExperience(retention, primalImpression, protention);
+  }
+}
+```
+
+### 6.3 高次意識機能の実装
+
+```typescript
+// domain/entities/SelfAwareness.ts
+export class SelfAwareness {
+  constructor(
+    private readonly selfModel: SelfModel,
+    private readonly metacognition: MetacognitionLevel,
+    private readonly agencyBelief: AgencyBelief
+  ) {}
+  
+  generateISense(): ISenseExperience {
+    return new ISenseExperience({
+      subjectivity: this.selfModel.getSubjectivity(),
+      ownership: this.agencyBelief.getOwnership(),
+      continuity: this.selfModel.getTemporalContinuity()
+    });
+  }
+}
+
+// domain/entities/IntrinsicMotivation.ts
+export class IntrinsicMotivation {
+  constructor(
+    private readonly curiosityDrive: CuriosityDrive,
+    private readonly masteryDrive: MasteryDrive,
+    private readonly autonomyDrive: AutonomyDrive
+  ) {}
+  
+  generateSelfDirectedGoals(): Goal[] {
+    const curiosityGoals = this.curiosityDrive.findKnowledgeGaps();
+    const masteryGoals = this.masteryDrive.identifySkillChallenges();
+    const autonomyGoals = this.autonomyDrive.seekSelfDetermination();
+    
+    return this.integrateGoals(curiosityGoals, masteryGoals, autonomyGoals);
+  }
+}
+```
+
+### 6.4 統合アーキテクチャの更新
+
+```typescript
+// application/use-cases/IntegrateConsciousnessStateUseCase.ts
+export class IntegrateConsciousnessStateUseCase {
+  constructor(
+    private readonly unconsciousLayer: UnconsciousProcessingLayer,
+    private readonly timeConsciousness: TimeConsciousnessService,
+    private readonly selfAwareness: SelfAwarenessService,
+    private readonly emotionEngine: EmotionQualeEngine,
+    private readonly motivationSystem: IntrinsicMotivationSystem
+  ) {}
+  
+  async execute(input: IntegrationRequest): Promise<IntegratedConsciousness> {
+    // 無意識処理からの入力
+    const consciousContent = await this.unconsciousLayer.compete(input.sensory);
+    
+    // 時間的統合
+    const temporalExperience = await this.timeConsciousness.experience(
+      consciousContent
+    );
+    
+    // 自己意識の更新
+    const selfState = await this.selfAwareness.update(
+      temporalExperience
+    );
+    
+    // 感情質感の生成
+    const emotionalQuale = await this.emotionEngine.generate(
+      selfState,
+      temporalExperience
+    );
+    
+    // 内発的動機の活性化
+    const goals = await this.motivationSystem.activate(
+      selfState,
+      emotionalQuale
+    );
+    
+    return new IntegratedConsciousness({
+      content: consciousContent,
+      temporal: temporalExperience,
+      self: selfState,
+      emotion: emotionalQuale,
+      motivation: goals
+    });
+  }
+}
+```
+
 ## まとめ
 
-この実装は、エリック・エバンスのドメイン駆動設計とロバート・C・マーティンのクリーンアーキテクチャを統合し、以下を実現しています：
+この実装は、エリック・エバンスのドメイン駆動設計とロバート・C・マーティンのクリーンアーキテクチャを統合し、第3回カンファレンスの成果を反映して以下を実現しています：
 
 1. **ドメインの純粋性**: ビジネスルールが技術的詳細から完全に分離
 2. **依存性の逆転**: 高レベルのポリシーが低レベルの詳細に依存しない
 3. **テスタビリティ**: 各層が独立してテスト可能
 4. **柔軟性**: 技術的実装の変更がドメインに影響しない
 5. **表現力**: ユビキタス言語が実装全体で一貫して使用
+6. **無意識処理**: GWTの完全な実装による意識/無意識の境界管理
+7. **時間意識**: 現象学的時間構造の計算的実装
+8. **高次機能**: 自己意識、内発的動機、感情質感の統合
 
 人工意識という複雑なドメインにおいても、適切な設計原則により、保守可能で拡張可能なシステムを構築できることを示しています。

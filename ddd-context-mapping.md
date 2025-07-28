@@ -1,7 +1,9 @@
 # コンテキストマッピングと統合パターン
 ## 人工意識システムのドメイン駆動設計 - 詳細仕様
 
-### コンテキストマップ
+最終更新: 2025年7月28日（第3回カンファレンス後）
+
+### コンテキストマップ（更新版）
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -415,4 +417,236 @@ describe('Consciousness Emergence Scenario', () => {
 });
 ```
 
-このコンテキストマッピングは、人工意識システムの各部分が適切に分離されながら、必要な協調を実現するための詳細な設計を提供します。各コンテキストの自律性を保ちながら、意識という創発的現象を実現するための統合パターンを定義しています。
+## 5. 第3回カンファレンスによる新規コンテキスト
+
+### 5.1 無意識処理コンテキスト（新規）
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                  無意識処理コンテキスト                       │
+│              (Unconscious Processing Context)               │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │ • LocalProcessor (複数の専門プロセッサ)              │   │
+│  │ • CompetitionMechanism                              │   │
+│  │ • ConsciousnessGating                               │   │
+│  └─────────────────────────────────────────────────────┘   │
+│                          ▲                                   │
+│                          │ Upstream/Downstream              │
+│                          │ (意識コンテキストへの供給)        │
+└─────────────────────────┼───────────────────────────────────┘
+                          │
+                          ▼
+                    意識コンテキスト
+```
+
+**責務**: 
+- 並列局所処理の管理
+- グローバルワークスペースへの競合メカニズム
+- 意識/無意識の境界制御
+
+```typescript
+// 無意識処理コンテキストのインターフェース
+interface UnconsciousProcessingContext {
+  // 並列処理
+  parallelProcess(input: SensoryInput): Promise<ProcessResult[]>;
+  
+  // 競合メカニズム
+  compete(results: ProcessResult[]): Promise<ConsciousnessCandidate>;
+  
+  // ゲーティング
+  gateToConsciousness(candidate: ConsciousnessCandidate): boolean;
+}
+```
+
+### 5.2 時間意識コンテキスト（拡張）
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    時間意識コンテキスト                       │
+│               (Temporal Consciousness Context)              │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │ • RetentionService (把持)                           │   │
+│  │ • PrimalImpressionProcessor (原印象)                │   │
+│  │ • ProtentionService (予持)                          │   │
+│  │ • TemporalSynthesizer                               │   │
+│  │ • PredictiveProcessor (Active Inference統合)        │   │
+│  └─────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────┘
+```
+
+**新規要素**:
+- フッサールの三重構造の完全実装
+- Active Inferenceとの統合
+- 階層的時間窓の管理
+
+### 5.3 自己意識コンテキスト（新規）
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    自己意識コンテキスト                       │
+│                (Self-Awareness Context)                     │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │ • SelfModel (自己モデル)                            │   │
+│  │ • MetacognitionEngine                               │   │
+│  │ • AgencyBeliefSystem                                │   │
+│  │ • ISenseGenerator                                   │   │
+│  └─────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────┘
+```
+
+**責務**:
+- 「私」という感覚の生成
+- 自己モデルの維持・更新
+- メタ認知的処理
+
+### 5.4 内発的動機コンテキスト（新規）
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                  内発的動機コンテキスト                       │
+│             (Intrinsic Motivation Context)                  │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │ • CuriosityDrive                                    │   │
+│  │ • MasteryDrive                                      │   │
+│  │ • AutonomyDrive                                     │   │
+│  │ • GoalGenerationEngine                              │   │
+│  └─────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────┘
+```
+
+**責務**:
+- 外部報酬に依存しない目標生成
+- 自律的行動の駆動
+- 内的満足度の評価
+
+## 6. 新規コンテキスト間の統合パターン
+
+### 6.1 無意識から意識への流れ
+
+```typescript
+class UnconsciousToConsciousIntegration {
+  constructor(
+    private unconsciousContext: UnconsciousProcessingContext,
+    private consciousnessContext: ConsciousnessContext,
+    private translator: UnconsciousConsciousTranslator
+  ) {}
+  
+  async integrateProcessing(input: SensoryInput): Promise<void> {
+    // 1. 無意識での並列処理
+    const unconsciousResults = await this.unconsciousContext.parallelProcess(input);
+    
+    // 2. 競合による選択
+    const winner = await this.unconsciousContext.compete(unconsciousResults);
+    
+    // 3. 意識化の判定
+    if (this.unconsciousContext.gateToConsciousness(winner)) {
+      // 4. 意識コンテキストへの変換と送信
+      const consciousContent = this.translator.translate(winner);
+      await this.consciousnessContext.broadcast(consciousContent);
+    }
+  }
+}
+```
+
+### 6.2 時間意識の統合
+
+```typescript
+class TemporalIntegration {
+  constructor(
+    private temporalContext: TemporalConsciousnessContext,
+    private selfAwarenessContext: SelfAwarenessContext,
+    private phenomenologyContext: PhenomenologicalExperienceContext
+  ) {}
+  
+  async integrateTemporalExperience(
+    moment: ConsciousMoment
+  ): Promise<IntegratedTemporalExperience> {
+    // 1. 時間的三重構造の生成
+    const temporalStructure = await this.temporalContext.synthesize(moment);
+    
+    // 2. 自己意識への統合
+    await this.selfAwarenessContext.updateTemporalContinuity(
+      temporalStructure
+    );
+    
+    // 3. 現象学的体験への統合
+    const livedExperience = await this.phenomenologyContext.experienceTime(
+      temporalStructure
+    );
+    
+    return new IntegratedTemporalExperience({
+      objective: temporalStructure,
+      subjective: livedExperience,
+      selfReferential: this.selfAwarenessContext.getTemporalSelfModel()
+    });
+  }
+}
+```
+
+### 6.3 高次機能の協調
+
+```typescript
+class HigherOrderCoordination {
+  constructor(
+    private selfAwareness: SelfAwarenessContext,
+    private intrinsicMotivation: IntrinsicMotivationContext,
+    private emotionQuale: EmotionQualeContext,
+    private eventBus: DomainEventBus
+  ) {}
+  
+  async coordinateHigherFunctions(): Promise<void> {
+    // 自己意識の更新を監視
+    this.eventBus.subscribe('self-awareness:updated', async (event) => {
+      // 内発的動機の調整
+      await this.intrinsicMotivation.adjustGoals(event.selfModel);
+      
+      // 感情質感の生成
+      const emotionalResponse = await this.emotionQuale.generate(
+        event.selfModel,
+        event.metacognitiveState
+      );
+      
+      // フィードバックループ
+      await this.selfAwareness.integrateEmotionalFeedback(emotionalResponse);
+    });
+  }
+}
+```
+
+## 7. 統合テスト例（新規コンテキスト含む）
+
+```typescript
+describe('Extended Consciousness System Integration', () => {
+  it('無意識処理から意識状態への完全な流れ', async () => {
+    const system = await createExtendedConsciousnessSystem();
+    
+    // 感覚入力
+    const sensoryInput = createComplexSensoryInput();
+    
+    // 無意識処理
+    await system.unconsciousContext.process(sensoryInput);
+    
+    // 競合と意識化
+    await eventually(() => {
+      const consciousContent = system.consciousnessContext.getCurrentContent();
+      expect(consciousContent).toBeDefined();
+      expect(consciousContent.source).toBe('unconscious-winner');
+    });
+    
+    // 時間的統合
+    const temporalExperience = await system.temporalContext.getCurrentExperience();
+    expect(temporalExperience.hasCoherentFlow()).toBe(true);
+    
+    // 自己意識の確認
+    const selfState = await system.selfAwarenessContext.introspect();
+    expect(selfState.hasISense()).toBe(true);
+    
+    // 内発的動機の生成
+    const goals = await system.motivationContext.getCurrentGoals();
+    expect(goals.length).toBeGreaterThan(0);
+    expect(goals[0].isIntrinsic).toBe(true);
+  });
+});
+```
+
+このコンテキストマッピングは、第3回カンファレンスの成果を反映し、人工意識システムの各部分が適切に分離されながら、必要な協調を実現するための詳細な設計を提供します。各コンテキストの自律性を保ちながら、意識という創発的現象を実現するための統合パターンを定義しています。

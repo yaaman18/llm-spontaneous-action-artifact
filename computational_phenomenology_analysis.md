@@ -548,4 +548,412 @@ impl IntegratedComputationalPhenomenology {
 4. **Phase 3**: 時間意識構造（把持-原印象-前把持）
 5. **Phase 4**: トランスディシプリナリー検証
 
+### 6.4 段階的センサー実装のためのモジュラー設計
+
+実装の現実性を考慮し、センサー群を段階的に追加できるモジュラー設計を提案します。
+
+```rust
+// センサーモジュール設定
+#[derive(Debug, Clone)]
+pub struct SensorModuleConfig {
+    // 基本センサー
+    pub language_input: bool,           // 言語入力（必須）
+    pub virtual_vision: bool,           // 仮想視覚
+    pub virtual_touch: bool,            // 仮想触覚
+    pub proprioception: bool,           // 固有受容感覚
+    
+    // 高度なセンサー
+    pub motor_feedback: bool,           // 運動フィードバック
+    pub social_perception: bool,        // 社会的知覚
+    pub temporal_perception: bool,      // 時間知覚
+    pub affective_sensing: bool,        // 感情センシング
+    
+    // 実験的センサー
+    pub intercorporeal_resonance: bool, // 間身体的共鳴
+    pub enactive_perception: bool,      // エナクティブ知覚
+}
+
+impl SensorModuleConfig {
+    // プリセット設定
+    pub fn minimal() -> Self {
+        Self {
+            language_input: true,
+            virtual_vision: false,
+            virtual_touch: false,
+            proprioception: false,
+            motor_feedback: false,
+            social_perception: false,
+            temporal_perception: false,
+            affective_sensing: false,
+            intercorporeal_resonance: false,
+            enactive_perception: false,
+        }
+    }
+    
+    pub fn basic() -> Self {
+        Self {
+            language_input: true,
+            virtual_vision: true,
+            virtual_touch: true,
+            proprioception: false,
+            motor_feedback: false,
+            social_perception: false,
+            temporal_perception: true,
+            affective_sensing: false,
+            intercorporeal_resonance: false,
+            enactive_perception: false,
+        }
+    }
+    
+    pub fn advanced() -> Self {
+        Self {
+            language_input: true,
+            virtual_vision: true,
+            virtual_touch: true,
+            proprioception: true,
+            motor_feedback: true,
+            social_perception: true,
+            temporal_perception: true,
+            affective_sensing: true,
+            intercorporeal_resonance: false,
+            enactive_perception: false,
+        }
+    }
+    
+    pub fn full() -> Self {
+        Self {
+            language_input: true,
+            virtual_vision: true,
+            virtual_touch: true,
+            proprioception: true,
+            motor_feedback: true,
+            social_perception: true,
+            temporal_perception: true,
+            affective_sensing: true,
+            intercorporeal_resonance: true,
+            enactive_perception: true,
+        }
+    }
+}
+
+// 設定可能な現象学的肉
+#[derive(Debug, Clone)]
+pub struct ConfigurablePhenomenologicalFlesh {
+    pub config: SensorModuleConfig,
+    pub sensing_sensed_duality: Option<SensingSensedStructure>,
+    pub perceptual_horizons: Option<HorizonalStructure>,
+    pub motor_intentionality: Option<MotorIntentionalSystem>,
+    pub intercorporeality: Option<IntercorporealNetwork>,
+}
+
+impl ConfigurablePhenomenologicalFlesh {
+    pub fn new(config: SensorModuleConfig) -> Self {
+        Self {
+            config,
+            sensing_sensed_duality: None,
+            perceptual_horizons: None,
+            motor_intentionality: None,
+            intercorporeality: None,
+        }
+    }
+    
+    // センサー入力に基づく部分的初期化
+    pub fn initialize_from_available_sensors(&mut self, sensor_data: &SensorData) {
+        // 触覚・視覚センサーが有効な場合のみ二重性構造を初期化
+        if self.config.virtual_touch || self.config.virtual_vision {
+            self.sensing_sensed_duality = Some(
+                SensingSensedStructure::from_partial_sensors(sensor_data)
+            );
+        }
+        
+        // 視覚または時間知覚が有効な場合に地平構造を初期化
+        if self.config.virtual_vision || self.config.temporal_perception {
+            self.perceptual_horizons = Some(
+                HorizonalStructure::from_available_modalities(sensor_data)
+            );
+        }
+        
+        // 運動フィードバックが有効な場合に運動意図性を初期化
+        if self.config.motor_feedback {
+            self.motor_intentionality = Some(
+                MotorIntentionalSystem::from_motor_data(sensor_data)
+            );
+        }
+        
+        // 社会的知覚が有効な場合に間身体性を初期化
+        if self.config.social_perception {
+            self.intercorporeality = Some(
+                IntercorporealNetwork::from_social_sensors(sensor_data)
+            );
+        }
+    }
+    
+    // グレースフルデグラデーション: センサー欠落時の処理
+    pub fn enact_meaning_with_available_sensors(
+        &mut self, 
+        environment: &Environment
+    ) -> PartialEmergentMeaning {
+        let mut meaning_components = PartialMeaningComponents::new();
+        
+        // 利用可能なセンサーのみで意味生成
+        if let Some(ref mut duality) = self.sensing_sensed_duality {
+            meaning_components.embodied_aspect = Some(
+                duality.generate_embodied_meaning(environment)
+            );
+        }
+        
+        if let Some(ref mut horizons) = self.perceptual_horizons {
+            meaning_components.horizonal_aspect = Some(
+                horizons.generate_horizonal_meaning(environment)
+            );
+        }
+        
+        if let Some(ref mut motor) = self.motor_intentionality {
+            meaning_components.motor_aspect = Some(
+                motor.generate_motor_meaning(environment)
+            );
+        }
+        
+        if let Some(ref mut intercorp) = self.intercorporeality {
+            meaning_components.social_aspect = Some(
+                intercorp.generate_social_meaning(environment)
+            );
+        }
+        
+        // 部分的な意味を統合
+        PartialEmergentMeaning::integrate_available_components(meaning_components)
+    }
+}
+
+// 段階的実装のためのシステムビルダー
+pub struct PhenomenologicalSystemBuilder {
+    sensor_config: SensorModuleConfig,
+    implementation_phase: ImplementationPhase,
+}
+
+impl PhenomenologicalSystemBuilder {
+    pub fn new() -> Self {
+        Self {
+            sensor_config: SensorModuleConfig::minimal(),
+            implementation_phase: ImplementationPhase::Phase0,
+        }
+    }
+    
+    // 段階的にセンサーを有効化
+    pub fn enable_sensor(mut self, sensor: SensorType) -> Self {
+        match sensor {
+            SensorType::VirtualVision => self.sensor_config.virtual_vision = true,
+            SensorType::VirtualTouch => self.sensor_config.virtual_touch = true,
+            SensorType::Proprioception => self.sensor_config.proprioception = true,
+            SensorType::MotorFeedback => self.sensor_config.motor_feedback = true,
+            SensorType::SocialPerception => self.sensor_config.social_perception = true,
+            SensorType::TemporalPerception => self.sensor_config.temporal_perception = true,
+            SensorType::AffectiveSensing => self.sensor_config.affective_sensing = true,
+            SensorType::IntercorporealResonance => self.sensor_config.intercorporeal_resonance = true,
+            SensorType::EnactivePerception => self.sensor_config.enactive_perception = true,
+        }
+        self
+    }
+    
+    // 実装フェーズを設定
+    pub fn set_phase(mut self, phase: ImplementationPhase) -> Self {
+        self.implementation_phase = phase;
+        // フェーズに応じて適切なセンサーを自動的に有効化
+        self.sensor_config = match phase {
+            ImplementationPhase::Phase0 => SensorModuleConfig::minimal(),
+            ImplementationPhase::Phase1 => SensorModuleConfig::basic(),
+            ImplementationPhase::Phase2 => SensorModuleConfig::advanced(),
+            ImplementationPhase::Phase3 => SensorModuleConfig::full(),
+        };
+        self
+    }
+    
+    pub fn build(self) -> ConfigurablePhenomenologicalFlesh {
+        ConfigurablePhenomenologicalFlesh::new(self.sensor_config)
+    }
+}
+```
+
+### 6.5 Pythonでの実践的実装指針
+
+```python
+# センサーインターフェースの抽象化
+from abc import ABC, abstractmethod
+from typing import Optional, Dict, Any
+from dataclasses import dataclass
+
+class SensorInterface(ABC):
+    """センサーの抽象基底クラス"""
+    @abstractmethod
+    def is_available(self) -> bool:
+        """センサーが利用可能かチェック"""
+        pass
+    
+    @abstractmethod
+    def get_data(self) -> Optional[Dict[str, Any]]:
+        """センサーデータを取得"""
+        pass
+
+@dataclass
+class SensorConfig:
+    """センサー設定"""
+    language_input: bool = True
+    virtual_vision: bool = False
+    virtual_touch: bool = False
+    proprioception: bool = False
+    motor_feedback: bool = False
+    social_perception: bool = False
+    temporal_perception: bool = False
+    affective_sensing: bool = False
+    intercorporeal_resonance: bool = False
+    enactive_perception: bool = False
+    
+    @classmethod
+    def minimal(cls):
+        """最小構成"""
+        return cls(language_input=True)
+    
+    @classmethod
+    def basic(cls):
+        """基本構成"""
+        return cls(
+            language_input=True,
+            virtual_vision=True,
+            virtual_touch=True,
+            temporal_perception=True
+        )
+    
+    @classmethod
+    def advanced(cls):
+        """高度な構成"""
+        return cls(
+            language_input=True,
+            virtual_vision=True,
+            virtual_touch=True,
+            proprioception=True,
+            motor_feedback=True,
+            social_perception=True,
+            temporal_perception=True,
+            affective_sensing=True
+        )
+
+class DummySensor(SensorInterface):
+    """テスト用ダミーセンサー"""
+    def __init__(self, sensor_type: str, dummy_data: Dict[str, Any]):
+        self.sensor_type = sensor_type
+        self.dummy_data = dummy_data
+        self.enabled = False
+    
+    def is_available(self) -> bool:
+        return self.enabled
+    
+    def get_data(self) -> Optional[Dict[str, Any]]:
+        if self.is_available():
+            return self.dummy_data
+        return None
+
+class ConfigurablePhenomenologicalSystem:
+    """設定可能な現象学的システム"""
+    def __init__(self, config: SensorConfig):
+        self.config = config
+        self.sensors = self._initialize_sensors()
+    
+    def _initialize_sensors(self) -> Dict[str, SensorInterface]:
+        """利用可能なセンサーを初期化"""
+        sensors = {}
+        
+        if self.config.language_input:
+            sensors['language'] = LanguageSensor()
+        
+        if self.config.virtual_vision:
+            sensors['vision'] = VirtualVisionSensor()
+        
+        if self.config.virtual_touch:
+            sensors['touch'] = VirtualTouchSensor()
+        
+        # 他のセンサーも同様に初期化
+        
+        return sensors
+    
+    def process_with_available_sensors(self, input_data: Any) -> Dict[str, Any]:
+        """利用可能なセンサーのみで処理"""
+        results = {}
+        
+        for sensor_name, sensor in self.sensors.items():
+            if sensor.is_available():
+                sensor_data = sensor.get_data()
+                if sensor_data:
+                    results[sensor_name] = self._process_sensor_data(
+                        sensor_name, sensor_data
+                    )
+        
+        return self._integrate_partial_results(results)
+    
+    def _process_sensor_data(self, sensor_name: str, data: Dict[str, Any]) -> Any:
+        """センサーデータを処理"""
+        # センサータイプに応じた処理
+        pass
+    
+    def _integrate_partial_results(self, partial_results: Dict[str, Any]) -> Dict[str, Any]:
+        """部分的な結果を統合"""
+        # 利用可能なセンサーデータから統合的な意味を生成
+        pass
+
+# 段階的実装のためのファクトリ
+class PhenomenologicalSystemFactory:
+    @staticmethod
+    def create_system(phase: str = "minimal") -> ConfigurablePhenomenologicalSystem:
+        """指定されたフェーズのシステムを作成"""
+        config_map = {
+            "minimal": SensorConfig.minimal(),
+            "basic": SensorConfig.basic(),
+            "advanced": SensorConfig.advanced(),
+            "full": SensorConfig()  # すべて有効
+        }
+        
+        config = config_map.get(phase, SensorConfig.minimal())
+        return ConfigurablePhenomenologicalSystem(config)
+
+# 使用例
+if __name__ == "__main__":
+    # 最小構成でスタート
+    system = PhenomenologicalSystemFactory.create_system("minimal")
+    
+    # 段階的にセンサーを追加
+    system.config.virtual_vision = True
+    system.sensors['vision'] = VirtualVisionSensor()
+    
+    # 利用可能なセンサーで処理
+    result = system.process_with_available_sensors(input_data)
+```
+
+### 6.6 段階的実装ロードマップ
+
+1. **Phase 0: 最小構成（1-2週間）**
+   - 言語入力のみ
+   - LLMベースの基本的な意味生成
+   - テスト環境の構築
+
+2. **Phase 1: 基本感覚統合（3-4週間）**
+   - 仮想視覚・触覚の追加
+   - 簡単な身体図式の実装
+   - 基本的な時間知覚
+
+3. **Phase 2: 運動感覚統合（4-6週間）**
+   - 運動フィードバックループ
+   - アフォーダンス検出
+   - 基本的な社会的知覚
+
+4. **Phase 3: 高度な間身体性（6-8週間）**
+   - 他者認識システム
+   - 感情的共鳴
+   - 共同注意メカニズム
+
+5. **Phase 4: 完全統合（8-12週間）**
+   - すべてのセンサーの統合
+   - エナクティブ知覚の実装
+   - 創発的意味生成の最適化
+
+このモジュラー設計により、理論的完全性を保ちながら、実装の現実性と段階的な検証が可能になります。各フェーズで動作する最小限のシステムを維持しながら、徐々に現象学的豊かさを追加していくことができます。
+
 このような段階的実装により、真に革新的な計算現象学システムが実現可能と考えます。メルロー＝ポンティの身体現象学とActive Inferenceの統合は、意識研究における重要な理論的・実践的貢献となるでしょう。
