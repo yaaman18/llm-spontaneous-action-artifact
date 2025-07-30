@@ -1,0 +1,53 @@
+[
+  {
+    "pdf_file": "/Users/yamaguchimitsuyuki/llm-spontaneous-action-artifact/institute/tools/paper-collector/ramstead_pipeline_test/pdfs/ramstead_1705.07218.pdf",
+    "markdown_file": "/Users/yamaguchimitsuyuki/llm-spontaneous-action-artifact/institute/tools/paper-collector/ramstead_pipeline_test/markdown/ramstead_1705.07218.md",
+    "conversion_method": "pymupdf4llm",
+    "metadata": {
+      "title": "",
+      "author": "",
+      "subject": "",
+      "pages": 12,
+      "creation_date": "D:20180921125345-04'00'",
+      "modification_date": "D:20180921125345-04'00'"
+    },
+    "converted_at": "2025-07-30T20:07:58.467872",
+    "success": true,
+    "file_size_mb": 0.19,
+    "markdown_length": 37348
+  },
+  {
+    "pdf_file": "/Users/yamaguchimitsuyuki/llm-spontaneous-action-artifact/institute/tools/paper-collector/ramstead_pipeline_test/pdfs/ramstead_2006.10760.pdf",
+    "markdown_file": "/Users/yamaguchimitsuyuki/llm-spontaneous-action-artifact/institute/tools/paper-collector/ramstead_pipeline_test/markdown/ramstead_2006.10760.md",
+    "conversion_method": "pymupdf4llm",
+    "metadata": {
+      "title": "",
+      "author": "",
+      "subject": "",
+      "pages": 27,
+      "creation_date": "D:20200720003244Z",
+      "modification_date": "D:20200720003244Z"
+    },
+    "converted_at": "2025-07-30T20:08:20.130533",
+    "success": true,
+    "file_size_mb": 1.63,
+    "markdown_length": 118586
+  },
+  {
+    "pdf_file": "/Users/yamaguchimitsuyuki/llm-spontaneous-action-artifact/institute/tools/paper-collector/ramstead_pipeline_test/pdfs/ramstead_2311.09206.pdf",
+    "markdown_file": "/Users/yamaguchimitsuyuki/llm-spontaneous-action-artifact/institute/tools/paper-collector/ramstead_pipeline_test/markdown/ramstead_2311.09206.md",
+    "conversion_method": "pymupdf4llm",
+    "metadata": {
+      "title": "",
+      "author": "",
+      "subject": "",
+      "pages": 21,
+      "creation_date": "D:20240405005008Z",
+      "modification_date": "D:20240405005008Z"
+    },
+    "converted_at": "2025-07-30T20:08:27.721334",
+    "success": true,
+    "file_size_mb": 1.11,
+    "markdown_length": 66044
+  }
+]

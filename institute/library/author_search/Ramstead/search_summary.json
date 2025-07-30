@@ -1,0 +1,87 @@
+{
+  "author": "Ramstead",
+  "total_papers": 10,
+  "search_date": "/Users/yamaguchimitsuyuki/llm-spontaneous-action-artifact/institute/tools/paper-collector",
+  "papers": [
+    {
+      "title": "[HTML][HTML] Neural and phenotypic representation under the free-energy principle",
+      "authors_text": "MJD Ramstead, C Hesp, A Tschantz, R Smith… - Neuroscience & …, 2021 - Elsevier",
+      "abstract": "The aim of this paper is to leverage the free-energy principle and its corollary process theory, \nactive inference, to develop a generic, generalizable model of the representational …",
+      "pdf_url": null,
+      "source": "Google Scholar",
+      "collected_at": "2025-07-30T20:06:53.083495"
+    },
+    {
+      "title": "Transcendental phenomenology and naturalistic epistemology",
+      "authors_text": "MJ Ramstead - 2015 - library-archives.canada.ca",
+      "abstract": "Ce mémoire de maitrise est une étude de l'intersection de l'épistémologie naturaliste et de \nla phénoménologie transcendantale. L'objectif de ce mémoire est de déterminer si et dans …",
+      "pdf_url": null,
+      "source": "Google Scholar",
+      "collected_at": "2025-07-30T20:06:53.084319"
+    },
+    {
+      "title": "[HTML][HTML] The free energy principle—a precis",
+      "authors_text": "M Ramstead - Dialectical Systems, 2023 - dialecticalsystems.eu",
+      "abstract": "Here, we present the free energy principle (FEP) in a simple manner to a broad audience. \nAlongside other cornerstones of mathematical physics—for instance, variational principles …",
+      "pdf_url": null,
+      "source": "Google Scholar",
+      "collected_at": "2025-07-30T20:06:53.085239"
+    },
+    {
+      "title": "Deep neurophenomenology: An active inference account of some features of conscious experience and of their disturbance in major depressive disorder",
+      "authors_text": "MJD Ramstead, W Wiese, M Miller… - Expected …, 2023 - taylorfrancis.com",
+      "abstract": "… This chapter uses the free-energy principle and active inference to make sense of some \ncentral facets of the first-person conscious experience of human beings. The most enthusiastic …",
+      "pdf_url": null,
+      "source": "Google Scholar",
+      "collected_at": "2025-07-30T20:06:53.086088"
+    },
+    {
+      "title": "Naturalizing what? Varieties of naturalism and transcendental phenomenology",
+      "authors_text": "MJD Ramstead - Phenomenology and the Cognitive Sciences, 2015 - Springer",
+      "abstract": "… phenomenology can be naturalized. Recent projects aiming to connect phenomenology \nand the natural sciences have taken the form of attempts to “naturalize phenomenology.” The …",
+      "pdf_url": null,
+      "source": "Google Scholar",
+      "collected_at": "2025-07-30T20:06:53.086942"
+    },
+    {
+      "title": "[HTML][HTML] Is the free-energy principle a formal theory of semantics? From variational density dynamics to neural and phenotypic representations",
+      "authors_text": "MJD Ramstead, KJ Friston, I Hipólito - Entropy, 2020 - mdpi.com",
+      "abstract": "… adaptive phenotypes under the free-energy principle can be used … We argue that, under the \nfree-energy principle, pursuing … We argue that the free-energy principle thereby explains the …",
+      "pdf_url": null,
+      "source": "Google Scholar",
+      "collected_at": "2025-07-30T20:06:53.087875"
+    },
+    {
+      "title": "[HTML][HTML] Answering Schrödinger's question: A free-energy formulation",
+      "authors_text": "MJD Ramstead, PB Badcock, KJ Friston - Physics of life reviews, 2018 - Elsevier",
+      "abstract": "The free-energy principle (FEP) is a formal model of neuronal processes that is widely \nrecognised in neuroscience as a unifying theory of the brain and biobehaviour. More recently, …",
+      "pdf_url": null,
+      "source": "Google Scholar",
+      "collected_at": "2025-07-30T20:06:53.088667"
+    },
+    {
+      "title": "The inner screen model of consciousness: Applying the free energy principle directly to the study of conscious experience",
+      "authors_text": "MJD Ramstead, M Albarracin, A Kiefer, B Klein… - arXiv preprint arXiv …, 2023 - arxiv.org",
+      "abstract": "This paper presents a model of consciousness that follows directly from the free-energy \nprinciple (FEP). We first rehearse the classical and quantum formulations of the FEP. In particular…",
+      "pdf_url": null,
+      "source": "Google Scholar",
+      "collected_at": "2025-07-30T20:06:53.089533"
+    },
+    {
+      "title": "[PDF][PDF] Steps towards a minimal unifying model of consciousness: An integration of models of consciousness based on the free energy principle",
+      "authors_text": "MJ Ramstead, M Albarracin, A Kiefer, K Williford… - 2023 - files.osf.io",
+      "abstract": "… of consciousness (Ramstead et al., 2023) that follows from the FEP can be regarded as a \nMUM of consciousness, … Current approaches to consciousness based on the FEP each have a …",
+      "pdf_url": null,
+      "source": "Google Scholar",
+      "collected_at": "2025-07-30T20:06:53.090267"
+    },
+    {
+      "title": "[PDF][PDF] From generative models to generative passages: A computational approach to (neuro) phenomenology",
+      "authors_text": "MJ Ramstead, A Seth, C Hesp, L Sandved-Smith… - 2021 - osf.io",
+      "abstract": "… and situates our version of computational phenomenology with respect to these projects. … \nconsciousness. In summary, we describe a version of computational phenomenology which …",
+      "pdf_url": null,
+      "source": "Google Scholar",
+      "collected_at": "2025-07-30T20:06:53.091154"
+    }
+  ]
+}
