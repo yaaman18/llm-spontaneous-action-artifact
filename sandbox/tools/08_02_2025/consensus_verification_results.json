@@ -1,0 +1,530 @@
+{
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/external_services_mcp_integration.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/external_services_mcp_integration.md",
+    "overall_confidence": 0.8046775082690188,
+    "consensus_strength": 0.9953143397802088,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.8046775082690188,
+      "theoretical_validity": 0.7905916942300626,
+      "implementation_feasibility": 0.8250000000000001,
+      "consistency": 0.8000000000000002,
+      "hallucination_risk": 0.20000000000000004
+    },
+    "timestamp": "2025-08-02T22:51:33.559904",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/creative_tools_integration_specification.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/creative_tools_integration_specification.md",
+    "overall_confidence": 0.8046775082690188,
+    "consensus_strength": 0.9953143397802088,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.8046775082690188,
+      "theoretical_validity": 0.7905916942300626,
+      "implementation_feasibility": 0.8250000000000001,
+      "consistency": 0.8000000000000002,
+      "hallucination_risk": 0.20000000000000004
+    },
+    "timestamp": "2025-08-02T22:51:33.578460",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/newborn_ai_philosophical_specification.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/newborn_ai_philosophical_specification.md",
+    "overall_confidence": 0.7902484608619175,
+    "consensus_strength": 0.9952264836510877,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.7902484608619175,
+      "theoretical_validity": 0.7924948695397245,
+      "implementation_feasibility": 0.7749999999999999,
+      "consistency": 0.7999999999999999,
+      "hallucination_risk": 0.19999999999999998
+    },
+    "timestamp": "2025-08-02T22:51:33.584454",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/claude_sdk_integration_strategy.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/claude_sdk_integration_strategy.md",
+    "overall_confidence": 0.7996775082690188,
+    "consensus_strength": 0.9952854159516915,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.7996775082690188,
+      "theoretical_validity": 0.7905916942300626,
+      "implementation_feasibility": 0.8250000000000001,
+      "consistency": 0.8000000000000002,
+      "hallucination_risk": 0.225
+    },
+    "timestamp": "2025-08-02T22:51:33.598599",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/time_consciousness_detailed_specification.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/time_consciousness_detailed_specification.md",
+    "overall_confidence": 0.8046775082690188,
+    "consensus_strength": 0.9953143397802088,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.8046775082690188,
+      "theoretical_validity": 0.7905916942300626,
+      "implementation_feasibility": 0.8250000000000001,
+      "consistency": 0.8000000000000002,
+      "hallucination_risk": 0.20000000000000004
+    },
+    "timestamp": "2025-08-02T22:51:33.618795",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/experiential_memory_storage_architecture.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/experiential_memory_storage_architecture.md",
+    "overall_confidence": 0.8046775082690188,
+    "consensus_strength": 0.9953143397802088,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.8046775082690188,
+      "theoretical_validity": 0.7905916942300626,
+      "implementation_feasibility": 0.8250000000000001,
+      "consistency": 0.8000000000000002,
+      "hallucination_risk": 0.20000000000000004
+    },
+    "timestamp": "2025-08-02T22:51:33.646091",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/subjective_time_consciousness_implementation.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/subjective_time_consciousness_implementation.md",
+    "overall_confidence": 0.8053138343296328,
+    "consensus_strength": 0.9953143397802088,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.8053138343296328,
+      "theoretical_validity": 0.792712781098776,
+      "implementation_feasibility": 0.825,
+      "consistency": 0.8,
+      "hallucination_risk": 0.2
+    },
+    "timestamp": "2025-08-02T22:51:33.671487",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/GLOSSARY.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/GLOSSARY.md",
+    "overall_confidence": 0.7917723263506065,
+    "consensus_strength": 0.9976756050129939,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.7917723263506065,
+      "theoretical_validity": 0.7975744211686882,
+      "implementation_feasibility": 0.7750000000000001,
+      "consistency": 0.8000000000000002,
+      "hallucination_risk": 0.20000000000000004
+    },
+    "timestamp": "2025-08-02T22:51:33.681363",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/external_service_privacy_protection.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/external_service_privacy_protection.md",
+    "overall_confidence": 0.8046775082690188,
+    "consensus_strength": 0.9953143397802088,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.8046775082690188,
+      "theoretical_validity": 0.7905916942300626,
+      "implementation_feasibility": 0.8250000000000001,
+      "consistency": 0.8000000000000002,
+      "hallucination_risk": 0.20000000000000004
+    },
+    "timestamp": "2025-08-02T22:51:33.699944",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/claude_code_sdk_integration_specification.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/claude_code_sdk_integration_specification.md",
+    "overall_confidence": 0.8046775082690188,
+    "consensus_strength": 0.9953143397802088,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.8046775082690188,
+      "theoretical_validity": 0.7905916942300626,
+      "implementation_feasibility": 0.8250000000000001,
+      "consistency": 0.8000000000000002,
+      "hallucination_risk": 0.20000000000000004
+    },
+    "timestamp": "2025-08-02T22:51:33.712909",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/newborn_ai_enactive_behavior_specification.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/newborn_ai_enactive_behavior_specification.md",
+    "overall_confidence": 0.8011328555678061,
+    "consensus_strength": 0.9944710833602315,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.8011328555678061,
+      "theoretical_validity": 0.7954428518926867,
+      "implementation_feasibility": 0.8250000000000001,
+      "consistency": 0.8000000000000002,
+      "hallucination_risk": 0.225
+    },
+    "timestamp": "2025-08-02T22:51:33.747087",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/experiential_memory_phi_calculation_engine.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/experiential_memory_phi_calculation_engine.md",
+    "overall_confidence": 0.7989506908051455,
+    "consensus_strength": 0.9887646654870735,
+    "identified_hallucinations": [],
+    "theoretical_issues": [
+      {
+        "expert": "Prof. David Chen",
+        "domain": "integrated_information_theory",
+        "issue": {
+          "type": "theoretical_inaccuracy",
+          "category": "theoretical",
+          "description": "IITの標準的なφ計算式と異なる可能性がある独自の計算式",
+          "severity": 0.7,
+          "location": "φ値計算エンジン",
+          "recommendation": "標準的なIIT3.0のφ計算式との整合性を確認する必要"
+        },
+        "severity": 0.7
+      }
+    ],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.7989506908051455,
+      "theoretical_validity": 0.7715023026838178,
+      "implementation_feasibility": 0.8250000000000002,
+      "consistency": 0.8,
+      "hallucination_risk": 0.2
+    },
+    "timestamp": "2025-08-02T22:51:33.764462",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/lightweight_local_security.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/lightweight_local_security.md",
+    "overall_confidence": 0.8053305084745763,
+    "consensus_strength": 0.9953143397802088,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.8053305084745763,
+      "theoretical_validity": 0.7927683615819211,
+      "implementation_feasibility": 0.8250000000000001,
+      "consistency": 0.8000000000000002,
+      "hallucination_risk": 0.20000000000000004
+    },
+    "timestamp": "2025-08-02T22:51:33.776924",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/CLEAN_ARCHITECTURE_ANALYSIS_REPORT.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/CLEAN_ARCHITECTURE_ANALYSIS_REPORT.md",
+    "overall_confidence": 0.8046775082690188,
+    "consensus_strength": 0.9953143397802088,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.8046775082690188,
+      "theoretical_validity": 0.7905916942300626,
+      "implementation_feasibility": 0.8250000000000001,
+      "consistency": 0.8000000000000002,
+      "hallucination_risk": 0.20000000000000004
+    },
+    "timestamp": "2025-08-02T22:51:33.787680",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/CROSS_REFERENCES.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/CROSS_REFERENCES.md",
+    "overall_confidence": 0.7896775082690188,
+    "consensus_strength": 0.9952264836510877,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.7896775082690188,
+      "theoretical_validity": 0.7905916942300626,
+      "implementation_feasibility": 0.7750000000000001,
+      "consistency": 0.8000000000000002,
+      "hallucination_risk": 0.20000000000000004
+    },
+    "timestamp": "2025-08-02T22:51:33.798887",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/IMPLEMENTATION_ROADMAP.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/IMPLEMENTATION_ROADMAP.md",
+    "overall_confidence": 0.7996775082690188,
+    "consensus_strength": 0.9952854159516915,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.7996775082690188,
+      "theoretical_validity": 0.7905916942300626,
+      "implementation_feasibility": 0.8250000000000001,
+      "consistency": 0.8000000000000002,
+      "hallucination_risk": 0.225
+    },
+    "timestamp": "2025-08-02T22:51:33.811424",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/mcp_data_filtering_strategy.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/mcp_data_filtering_strategy.md",
+    "overall_confidence": 0.8046775082690188,
+    "consensus_strength": 0.9953143397802088,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.8046775082690188,
+      "theoretical_validity": 0.7905916942300626,
+      "implementation_feasibility": 0.8250000000000001,
+      "consistency": 0.8000000000000002,
+      "hallucination_risk": 0.20000000000000004
+    },
+    "timestamp": "2025-08-02T22:51:33.827464",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/INDEX.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/INDEX.md",
+    "overall_confidence": 0.7896775082690188,
+    "consensus_strength": 0.9952264836510877,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.7896775082690188,
+      "theoretical_validity": 0.7905916942300626,
+      "implementation_feasibility": 0.7750000000000001,
+      "consistency": 0.8000000000000002,
+      "hallucination_risk": 0.20000000000000004
+    },
+    "timestamp": "2025-08-02T22:51:33.837733",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/newborn_ai_iit_specification.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/newborn_ai_iit_specification.md",
+    "overall_confidence": 0.7989506908051455,
+    "consensus_strength": 0.9887646654870735,
+    "identified_hallucinations": [],
+    "theoretical_issues": [
+      {
+        "expert": "Prof. David Chen",
+        "domain": "integrated_information_theory",
+        "issue": {
+          "type": "theoretical_inaccuracy",
+          "category": "theoretical",
+          "description": "IITの標準的なφ計算式と異なる可能性がある独自の計算式",
+          "severity": 0.7,
+          "location": "φ値計算エンジン",
+          "recommendation": "標準的なIIT3.0のφ計算式との整合性を確認する必要"
+        },
+        "severity": 0.7
+      }
+    ],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.7989506908051455,
+      "theoretical_validity": 0.7715023026838178,
+      "implementation_feasibility": 0.8250000000000002,
+      "consistency": 0.8,
+      "hallucination_risk": 0.2
+    },
+    "timestamp": "2025-08-02T22:51:33.847068",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/enactive_behavior_engine_specification.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/enactive_behavior_engine_specification.md",
+    "overall_confidence": 0.8046775082690188,
+    "consensus_strength": 0.9953143397802088,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.8046775082690188,
+      "theoretical_validity": 0.7905916942300626,
+      "implementation_feasibility": 0.8250000000000001,
+      "consistency": 0.8000000000000002,
+      "hallucination_risk": 0.20000000000000004
+    },
+    "timestamp": "2025-08-02T22:51:33.867579",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/realtime_visualization_mcp_servers.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/realtime_visualization_mcp_servers.md",
+    "overall_confidence": 0.8046775082690188,
+    "consensus_strength": 0.9953143397802088,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.8046775082690188,
+      "theoretical_validity": 0.7905916942300626,
+      "implementation_feasibility": 0.8250000000000001,
+      "consistency": 0.8000000000000002,
+      "hallucination_risk": 0.20000000000000004
+    },
+    "timestamp": "2025-08-02T22:51:33.885999",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/comprehensive_integration_test_specification.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/comprehensive_integration_test_specification.md",
+    "overall_confidence": 0.8046775082690188,
+    "consensus_strength": 0.9953143397802088,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.8046775082690188,
+      "theoretical_validity": 0.7905916942300626,
+      "implementation_feasibility": 0.8250000000000001,
+      "consistency": 0.8000000000000002,
+      "hallucination_risk": 0.20000000000000004
+    },
+    "timestamp": "2025-08-02T22:51:33.909964",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/INTEGRATION_COMPLETION_REPORT.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/INTEGRATION_COMPLETION_REPORT.md",
+    "overall_confidence": 0.8046775082690188,
+    "consensus_strength": 0.9953143397802088,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.8046775082690188,
+      "theoretical_validity": 0.7905916942300626,
+      "implementation_feasibility": 0.8250000000000001,
+      "consistency": 0.8000000000000002,
+      "hallucination_risk": 0.20000000000000004
+    },
+    "timestamp": "2025-08-02T22:51:33.916122",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/python_libraries_for_consciousness_implementation.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/python_libraries_for_consciousness_implementation.md",
+    "overall_confidence": 0.8019363791631084,
+    "consensus_strength": 0.9977042423228955,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.8019363791631084,
+      "theoretical_validity": 0.7981212638770282,
+      "implementation_feasibility": 0.825,
+      "consistency": 0.8,
+      "hallucination_risk": 0.22499999999999995
+    },
+    "timestamp": "2025-08-02T22:51:33.925570",
+    "expert_count": 6
+  },
+  "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/plugin_architecture_framework.md": {
+    "document_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/plugin_architecture_framework.md",
+    "overall_confidence": 0.8046775082690188,
+    "consensus_strength": 0.9953143397802088,
+    "identified_hallucinations": [],
+    "theoretical_issues": [],
+    "implementation_concerns": [],
+    "recommendations": [
+      "理論的正確性に問題があるため、専門文献の再確認が必要"
+    ],
+    "final_assessment": {
+      "overall_confidence": 0.8046775082690188,
+      "theoretical_validity": 0.7905916942300626,
+      "implementation_feasibility": 0.8250000000000001,
+      "consistency": 0.8000000000000002,
+      "hallucination_risk": 0.20000000000000004
+    },
+    "timestamp": "2025-08-02T22:51:33.945849",
+    "expert_count": 6
+  }
+}

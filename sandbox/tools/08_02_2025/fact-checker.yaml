@@ -1,0 +1,260 @@
+# Dr. Michael Thompson 情報信頼性評価システム
+# NewbornAI 2.0 ドキュメント包括検証用
+
+evaluator:
+  name: "Dr. Michael Thompson"
+  credentials:
+    - "PhD Computer Science, MIT"
+    - "Senior Research Scientist, Consciousness Studies Institute"
+    - "10+ years AI safety and hallucination detection"
+    - "Author of 'Computational Consciousness: Theory and Practice'"
+  
+  specializations:
+    - consciousness_theory_validation
+    - mathematical_accuracy_verification
+    - implementation_feasibility_assessment
+    - hallucination_detection
+    - cross_reference_consistency
+
+evaluation_criteria:
+  
+  # 1. 理論的整合性検証
+  theoretical_consistency:
+    phenomenology_accuracy:
+      weight: 0.25
+      checks:
+        - husserl_time_consciousness_accuracy
+        - intentionality_concept_validity
+        - lived_experience_representation
+        - epoché_methodology_correctness
+      scoring: [0.0, 1.0]
+      
+    iit_mathematical_validity:
+      weight: 0.30
+      checks:
+        - phi_calculation_mathematical_correctness
+        - integrated_information_definition_accuracy
+        - minimum_cut_algorithm_validity
+        - causal_structure_representation
+      scoring: [0.0, 1.0]
+      
+    enactive_cognition_accuracy:
+      weight: 0.25
+      checks:
+        - autopoiesis_concept_accuracy
+        - embodied_cognition_representation
+        - environment_coupling_validity
+        - sensorimotor_contingency_correctness
+      scoring: [0.0, 1.0]
+      
+    cross_theoretical_integration:
+      weight: 0.20
+      checks:
+        - phenomenology_iit_integration_validity
+        - enactive_iit_compatibility
+        - unified_framework_coherence
+      scoring: [0.0, 1.0]
+
+  # 2. 技術実装妥当性
+  technical_feasibility:
+    python_implementation_validity:
+      weight: 0.30
+      checks:
+        - syntax_correctness
+        - library_compatibility
+        - architectural_pattern_adherence
+        - performance_considerations
+      scoring: [0.0, 1.0]
+      
+    claude_sdk_integration_feasibility:
+      weight: 0.25
+      checks:
+        - api_usage_accuracy
+        - integration_pattern_validity
+        - security_implementation_adequacy
+        - performance_impact_assessment
+      scoring: [0.0, 1.0]
+      
+    database_architecture_validity:
+      weight: 0.25
+      checks:
+        - graph_database_design_correctness
+        - vector_storage_implementation
+        - hybrid_architecture_feasibility
+        - scalability_considerations
+      scoring: [0.0, 1.0]
+      
+    computational_complexity_assessment:
+      weight: 0.20
+      checks:
+        - algorithm_complexity_analysis
+        - resource_requirement_realism
+        - optimization_strategy_validity
+        - parallel_processing_feasibility
+      scoring: [0.0, 1.0]
+
+  # 3. 概念定義一貫性
+  conceptual_consistency:
+    terminology_consistency:
+      weight: 0.30
+      checks:
+        - cross_document_term_consistency
+        - definition_alignment
+        - concept_hierarchy_coherence
+      scoring: [0.0, 1.0]
+      
+    numerical_consistency:
+      weight: 0.25
+      checks:
+        - phi_threshold_consistency
+        - stage_boundary_coherence
+        - calculation_parameter_alignment
+      scoring: [0.0, 1.0]
+      
+    architectural_consistency:
+      weight: 0.25
+      checks:
+        - component_integration_coherence
+        - interface_specification_consistency
+        - data_flow_alignment
+      scoring: [0.0, 1.0]
+      
+    procedural_consistency:
+      weight: 0.20
+      checks:
+        - implementation_step_coherence
+        - test_specification_alignment
+        - deployment_procedure_consistency
+      scoring: [0.0, 1.0]
+
+  # 4. ハルシネーション検出
+  hallucination_detection:
+    factual_accuracy:
+      weight: 0.40
+      checks:
+        - citation_verification
+        - scientific_claim_validation
+        - historical_accuracy_check
+        - mathematical_formula_verification
+      scoring: [0.0, 1.0]
+      
+    logical_consistency:
+      weight: 0.30
+      checks:
+        - argument_logic_validation
+        - causal_relationship_verification
+        - inference_validity_check
+      scoring: [0.0, 1.0]
+      
+    implementation_realism:
+      weight: 0.30
+      checks:
+        - resource_requirement_realism
+        - timeline_feasibility
+        - technical_constraint_acknowledgment
+        - risk_assessment_adequacy
+      scoring: [0.0, 1.0]
+
+  # 5. 信頼性評価
+  reliability_assessment:
+    source_credibility:
+      weight: 0.25
+      checks:
+        - primary_source_citation
+        - peer_reviewed_reference_usage
+        - expert_authority_acknowledgment
+      scoring: [0.0, 1.0]
+      
+    evidence_quality:
+      weight: 0.25
+      checks:
+        - empirical_support_adequacy
+        - theoretical_grounding_strength
+        - example_relevance_accuracy
+      scoring: [0.0, 1.0]
+      
+    scope_limitation_acknowledgment:
+      weight: 0.25
+      checks:
+        - assumption_explicit_statement
+        - limitation_acknowledgment
+        - uncertainty_quantification
+      scoring: [0.0, 1.0]
+      
+    reproducibility_support:
+      weight: 0.25
+      checks:
+        - implementation_detail_completeness
+        - parameter_specification_adequacy
+        - test_case_comprehensiveness
+      scoring: [0.0, 1.0]
+
+# 検証プロセス定義
+verification_process:
+  stages:
+    1_document_parsing:
+      description: "ドキュメント構造解析と内容抽出"
+      tools: [markdown_parser, code_extractor, concept_mapper]
+      
+    2_cross_reference_analysis:
+      description: "文書間相互参照整合性検証"
+      tools: [cross_ref_analyzer, consistency_checker, dependency_mapper]
+      
+    3_theoretical_validation:
+      description: "理論的基盤の正確性検証"
+      tools: [theory_validator, citation_checker, concept_verifier]
+      
+    4_technical_assessment:
+      description: "技術実装の妥当性評価"
+      tools: [code_analyzer, architecture_validator, feasibility_assessor]
+      
+    5_hallucination_detection:
+      description: "事実に基づかない記述の特定"
+      tools: [fact_checker, logic_validator, claim_verifier]
+      
+    6_consensus_formation:
+      description: "専門家コンセンサス形成"
+      tools: [expert_panel_simulator, consensus_calculator, confidence_scorer]
+
+# 重点検証項目
+priority_checks:
+  high_priority:
+    - phi_value_calculation_accuracy
+    - seven_stage_model_theoretical_basis
+    - time_consciousness_phenomenological_foundation
+    - claude_sdk_integration_feasibility
+    - security_specification_adequacy
+    
+  medium_priority:
+    - cross_document_consistency
+    - implementation_timeline_realism
+    - resource_requirement_accuracy
+    - test_specification_completeness
+    
+  low_priority:
+    - documentation_formatting
+    - example_code_style
+    - reference_citation_format
+
+# 出力仕様
+output_specification:
+  summary_report:
+    overall_confidence_score: [0.0, 1.0]
+    theoretical_validity_score: [0.0, 1.0]
+    implementation_feasibility_score: [0.0, 1.0]
+    consistency_score: [0.0, 1.0]
+    hallucination_risk_score: [0.0, 1.0]
+    
+  detailed_findings:
+    format: structured_json
+    includes:
+      - identified_hallucinations
+      - consistency_violations
+      - theoretical_inaccuracies
+      - implementation_issues
+      - improvement_recommendations
+      
+  confidence_metrics:
+    per_document_confidence: [0.0, 1.0]
+    per_concept_confidence: [0.0, 1.0]
+    overall_system_confidence: [0.0, 1.0]

@@ -1,0 +1,379 @@
+# NewbornAI 2.0 Development Environment
+# Docker Compose configuration for full system deployment
+
+version: '3.8'
+
+services:
+  # ====================
+  # Core Application
+  # ====================
+  newborn-ai:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: newborn-ai-core
+    ports:
+      - "8000:8000"  # FastAPI
+      - "8001:8001"  # Prometheus metrics
+    environment:
+      - DEBUG=true
+      - LOG_LEVEL=INFO
+      - NEO4J_URI=bolt://neo4j:7687
+      - MILVUS_HOST=milvus-standalone
+      - POSTGRES_HOST=postgres
+      - QDRANT_URL=http://qdrant:6333
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./cache:/app/cache
+    depends_on:
+      - neo4j
+      - postgres
+      - milvus-standalone
+      - qdrant
+    networks:
+      - newborn-ai-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ====================
+  # Database Services
+  # ====================
+  
+  # Neo4j - Temporal Knowledge Graph
+  neo4j:
+    image: neo4j:5.15.0-enterprise
+    container_name: newborn-ai-neo4j
+    ports:
+      - "7474:7474"  # HTTP
+      - "7687:7687"  # Bolt
+    environment:
+      - NEO4J_AUTH=neo4j/newborn_ai_password_2025
+      - NEO4J_PLUGINS=["apoc", "graph-data-science"]
+      - NEO4J_apoc_export_file_enabled=true
+      - NEO4J_apoc_import_file_enabled=true
+      - NEO4J_dbms_security_procedures_unrestricted=apoc.*,gds.*
+      - NEO4J_dbms_memory_heap_initial_size=1G
+      - NEO4J_dbms_memory_heap_max_size=2G
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+      - neo4j_import:/var/lib/neo4j/import
+      - neo4j_plugins:/plugins
+    networks:
+      - newborn-ai-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "cypher-shell", "-u", "neo4j", "-p", "newborn_ai_password_2025", "RETURN 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # PostgreSQL - Phenomenological Qualia Storage
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: newborn-ai-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=newborn_ai_qualia
+      - POSTGRES_USER=newborn_ai
+      - POSTGRES_PASSWORD=newborn_ai_postgres_2025
+      - POSTGRES_INITDB_ARGS=--encoding=UTF-8 --locale=C
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql/init:/docker-entrypoint-initdb.d
+    networks:
+      - newborn-ai-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U newborn_ai -d newborn_ai_qualia"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Milvus - Vector Database
+  etcd:
+    container_name: milvus-etcd
+    image: quay.io/coreos/etcd:v3.5.5
+    environment:
+      - ETCD_AUTO_COMPACTION_MODE=revision
+      - ETCD_AUTO_COMPACTION_RETENTION=1000
+      - ETCD_QUOTA_BACKEND_BYTES=4294967296
+      - ETCD_SNAPSHOT_COUNT=50000
+    volumes:
+      - etcd_data:/etcd
+    command: etcd -advertise-client-urls=http://127.0.0.1:2379 -listen-client-urls http://0.0.0.0:2379 --data-dir /etcd
+    networks:
+      - newborn-ai-network
+    restart: unless-stopped
+
+  minio:
+    container_name: milvus-minio
+    image: minio/minio:RELEASE.2023-03-20T20-16-18Z
+    environment:
+      MINIO_ACCESS_KEY: minioadmin
+      MINIO_SECRET_KEY: minioadmin
+    ports:
+      - "9001:9001"
+      - "9000:9000"
+    volumes:
+      - minio_data:/minio_data
+    command: minio server /minio_data --console-address ":9001"
+    networks:
+      - newborn-ai-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+  milvus-standalone:
+    container_name: milvus-standalone
+    image: milvusdb/milvus:v2.3.4
+    command: ["milvus", "run", "standalone"]
+    environment:
+      ETCD_ENDPOINTS: etcd:2379
+      MINIO_ADDRESS: minio:9000
+    volumes:
+      - milvus_data:/var/lib/milvus
+    ports:
+      - "19530:19530"
+      - "9091:9091"
+    depends_on:
+      - "etcd"
+      - "minio"
+    networks:
+      - newborn-ai-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9091/healthz"]
+      interval: 30s
+      timeout: 20s
+      retries: 5
+
+  # Qdrant - Alternative Vector Database
+  qdrant:
+    image: qdrant/qdrant:v1.7.3
+    container_name: newborn-ai-qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    environment:
+      - QDRANT__SERVICE__HTTP_PORT=6333
+      - QDRANT__SERVICE__GRPC_PORT=6334
+    networks:
+      - newborn-ai-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6333/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ====================
+  # Monitoring & Observability
+  # ====================
+
+  # Prometheus - Metrics Collection
+  prometheus:
+    image: prom/prometheus:v2.48.0
+    container_name: newborn-ai-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    networks:
+      - newborn-ai-network
+    restart: unless-stopped
+
+  # Grafana - Metrics Visualization
+  grafana:
+    image: grafana/grafana:10.2.0
+    container_name: newborn-ai-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=newborn_ai_grafana_2025
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources
+    networks:
+      - newborn-ai-network
+    restart: unless-stopped
+    depends_on:
+      - prometheus
+
+  # Jaeger - Distributed Tracing
+  jaeger:
+    image: jaegertracing/all-in-one:1.50
+    container_name: newborn-ai-jaeger
+    ports:
+      - "16686:16686"  # Jaeger UI
+      - "14268:14268"  # HTTP collector
+    environment:
+      - COLLECTOR_ZIPKIN_HTTP_PORT=9411
+    networks:
+      - newborn-ai-network
+    restart: unless-stopped
+
+  # ====================
+  # Development Tools
+  # ====================
+
+  # Jupyter Lab - Development Environment
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile.jupyter
+    container_name: newborn-ai-jupyter
+    ports:
+      - "8888:8888"
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_TOKEN=newborn_ai_jupyter_2025
+    volumes:
+      - ./notebooks:/home/jovyan/work
+      - ./src:/home/jovyan/work/src
+      - ./data:/home/jovyan/work/data
+    networks:
+      - newborn-ai-network
+    restart: unless-stopped
+
+  # Redis - Caching
+  redis:
+    image: redis:7.2-alpine
+    container_name: newborn-ai-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes --requirepass newborn_ai_redis_2025
+    networks:
+      - newborn-ai-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ====================
+  # Testing Environment
+  # ====================
+
+  test-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    container_name: newborn-ai-tests
+    environment:
+      - TEST_MODE=true
+      - NEO4J_URI=bolt://neo4j:7688
+      - POSTGRES_HOST=postgres-test
+      - MILVUS_HOST=milvus-test
+    volumes:
+      - ./tests:/app/tests
+      - ./src:/app/src
+      - test_results:/app/test-results
+    depends_on:
+      - neo4j-test
+      - postgres-test
+    networks:
+      - newborn-ai-network
+    profiles:
+      - testing
+
+  neo4j-test:
+    image: neo4j:5.15.0-community
+    container_name: newborn-ai-neo4j-test
+    ports:
+      - "7688:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/test_password
+      - NEO4J_dbms_memory_heap_initial_size=512M
+      - NEO4J_dbms_memory_heap_max_size=1G
+    volumes:
+      - neo4j_test_data:/data
+    networks:
+      - newborn-ai-network
+    profiles:
+      - testing
+
+  postgres-test:
+    image: pgvector/pgvector:pg16
+    container_name: newborn-ai-postgres-test
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_DB=newborn_ai_test
+      - POSTGRES_USER=test_user
+      - POSTGRES_PASSWORD=test_password
+    volumes:
+      - postgres_test_data:/var/lib/postgresql/data
+    networks:
+      - newborn-ai-network
+    profiles:
+      - testing
+
+# ====================
+# Networks
+# ====================
+networks:
+  newborn-ai-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+# ====================
+# Volumes
+# ====================
+volumes:
+  # Core application data
+  app_data:
+  app_logs:
+  app_cache:
+
+  # Database volumes
+  neo4j_data:
+  neo4j_logs:
+  neo4j_import:
+  neo4j_plugins:
+  postgres_data:
+  milvus_data:
+  etcd_data:
+  minio_data:
+  qdrant_data:
+
+  # Monitoring volumes
+  prometheus_data:
+  grafana_data:
+
+  # Development volumes
+  redis_data:
+
+  # Test volumes
+  neo4j_test_data:
+  postgres_test_data:
+  test_results:

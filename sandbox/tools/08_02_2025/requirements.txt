@@ -1,0 +1,144 @@
+# NewbornAI 2.0: 完全な依存関係リスト
+# 二層統合7段階階層化連続発達システム
+# 最終更新: 2025年8月2日
+
+# ====================
+# Claude Code SDK統合
+# ====================
+claude-code-sdk==0.1.0
+anyio==4.2.0
+
+# ====================
+# 統合情報理論 (IIT)
+# ====================
+pyphi==1.2.1
+
+# ====================
+# 予測符号化・Active Inference
+# ====================
+pymdp==0.5.4
+# pyhgf==0.1.0  # 現在PyPIに存在しないため、GitHubから直接インストール必要
+
+# ====================
+# ベイズ推論
+# ====================
+pymc==5.10.4
+pyro-ppl==1.8.6
+arviz==0.17.0  # PyMC可視化
+numpyro==0.13.2  # 高速ベイズ推論
+
+# ====================
+# グラフデータベース
+# ====================
+neo4j==5.15.0
+# graphiti-ai==0.3.0  # 現在PyPIに存在しないため確認必要
+
+# ====================
+# ベクトルデータベース
+# ====================
+pymilvus==2.3.4
+qdrant-client==1.7.3
+
+# ====================
+# PostgreSQL + pgvector
+# ====================
+psycopg2-binary==2.9.9
+pgvector==0.2.4
+sqlalchemy==2.0.25
+
+# ====================
+# HDC (Hyperdimensional Computing)
+# ====================
+numpy==1.24.3
+scipy==1.11.4
+
+# ====================
+# 機械学習・埋め込み
+# ====================
+torch==2.1.2
+transformers==4.36.2
+sentence-transformers==2.2.2
+scikit-learn==1.3.2
+
+# ====================
+# グラフニューラルネットワーク
+# ====================
+torch-geometric==2.4.0
+spektral==1.3.0  # TensorFlow基盤のGNN
+
+# ====================
+# Web API
+# ====================
+fastapi==0.108.0  # より高性能なFlask代替
+uvicorn==0.25.0
+pydantic==2.5.3
+
+# ====================
+# 非同期処理
+# ====================
+aiohttp==3.9.1
+asyncio-throttle==1.0.2
+aiocache==0.12.2
+
+# ====================
+# データ処理
+# ====================
+pandas==2.1.4
+networkx==3.2.1
+polars==0.20.2  # 高速データフレーム処理
+
+# ====================
+# 時間処理
+# ====================
+pendulum==3.0.0
+python-dateutil==2.8.2
+
+# ====================
+# 監視・ログ
+# ====================
+prometheus-client==0.19.0
+structlog==23.2.0
+loguru==0.7.2
+opentelemetry-api==1.22.0
+opentelemetry-sdk==1.22.0
+
+# ====================
+# 開発・テスト
+# ====================
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+black==23.12.1
+flake8==6.1.0
+mypy==1.8.0
+isort==5.13.2
+pre-commit==3.6.0
+
+# ====================
+# ドキュメンテーション
+# ====================
+mkdocs==1.5.3
+mkdocs-material==9.5.3
+mkdocstrings[python]==0.24.0
+
+# ====================
+# その他ユーティリティ
+# ====================
+python-dotenv==1.0.0
+pyyaml==6.0.1
+tqdm==4.66.1
+rich==13.7.0  # 美しいCLI出力
+typer==0.9.0  # CLI構築
+
+# ====================
+# 特殊ライブラリ（GitHubから直接インストール）
+# ====================
+# PyHGF (階層ガウシアンフィルタ)
+# pip install git+https://github.com/ilabcode/pyhgf.git
+
+# graphiti-ai (知識グラフ構築)
+# pip install git+https://github.com/getzep/graphiti.git
+
+# NGC-Learn (神経生成符号化)
+# pip install git+https://github.com/NACLab/ngc-learn.git

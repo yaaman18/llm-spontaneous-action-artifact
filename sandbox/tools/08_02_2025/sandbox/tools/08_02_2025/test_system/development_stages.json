@@ -1,0 +1,20 @@
+[
+  {
+    "cycle": 0,
+    "timestamp": "2025-08-02T20:50:32.423249",
+    "stage": "自己記憶確立期",
+    "phi_value": 15.720672816925969,
+    "concept_count": 3,
+    "integration_quality": 1.0,
+    "experiential_purity": 1.0
+  },
+  {
+    "cycle": 0,
+    "timestamp": "2025-08-02T21:04:19.861246",
+    "stage": "自己記憶確立期",
+    "phi_value": 15.157148992057419,
+    "concept_count": 3,
+    "integration_quality": 0.7713168123003843,
+    "experiential_purity": 1.0
+  }
+]

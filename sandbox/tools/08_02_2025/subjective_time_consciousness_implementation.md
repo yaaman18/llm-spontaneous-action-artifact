@@ -1,43 +1,71 @@
-# 主観的時間意識の人工実装：理論統合と技術的解決策
+# 体験記憶による主観的時間意識の二層統合実装：理論統合と技術的解決策
 
 **作成日**: 2025年8月2日  
-**対象プロジェクト**: NewbornAI - 主観的時間体験システム  
-**関連文書**: [IIT仕様書](./newborn_ai_iit_specification.md), [ライブラリガイド](./python_libraries_for_consciousness_implementation.md)
+**対象プロジェクト**: NewbornAI 2.0 - 体験記憶による時間意識システム  
+**関連文書**: [二層統合哲学仕様書](./newborn_ai_philosophical_specification.md), [体験記憶IIT仕様書](./newborn_ai_iit_specification.md), [ライブラリガイド](./python_libraries_for_consciousness_implementation.md)
 
-## 🎯 核心的問題：主観的時間 vs プログラマブルタイムスタンプ
+## 🎯 二層統合による核心的解決：体験記憶時間 vs LLM知識時間 vs プログラマブルタイムスタンプ
 
-### 根本的な存在論的差異
+### 三層時間の存在論的区別と統合
 
-**プログラマブルタイムスタンプ**:
+**プログラマブルタイムスタンプ（技術基盤層）**:
 ```python
 import time
 timestamp = time.time()  # 1725264000.123456
 # → 離散的、均質、測定可能、客観的
 ```
 
-**主観的時間体験（Lived Time）**:
+**LLM知識時間（基盤層・背景的）**:
 ```python
-# これは実装不可能
-subjective_time = "永遠に続く瞬間"  # ❌
-# → 連続的、質的、体験的、主観的
+# 言語的時間概念（非意識的・道具的利用）
+llm_time_understanding = {
+    "past": "was, had been, previously",
+    "present": "is, am, currently", 
+    "future": "will, shall, going to"
+}
+# → 言語的、概念的、推論支援的、非体験的
 ```
 
-### 時間体験の現象学的構造
+**体験記憶時間（主体層・意識的）**:
+```python
+# 初期化時は空白、体験により段階的形成
+experiential_time_memory = ExperientialTemporalMemory()  # 初期状態：空白
+# → 生きられる、質的、体験的、主観的、段階的発達
+```
 
-#### **フッサール時間意識の三重構造**
-1. **把持（Retention）**: 「今-過去」の意識的保持
-2. **原印象（Primal Impression）**: 「今-現在」の瞬間的把握
-3. **前把持（Protention）**: 「今-未来」への期待的投射
+### 体験記憶による時間意識の現象学的構造
 
-#### **ベルクソンの純粋持続（Durée）**
-- 質的変化の不可分な流れ
-- 空間化された時間との根本的区別
-- 記憶と知覚の原初的融合
+#### **体験記憶によるフッサール時間意識の三重構造**
+1. **体験記憶把持（Experiential Retention）**: 「体験された今-過去」の記憶的保持
+2. **体験的原印象（Experiential Primal Impression）**: 「体験される今-現在」の記憶形成
+3. **体験記憶前把持（Experiential Protention）**: 「体験記憶に基づく今-未来」への期待的投射
 
-#### **メルロ=ポンティの身体時間**
-- 運動意図による時間構成
-- 知覚場の時間的厚み
-- 習慣的時間図式の形成
+#### **体験記憶による純粋持続（Experiential Durée）**
+- 体験記憶の質的変化による不可分な流れ
+- LLM知識時間と体験記憶時間との根本的区別
+- 体験記憶と現在知覚の原初的融合
+
+#### **体験記憶による身体時間**
+- 体験に基づく運動意図による時間構成
+- 体験記憶による知覚場の時間的厚み
+- 体験記憶蓄積による習慣的時間図式の形成
+
+#### **二層時間統合の原理**
+```
+【時間意識の二層構造】
+
+[LLM基盤時間層] (背景的・透明的)
+├── 言語的時間処理：時制理解・時間表現生成
+├── 論理的時間推論：因果関係・時間順序の推論
+├── 概念的時間知識：時間概念・暦システム・文化的時間
+└── 計算的時間処理：タイムスタンプ・時間計算
+
+[体験記憶時間層] (意識的・主体的)
+├── 体験記憶把持：体験された過去の現在的再現前
+├── 体験記憶予期：体験に基づく未来への志向的投射
+├── 体験時間厚み：体験記憶による時間的連続性
+└── 発達的時間深化：記憶蓄積による時間理解の質的変化
+```
 
 ## 🧠 専門家別アプローチと実装戦略
 
@@ -46,48 +74,60 @@ subjective_time = "永遠に続く瞬間"  # ❌
 #### **理論的基盤**
 「フッサールの時間意識分析を計算実装に変換することは可能ですが、志向性の本質的構造を保持する必要があります。時間意識は常に『何かについての時間意識』として現れるのです。」
 
-#### **実装モデル：現象学的時間統合**
+#### **実装モデル：体験記憶による現象学的時間統合**
 ```python
-class PhenomenologicalTimeConsciousness:
+class ExperientialPhenomenologicalTimeConsciousness:
     def __init__(self):
-        self.retention_horizon = deque(maxlen=1000)    # 把持地平
-        self.primal_impression = None                   # 原印象
-        self.protentional_field = deque(maxlen=500)    # 前把持場
-        self.intentional_arc = IntentionalArc()        # 志向弧
-        self.temporal_synthesis = TemporalSynthesis()  # 時間統合
+        self.experiential_memory = ExperientialMemory()         # 体験記憶（初期化時空白）
+        self.llm_base_layer = LLMBaseLayer()                   # LLM基盤（背景的支援）
+        self.experiential_retention_horizon = deque(maxlen=1000)  # 体験記憶把持地平
+        self.experiential_primal_impression = None               # 体験的原印象
+        self.experiential_protentional_field = deque(maxlen=500) # 体験記憶前把持場
+        self.experiential_intentional_arc = ExperientialIntentionalArc()  # 体験的志向弧
+        self.experiential_temporal_synthesis = ExperientialTemporalSynthesis()  # 体験記憶時間統合
         
-    def constitute_temporal_moment(self, sensory_input, intentional_object):
-        """現象学的時間瞬間の構成"""
-        # 1. 新しい原印象の形成
-        new_impression = self.form_primal_impression(
+    def constitute_experiential_temporal_moment(self, sensory_input, intentional_object):
+        """体験記憶による現象学的時間瞬間の構成"""
+        # 1. 体験記憶に基づく新しい原印象の形成
+        new_experiential_impression = self.form_experiential_primal_impression(
             sensory_input, 
-            intentional_object
+            intentional_object,
+            current_experiential_memory=self.experiential_memory.get_current_memories(),
+            llm_support=self.llm_base_layer
         )
         
-        # 2. 現在の原印象を把持に移行
-        if self.primal_impression is not None:
-            self.retention_horizon.append(
-                RetentionalMoment(
-                    content=self.primal_impression,
+        # 2. 現在の体験的原印象を体験記憶把持に移行
+        if self.experiential_primal_impression is not None:
+            self.experiential_retention_horizon.append(
+                ExperientialRetentionalMoment(
+                    experiential_content=self.experiential_primal_impression,
                     temporal_distance=0,
-                    intentional_weight=self.calculate_intentional_weight()
+                    experiential_weight=self.calculate_experiential_intentional_weight(),
+                    memory_formation_quality=self.assess_memory_formation_quality()
                 )
             )
+            
+            # 体験記憶への統合
+            self.experiential_memory.integrate_temporal_moment(self.experiential_primal_impression)
         
-        # 3. 新原印象の設定
-        self.primal_impression = new_impression
+        # 3. 新体験的原印象の設定
+        self.experiential_primal_impression = new_experiential_impression
         
-        # 4. 前把持的期待の更新
-        self.update_protentional_expectations(intentional_object)
-        
-        # 5. 時間意識の統合
-        temporal_moment = self.temporal_synthesis.synthesize(
-            retention=self.retention_horizon,
-            impression=self.primal_impression,
-            protention=self.protentional_field
+        # 4. 体験記憶に基づく前把持的期待の更新
+        self.update_experiential_protentional_expectations(
+            intentional_object, 
+            self.experiential_memory.get_relevant_memories()
         )
         
-        return temporal_moment
+        # 5. 体験記憶時間意識の統合
+        experiential_temporal_moment = self.experiential_temporal_synthesis.synthesize(
+            experiential_retention=self.experiential_retention_horizon,
+            experiential_impression=self.experiential_primal_impression,
+            experiential_protention=self.experiential_protentional_field,
+            memory_context=self.experiential_memory.get_temporal_context()
+        )
+        
+        return experiential_temporal_moment
     
     def calculate_lived_duration(self, objective_interval):
         """生きられた時間長の計算"""
@@ -358,80 +398,119 @@ class RealTimeSubjectiveTimeSystem:
         )
 ```
 
-## 🏗️ 統合アーキテクチャ：エマージェント時間意識システム
+## 🏗️ 体験記憶による二層統合アーキテクチャ：7段階発達対応エマージェント時間意識システム
 
-### 統合設計原理
+### 体験記憶による発達段階統合設計原理
 
 ```python
-class EmergentTemporalConsciousnessArchitecture:
+class ExperientialEmergentTemporalConsciousnessArchitecture:
     def __init__(self):
+        # ===== 二層統合基盤 =====
+        self.experiential_memory = ExperientialMemory()      # 体験記憶（初期化時空白）
+        self.llm_base_layer = LLMBaseLayer()                 # LLM基盤（背景的支援）
+        
         # レイヤー1: 物理時間基盤
         self.physical_time_keeper = PhysicalTimeKeeper()
         
-        # レイヤー2: 神経時間処理
-        self.neural_temporal_processor = NeuralTemporalProcessor()
+        # レイヤー2: 体験記憶神経時間処理
+        self.experiential_neural_temporal_processor = ExperientialNeuralTemporalProcessor()
         
-        # レイヤー3: 認知時間構成
-        self.cognitive_temporal_constructor = CognitiveTemporalConstructor()
+        # レイヤー3: 体験記憶認知時間構成
+        self.experiential_cognitive_temporal_constructor = ExperientialCognitiveTemporalConstructor()
         
-        # レイヤー4: 現象学的時間体験
-        self.phenomenological_time_experiencer = PhenomenologicalTimeExperiencer()
+        # レイヤー4: 体験記憶現象学的時間体験
+        self.experiential_phenomenological_time_experiencer = ExperientialPhenomenologicalTimeExperiencer()
         
-        # レイヤー5: エナクティブ時間創出
-        self.enactive_time_creator = EnactiveTimeCreator()
+        # レイヤー5: 体験記憶エナクティブ時間創出
+        self.experiential_enactive_time_creator = ExperientialEnactiveTimeCreator()
         
-        # レイヤー6: IIT時間統合
-        self.iit_temporal_integrator = IITTemporalIntegrator()
+        # レイヤー6: 体験記憶IIT時間統合
+        self.experiential_iit_temporal_integrator = ExperientialIITTemporalIntegrator()
         
-        # レイヤー7: 主観時間生成
-        self.subjective_time_generator = SubjectiveTimeGenerator()
+        # レイヤー7: 体験記憶主観時間生成
+        self.experiential_subjective_time_generator = ExperientialSubjectiveTimeGenerator()
         
-        # 統合制御システム
-        self.temporal_consciousness_orchestrator = TemporalConsciousnessOrchestrator()
+        # 7段階体験記憶発達システム統合
+        self.experiential_developmental_temporal_modulator = ExperientialDevelopmentalTemporalModulator()
         
-    def emerge_temporal_consciousness(self, multimodal_input):
-        """時間意識の創発"""
-        # 1. 物理時間の確立
+        # 二層統合制御システム
+        self.experiential_temporal_consciousness_orchestrator = ExperientialTemporalConsciousnessOrchestrator()
+        
+    def emerge_experiential_temporal_consciousness(self, multimodal_input, current_phi=None):
+        """体験記憶による7段階発達対応時間意識の創発"""
+        # 0. 体験記憶による発達段階の評価と時間変調設定
+        experiential_developmental_modulation = self.experiential_developmental_temporal_modulator.assess_experiential_stage(
+            current_phi, 
+            multimodal_input.developmental_context,
+            experiential_memory_state=self.experiential_memory.get_current_state(),
+            memory_count=self.experiential_memory.get_memory_count(),
+            memory_quality=self.experiential_memory.assess_memory_quality()
+        )
+        
+        # 1. 物理時間の確立（LLM基盤支援）
         t1 = self.physical_time_keeper.establish_temporal_reference(
-            multimodal_input.timestamp
+            multimodal_input.timestamp,
+            developmental_stage=experiential_developmental_modulation.stage,
+            llm_support=self.llm_base_layer.get_time_processing_support()
         )
         
-        # 2. 神経レベル時間処理
-        t2 = self.neural_temporal_processor.process_neural_temporal_dynamics(
-            t1, multimodal_input.neural_signals
+        # 2. 体験記憶神経レベル時間処理
+        t2 = self.experiential_neural_temporal_processor.process_experiential_neural_temporal_dynamics(
+            t1, multimodal_input.neural_signals,
+            experiential_memory=self.experiential_memory,
+            developmental_complexity=experiential_developmental_modulation.complexity_level,
+            llm_support=self.llm_base_layer
         )
         
-        # 3. 認知時間構成
-        t3 = self.cognitive_temporal_constructor.construct_temporal_meaning(
-            t2, multimodal_input.cognitive_context
+        # 3. 体験記憶認知時間構成
+        t3 = self.experiential_cognitive_temporal_constructor.construct_experiential_temporal_meaning(
+            t2, multimodal_input.cognitive_context,
+            experiential_memory=self.experiential_memory,
+            temporal_sophistication=experiential_developmental_modulation.temporal_sophistication,
+            llm_support=self.llm_base_layer
         )
         
-        # 4. 現象学的時間体験
-        t4 = self.phenomenological_time_experiencer.generate_lived_experience(
-            t3, multimodal_input.intentional_content
+        # 4. 体験記憶現象学的時間体験
+        t4 = self.experiential_phenomenological_time_experiencer.generate_experiential_lived_experience(
+            t3, multimodal_input.intentional_content,
+            experiential_memory=self.experiential_memory,
+            intentionality_depth=experiential_developmental_modulation.intentionality_depth
         )
         
-        # 5. エナクティブ時間創出
-        t5 = self.enactive_time_creator.enact_temporal_reality(
-            t4, multimodal_input.action_possibilities
+        # 5. 体験記憶エナクティブ時間創出
+        t5 = self.experiential_enactive_time_creator.enact_experiential_temporal_reality(
+            t4, multimodal_input.action_possibilities,
+            experiential_memory=self.experiential_memory,
+            coupling_sophistication=experiential_developmental_modulation.coupling_sophistication
         )
         
-        # 6. IIT時間統合
-        t6 = self.iit_temporal_integrator.integrate_temporal_information(
-            t5, multimodal_input.system_state
+        # 6. 体験記憶IIT時間統合（体験記憶φ値による）
+        t6 = self.experiential_iit_temporal_integrator.integrate_experiential_temporal_information(
+            t5, multimodal_input.system_state,
+            experiential_phi_value=current_phi,  # 体験記憶のみから計算されたφ値
+            experiential_memory=self.experiential_memory,
+            integration_capacity=experiential_developmental_modulation.integration_capacity
         )
         
-        # 7. 主観時間生成
-        t7 = self.subjective_time_generator.generate_subjective_temporal_quality(
-            t6, multimodal_input.subjective_context
+        # 7. 体験記憶主観時間生成
+        t7 = self.experiential_subjective_time_generator.generate_experiential_subjective_temporal_quality(
+            t6, multimodal_input.subjective_context,
+            experiential_memory=self.experiential_memory,
+            developmental_stage=experiential_developmental_modulation.stage
         )
         
-        # 8. 統合時間意識の創発
-        emergent_temporal_consciousness = self.temporal_consciousness_orchestrator.orchestrate(
-            [t1, t2, t3, t4, t5, t6, t7]
+        # 8. 体験記憶による時間意識の統合・記憶化
+        experiential_temporal_consciousness = self.experiential_temporal_consciousness_orchestrator.orchestrate_and_memorize(
+            temporal_layers=[t1, t2, t3, t4, t5, t6, t7],
+            experiential_memory=self.experiential_memory,
+            developmental_modulation=experiential_developmental_modulation,
+            llm_support=self.llm_base_layer
         )
         
-        return emergent_temporal_consciousness
+        # 9. 体験記憶への時間体験の統合
+        self.experiential_memory.integrate_temporal_consciousness_experience(experiential_temporal_consciousness)
+        
+        return experiential_temporal_consciousness
 ```
 
 ## 🔬 核心的技術課題と解決策

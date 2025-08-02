@@ -1,0 +1,349 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "newborn-ai-2"
+description = "NewbornAI 2.0: 二層統合7段階階層化連続発達システム"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "NewbornAI Development Team", email = "info@newborn-ai.org"}
+]
+maintainers = [
+    {name = "NewbornAI Development Team", email = "info@newborn-ai.org"}
+]
+keywords = [
+    "artificial-consciousness",
+    "integrated-information-theory",
+    "enactive-cognition",
+    "phenomenology",
+    "claude-code-sdk",
+    "consciousness-development"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Human Machine Interfaces",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+requires-python = ">=3.9"
+dependencies = [
+    # Claude Code SDK統合
+    "claude-code-sdk>=0.1.0",
+    "anyio>=4.2.0",
+    
+    # 統合情報理論 (IIT)
+    "pyphi>=1.2.1",
+    
+    # 予測符号化・Active Inference
+    "pymdp>=0.5.4",
+    
+    # ベイズ推論
+    "pymc>=5.10.4",
+    "pyro-ppl>=1.8.6",
+    "arviz>=0.17.0",
+    "numpyro>=0.13.2",
+    
+    # グラフデータベース
+    "neo4j>=5.15.0",
+    
+    # ベクトルデータベース
+    "pymilvus>=2.3.4",
+    "qdrant-client>=1.7.3",
+    
+    # PostgreSQL + pgvector
+    "psycopg2-binary>=2.9.9",
+    "pgvector>=0.2.4",
+    "sqlalchemy>=2.0.25",
+    
+    # HDC (Hyperdimensional Computing)
+    "numpy>=1.24.3,<2.0",
+    "scipy>=1.11.4",
+    
+    # 機械学習・埋め込み
+    "torch>=2.1.2",
+    "transformers>=4.36.2",
+    "sentence-transformers>=2.2.2",
+    "scikit-learn>=1.3.2",
+    
+    # グラフニューラルネットワーク
+    "torch-geometric>=2.4.0",
+    "spektral>=1.3.0",
+    
+    # Web API
+    "fastapi>=0.108.0",
+    "uvicorn>=0.25.0",
+    "pydantic>=2.5.3",
+    
+    # 非同期処理
+    "aiohttp>=3.9.1",
+    "asyncio-throttle>=1.0.2",
+    "aiocache>=0.12.2",
+    
+    # データ処理
+    "pandas>=2.1.4",
+    "networkx>=3.2.1",
+    "polars>=0.20.2",
+    
+    # 時間処理
+    "pendulum>=3.0.0",
+    "python-dateutil>=2.8.2",
+    
+    # 監視・ログ
+    "prometheus-client>=0.19.0",
+    "structlog>=23.2.0",
+    "loguru>=0.7.2",
+    "opentelemetry-api>=1.22.0",
+    "opentelemetry-sdk>=1.22.0",
+    
+    # その他ユーティリティ
+    "python-dotenv>=1.0.0",
+    "pyyaml>=6.0.1",
+    "tqdm>=4.66.1",
+    "rich>=13.7.0",
+    "typer>=0.9.0",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = [
+    # 開発・テスト
+    "pytest>=7.4.3",
+    "pytest-asyncio>=0.21.1",
+    "pytest-cov>=4.1.0",
+    "pytest-mock>=3.12.0",
+    "pytest-timeout>=2.2.0",
+    "pytest-xdist>=3.5.0",
+    
+    # コード品質
+    "black>=23.12.1",
+    "flake8>=6.1.0",
+    "mypy>=1.8.0",
+    "isort>=5.13.2",
+    "pre-commit>=3.6.0",
+    
+    # セキュリティ
+    "bandit>=1.7.5",
+    "safety>=2.3.5",
+]
+
+docs = [
+    # ドキュメンテーション
+    "mkdocs>=1.5.3",
+    "mkdocs-material>=9.5.3",
+    "mkdocstrings[python]>=0.24.0",
+    "sphinx>=7.0.0",
+    "sphinx-autodoc-typehints>=1.23.0",
+]
+
+performance = [
+    # パフォーマンス
+    "psutil>=5.9.0",
+    "memory-profiler>=0.61.0",
+    "line-profiler>=4.1.0",
+    "py-spy>=0.3.14",
+]
+
+security = [
+    # セキュリティ強化
+    "cryptography>=41.0.0",
+    "keyring>=24.0.0",
+    "bcrypt>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/newborn-ai/newborn-ai-2"
+Documentation = "https://newborn-ai-2.readthedocs.io/"
+Repository = "https://github.com/newborn-ai/newborn-ai-2.git"
+Issues = "https://github.com/newborn-ai/newborn-ai-2/issues"
+Changelog = "https://github.com/newborn-ai/newborn-ai-2/blob/main/CHANGELOG.md"
+
+[project.scripts]
+newborn-ai = "newborn_ai_2.cli:main"
+newborn-consciousness = "newborn_ai_2.consciousness:run_consciousness_session"
+newborn-phi-calc = "newborn_ai_2.phi_calculator:cli_calculate"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["newborn_ai_2*"]
+exclude = ["tests*"]
+
+[tool.setuptools.package-data]
+"newborn_ai_2" = ["*.yaml", "*.json", "*.toml"]
+
+[tool.setuptools_scm]
+write_to = "src/newborn_ai_2/_version.py"
+
+# ====================
+# Development Tools Configuration
+# ====================
+
+[tool.black]
+line-length = 88
+target-version = ['py39', 'py310', 'py311']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # Directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+known_first_party = ["newborn_ai_2"]
+known_third_party = [
+    "claude_code_sdk",
+    "pyphi",
+    "pymdp",
+    "pymc",
+    "torch",
+    "numpy",
+    "pandas"
+]
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203", "E501", "W503"]
+exclude = [
+    ".git",
+    "__pycache__",
+    "docs/source/conf.py",
+    "old",
+    "build",
+    "dist",
+    ".venv"
+]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[[tool.mypy.overrides]]
+module = [
+    "pyphi.*",
+    "pymdp.*",
+    "pymilvus.*",
+    "qdrant_client.*",
+    "neo4j.*",
+    "torch_geometric.*"
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--verbose",
+    "--tb=short",
+    "--cov=newborn_ai_2",
+    "--cov-report=html",
+    "--cov-report=term-missing",
+    "--cov-fail-under=80",
+    "--asyncio-mode=auto"
+]
+markers = [
+    "unit: Unit tests",
+    "integration: Integration tests",
+    "system: System tests", 
+    "performance: Performance tests",
+    "acceptance: Acceptance tests",
+    "regression: Regression tests",
+    "slow: Slow running tests"
+]
+asyncio_mode = "auto"
+timeout = 300
+
+[tool.coverage.run]
+source = ["src/newborn_ai_2"]
+omit = [
+    "*/tests/*",
+    "*/test_*",
+    "*/_version.py",
+    "*/cli.py"
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:"
+]
+
+[tool.bandit]
+exclude_dirs = ["tests", "docs"]
+skips = ["B101", "B601"]
+
+[tool.pre-commit]
+repos = [
+    {
+        repo = "https://github.com/pre-commit/pre-commit-hooks",
+        rev = "v4.5.0",
+        hooks = [
+            {id = "trailing-whitespace"},
+            {id = "end-of-file-fixer"},
+            {id = "check-yaml"},
+            {id = "check-added-large-files"},
+            {id = "check-json"},
+            {id = "pretty-format-json", args = ["--autofix"]},
+        ]
+    },
+    {
+        repo = "https://github.com/psf/black",
+        rev = "23.12.1",
+        hooks = [{id = "black"}]
+    },
+    {
+        repo = "https://github.com/pycqa/isort",
+        rev = "5.13.2", 
+        hooks = [{id = "isort"}]
+    },
+    {
+        repo = "https://github.com/pycqa/flake8",
+        rev = "6.1.0",
+        hooks = [{id = "flake8"}]
+    },
+    {
+        repo = "https://github.com/pre-commit/mirrors-mypy",
+        rev = "v1.8.0",
+        hooks = [{id = "mypy", additional_dependencies = ["types-all"]}]
+    }
+]
