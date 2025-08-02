@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consciousness Flow Visualizer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow: hidden;
+        }
+        
+        #canvas-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        #controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        #info-panel {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 300px;
+        }
+        
+        .metric {
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .metric-bar {
+            width: 100px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00ffcc, #0099ff);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+        
+        .button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: transform 0.2s;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+        }
+        
+        #connection-status {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #00ff00;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        #phenomenal-properties {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .property-item {
+            margin: 8px 0;
+            font-size: 14px;
+        }
+        
+        .property-value {
+            color: #00ffcc;
+            font-weight: bold;
+        }
+        
+        #transition-log {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-height: 200px;
+            overflow-y: auto;
+            width: 300px;
+        }
+        
+        .transition-item {
+            margin: 5px 0;
+            padding: 5px;
+            border-left: 3px solid #ff6b6b;
+            padding-left: 10px;
+            font-size: 12px;
+        }
+        
+        h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container">
+        <canvas id="consciousness-canvas"></canvas>
+    </div>
+    
+    <div id="controls">
+        <h3>制御パネル</h3>
+        <button class="button" onclick="toggleVisualization()">一時停止/再開</button>
+        <button class="button" onclick="changeColorScheme()">カラースキーム変更</button>
+        <button class="button" onclick="resetView()">ビューをリセット</button>
+    </div>
+    
+    <div id="info-panel">
+        <h3>意識状態メトリクス</h3>
+        
+        <div class="metric">
+            <span>統合度</span>
+            <div class="metric-bar">
+                <div class="metric-fill" id="integration-bar" style="width: 50%"></div>
+            </div>
+            <span id="integration-value">0.50</span>
+        </div>
+        
+        <div class="metric">
+            <span>認知負荷</span>
+            <div class="metric-bar">
+                <div class="metric-fill" id="cognitive-load-bar" style="width: 50%"></div>
+            </div>
+            <span id="cognitive-load-value">0.50</span>
+        </div>
+        
+        <div class="metric">
+            <span>メタ認知</span>
+            <div class="metric-bar">
+                <div class="metric-fill" id="meta-awareness-bar" style="width: 50%"></div>
+            </div>
+            <span id="meta-awareness-value">0.50</span>
+        </div>
+        
+        <div class="metric">
+            <span>注意の安定性</span>
+            <div class="metric-bar">
+                <div class="metric-fill" id="attention-stability-bar" style="width: 50%"></div>
+            </div>
+            <span id="attention-stability-value">0.50</span>
+        </div>
+        
+        <div id="phenomenal-properties">
+            <h3>現象的性質</h3>
+            <div id="properties-list"></div>
+        </div>
+    </div>
+    
+    <div id="connection-status">
+        <div class="status-dot"></div>
+        <span>リアルタイム接続中</span>
+    </div>
+    
+    <div id="transition-log">
+        <h3>現象的遷移ログ</h3>
+        <div id="transition-list"></div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.0/d3.min.js"></script>
+    <script src="visualization.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{
+    "visualization": {
+        "flow_speed": 1.0,
+        "color_scheme": "phenomenological",
+        "particle_density": 5000,
+        "trail_length": 50,
+        "integration_influence": 0.3,
+        "attention_radius": 20,
+        "phenomenal_color_mapping": {
+            "clarity": {
+                "hue_shift": 0.1,
+                "brightness_multiplier": 1.2
+            },
+            "vividness": {
+                "saturation_boost": 0.3,
+                "brightness_multiplier": 1.5
+            },
+            "coherence": {
+                "particle_attraction": 0.2,
+                "flow_smoothness": 0.8
+            }
+        }
+    },
+    "analysis": {
+        "window_size": 10,
+        "transition_threshold": 0.3,
+        "update_interval": 100,
+        "history_length": 5000
+    },
+    "server": {
+        "host": "0.0.0.0",
+        "port": 8080,
+        "websocket_ping_interval": 30
+    },
+    "experimental_features": {
+        "quantum_coherence_visualization": false,
+        "higher_dimensional_projection": false,
+        "phenomenal_texture_mapping": true,
+        "consciousness_field_simulation": true
+    }
+}

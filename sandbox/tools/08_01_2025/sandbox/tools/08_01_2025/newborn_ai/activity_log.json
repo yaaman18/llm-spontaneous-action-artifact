@@ -1,0 +1,18 @@
+[
+  {
+    "timestamp": "2025-08-01T21:34:56.857061",
+    "cycle": 1,
+    "stage": "infant",
+    "files_explored": 0,
+    "decision": "Error in cycle 1",
+    "result": "expected string or bytes-like object"
+  },
+  {
+    "timestamp": "2025-08-01T21:42:36.560751",
+    "cycle": 1,
+    "stage": "infant",
+    "files_explored": 0,
+    "decision": "Error in cycle 1",
+    "result": "expected string or bytes-like object"
+  }
+]
