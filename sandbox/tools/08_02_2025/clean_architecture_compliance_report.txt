@@ -1,0 +1,104 @@
+================================================================================
+CLEAN ARCHITECTURE COMPLIANCE REPORT
+IIT 4.0 NewbornAI 2.0 Implementation
+================================================================================
+
+📊 PROJECT OVERVIEW
+   Project: IIT 4.0 NewbornAI 2.0
+   Analysis Date: 2025-08-03 11:41:25
+   Files Analyzed: 52
+   Total Violations: 263
+   Overall Score: 0.0/100
+
+🚨 VIOLATION SEVERITY BREAKDOWN
+   HIGH: 242
+   MEDIUM: 21
+
+📋 VIOLATION TYPE BREAKDOWN
+   Dependency Inversion Principle Violation: 205
+   Single Responsibility Principle Violation: 7
+   Tight Coupling: 14
+   Layer Boundary Violation: 37
+
+🏗️  ARCHITECTURAL LAYER ANALYSIS
+   Layer: Frameworks & Drivers
+     Modules: 47
+     Boundary Violations: 34
+     Dependencies: Interface Adapters, Use Cases, Entities
+   Layer: Entities
+     Modules: 1
+     Boundary Violations: 0
+     Dependencies: Frameworks & Drivers
+   Layer: Interface Adapters
+     Modules: 3
+     Boundary Violations: 2
+     Dependencies: Entities, Frameworks & Drivers
+   Layer: Use Cases
+     Modules: 1
+     Boundary Violations: 1
+     Dependencies: Entities, Frameworks & Drivers
+
+
+🔴 HIGH PRIORITY VIOLATIONS
+   clean_architecture_proposal.py:78
+     Dependency Inversion Principle Violation
+     Direct instantiation of concrete class 'PhiCalculator' violates DIP
+
+   clean_architecture_proposal.py:84
+     Dependency Inversion Principle Violation
+     Direct instantiation of concrete class 'DevelopmentStageManager' violates DIP
+
+   clean_architecture_proposal.py:373
+     Dependency Inversion Principle Violation
+     Direct instantiation of concrete class 'IITPhiCalculator' violates DIP
+
+   clean_architecture_proposal.py:374
+     Dependency Inversion Principle Violation
+     Direct instantiation of concrete class 'SevenStageDevelopmentManager' violates DIP
+
+   phase2_layer_boundary_fixes_report.py:8
+     Dependency Inversion Principle Violation
+     Direct instantiation of concrete class 'Engineer' violates DIP
+
+   streaming_phi_calculator.py:592
+     Dependency Inversion Principle Violation
+     Direct instantiation of concrete class 'IIT4_ExperientialPhiCalculator' violates DIP
+
+   streaming_phi_calculator.py:597
+     Dependency Inversion Principle Violation
+     Direct instantiation of concrete class 'PhiCache' violates DIP
+
+   streaming_phi_calculator.py:606
+     Dependency Inversion Principle Violation
+     Direct instantiation of concrete class 'Queue' violates DIP
+
+   streaming_phi_calculator.py:726
+     Dependency Inversion Principle Violation
+     Direct instantiation of concrete class 'Queue' violates DIP
+
+   streaming_phi_calculator.py:1627
+     Dependency Inversion Principle Violation
+     Direct instantiation of concrete class 'StreamingPhiCalculator' violates DIP
+
+💡 RECOMMENDATIONS
+   1. 🔴 Poor Clean Architecture compliance - major refactoring required.
+   2. 📋 Address 7 Single Responsibility violations by breaking large classes/functions into smaller, focused units
+   3. 🔄 Resolve 205 Dependency Inversion violations by using interfaces and dependency injection
+   4. 🏗️  Fix 37 layer boundary violations by enforcing inward-only dependencies
+
+📈 MODULE QUALITY RANKING
+   Best Modules (Lowest Violations):
+     consciousness_events.py: 0 critical/high violations
+     consciousness_development_analyzer.py: 0 critical/high violations
+     dependency_injection_demo.py: 0 critical/high violations
+     consciousness_state.py: 0 critical/high violations
+     consciousness_detector.py: 0 critical/high violations
+
+   Modules Needing Attention (Highest Violations):
+     production_deployment_orchestrator.py: 9 critical/high violations
+     comprehensive_test_suite.py: 9 critical/high violations
+     dip_violation_comparison.py: 10 critical/high violations
+     architecture_optimization_recommendations.py: 10 critical/high violations
+     consciousness_adapters.py: 17 critical/high violations
+
+================================================================================

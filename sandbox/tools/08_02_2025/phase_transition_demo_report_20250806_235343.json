@@ -1,0 +1,174 @@
+{
+  "demo_metadata": {
+    "start_time": "2025-08-06T23:53:35.953645",
+    "end_time": "2025-08-06T23:53:43.071649",
+    "duration_seconds": 7.118001,
+    "demo_version": "1.0.0"
+  },
+  "systems_created": {
+    "integration_systems": 2,
+    "phase_engines": 1,
+    "total_components": 8
+  },
+  "analysis_summary": {
+    "total_phase_analyses": 1,
+    "transitions_detected": 0,
+    "emergent_properties_found": 0,
+    "critical_points_identified": 0
+  },
+  "capabilities_demonstrated": [
+    "phase_state_detection",
+    "transition_prediction",
+    "emergent_property_analysis",
+    "critical_point_identification",
+    "termination_process_integration",
+    "realtime_monitoring",
+    "domain_event_generation",
+    "clean_architecture_patterns"
+  ],
+  "integration_points_verified": [
+    "existential_termination_core",
+    "information_integration_system",
+    "domain_events",
+    "clean_architecture_compliance",
+    "kanai_information_generation_theory",
+    "iit4_principles"
+  ],
+  "event_log": [
+    {
+      "timestamp": "2025-08-06T23:53:35.954566",
+      "event_type": "SYSTEM_SETUP",
+      "data": {
+        "integration_system_id": "phase-demo-system-001",
+        "phase_engine_id": "phase-engine-001",
+        "initial_integration_degree": 1.0,
+        "active_layers": 6
+      }
+    },
+    {
+      "timestamp": "2025-08-06T23:53:38.480707",
+      "event_type": "PHASE_DETECTION",
+      "data": {
+        "initial_phase": {
+          "state_id": "phase_1abfc846b5f0ddaa",
+          "integration_level": 1.0,
+          "information_generation_rate": 1.0137500000000002,
+          "emergence_potential": 0.9473333333333334,
+          "stability_index": 1.0,
+          "entropy_level": 0.004166666666666665,
+          "is_critical": false
+        },
+        "evolution_steps": 5,
+        "final_integration_level": 1.0
+      }
+    },
+    {
+      "timestamp": "2025-08-06T23:53:38.482535",
+      "event_type": "TRANSITION_PREDICTION",
+      "data": {
+        "prediction_horizon_minutes": 30,
+        "predicted_states_count": 10,
+        "high_risk_transitions": [],
+        "likely_emergences_count": 5
+      }
+    },
+    {
+      "timestamp": "2025-08-06T23:53:38.483610",
+      "event_type": "EMERGENCE_ANALYSIS",
+      "data": {
+        "emergent_properties_detected": 0,
+        "emergence_potentials": {
+          "meta_cognitive": 1.0,
+          "temporal_synthesis": 0.9982453324613407,
+          "predictive_modeling": 0.9556462643382582,
+          "global_workspace": 0.7310477348653039,
+          "self_awareness": 0.968346999601781
+        },
+        "meta_layer_enhancement": 1.0
+      }
+    },
+    {
+      "timestamp": "2025-08-06T23:53:38.490524",
+      "event_type": "CRITICAL_POINT_MONITORING",
+      "data": {
+        "phase_history_length": 15,
+        "critical_points_identified": 3,
+        "attractor_points": 3,
+        "repeller_points": 0
+      }
+    },
+    {
+      "timestamp": "2025-08-06T23:53:40.041200",
+      "event_type": "TERMINATION_INTEGRATION",
+      "data": {
+        "termination_pattern": "GRADUAL_DECAY",
+        "termination_steps": 5,
+        "final_state": "fragmenting",
+        "final_integration_degree": 0.510941892157663,
+        "is_terminated": false
+      }
+    },
+    {
+      "timestamp": "2025-08-06T23:53:43.071572",
+      "event_type": "REALTIME_MONITORING",
+      "data": {
+        "monitoring_duration_minutes": 3,
+        "events_captured": 30,
+        "event_types": [
+          "CriticalPointApproachedEvent",
+          "PhaseTransitionDetectedEvent",
+          "EmergentPropertyEvent",
+          "EmergentPropertyEvent",
+          "PhaseTransitionDetectedEvent",
+          "EmergentPropertyEvent",
+          "EmergentPropertyEvent",
+          "EmergentPropertyEvent",
+          "PhaseTransitionDetectedEvent",
+          "EmergentPropertyEvent",
+          "EmergentPropertyEvent",
+          "EmergentPropertyEvent",
+          "PhaseTransitionDetectedEvent",
+          "EmergentPropertyEvent",
+          "EmergentPropertyEvent",
+          "PhaseTransitionDetectedEvent",
+          "EmergentPropertyEvent",
+          "EmergentPropertyEvent",
+          "EmergentPropertyEvent",
+          "CriticalPointApproachedEvent",
+          "PhaseTransitionDetectedEvent",
+          "EmergentPropertyEvent",
+          "EmergentPropertyEvent",
+          "EmergentPropertyEvent",
+          "CriticalPointApproachedEvent",
+          "PhaseTransitionDetectedEvent",
+          "EmergentPropertyEvent",
+          "EmergentPropertyEvent",
+          "EmergentPropertyEvent",
+          "CriticalPointApproachedEvent"
+        ],
+        "final_system_status": {
+          "system_id": "realtime-monitor-system",
+          "existential_state": "integrated",
+          "integration_degree": 1.0,
+          "is_terminated": false,
+          "is_reversible": true,
+          "active_layers": 6,
+          "total_layers": 6,
+          "integration_stability": 1.0,
+          "termination_stage": null,
+          "phenomenological_properties": {
+            "unified_experience": true,
+            "temporal_continuity": true,
+            "self_reference": true,
+            "integration_coherence": 1.0
+          }
+        }
+      }
+    }
+  ],
+  "performance_metrics": {
+    "average_analysis_time": 0.00033593177795410156,
+    "total_events_generated": 7,
+    "memory_efficiency": "optimized_with_deque_buffers"
+  }
+}

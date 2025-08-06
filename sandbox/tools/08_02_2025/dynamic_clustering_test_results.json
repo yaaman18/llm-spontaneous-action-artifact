@@ -1,0 +1,203 @@
+{
+  "overall_success": false,
+  "pass_rate": 0.3333333333333333,
+  "passed_tests": 2,
+  "total_tests": 6,
+  "avg_phenomenological_validity": 0.5808149585592105,
+  "avg_temporal_coherence": 0.29727731654584183,
+  "avg_integration_quality": 0.1746479165328134,
+  "individual_results": [
+    {
+      "test_name": "intentional_act_clustering",
+      "success": false,
+      "clusters_detected": 2,
+      "intentional_types_detected": 0,
+      "phenomenological_validity": 0.6112699571313328,
+      "quality_distribution": {
+        "mixed_intentional_temporal_1": {
+          "mean_quality": 0.82,
+          "quality_variance": 0.005600000000000003,
+          "concept_count": 5
+        },
+        "integrated_small_concepts": {
+          "mean_quality": 0.6,
+          "quality_variance": 0.0,
+          "concept_count": 1
+        }
+      },
+      "temporal_coherence": 0.43756652377110916,
+      "details": {
+        "clusters": {
+          "mixed_intentional_temporal_1": 5,
+          "integrated_small_concepts": 1
+        },
+        "intentional_structure": {
+          "perceiving": 0,
+          "remembering": 1,
+          "anticipating": 1,
+          "judging": 1,
+          "valuing": 0,
+          "willing": 1,
+          "mixed_intentional": 5,
+          "pure_experiential": 0
+        }
+      }
+    },
+    {
+      "test_name": "experiential_quality_clustering",
+      "success": false,
+      "quality_separated_clusters": 1,
+      "boundary_flexibility": 1.0,
+      "total_clusters": 1,
+      "average_cluster_quality": 0.7129327845886406,
+      "details": {
+        "quality_distribution": {
+          "pure_experiential": {
+            "mean_quality": 0.7129327845886406,
+            "quality_variance": 0.04593177468428968,
+            "concept_count": 8
+          }
+        },
+        "cluster_sizes": {
+          "pure_experiential": 8
+        }
+      }
+    },
+    {
+      "test_name": "temporal_coherence_organization",
+      "success": "False",
+      "temporal_coherence": 0.5230663822410392,
+      "temporal_clusters_found": 1,
+      "total_clusters": 1,
+      "phenomenological_validity": 0.7569199146723117,
+      "details": {
+        "cluster_temporal_analysis": {
+          "pure_experiential": {
+            "concept_count": 8,
+            "avg_temporal_depth": 4.5,
+            "temporal_depth_variance": 5.25
+          }
+        }
+      }
+    },
+    {
+      "test_name": "multi_scale_temporal_integration",
+      "success": "True",
+      "scales_with_content": 4,
+      "integration_quality": 0.5429999999999999,
+      "hierarchical_coherence": 0.8170791472113513,
+      "temporal_coherence": 0.5,
+      "phenomenological_validity": 0.6800395736056757,
+      "scale_integration_scores": [
+        0.59,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "details": {
+        "multi_scale_structure": {
+          "micro": 5,
+          "short": 6,
+          "medium": 4,
+          "long": 3
+        },
+        "hierarchical_integration": {
+          "micro_to_short_integration": 0.295,
+          "short_to_medium_integration": 0.5,
+          "medium_to_long_integration": 1.0,
+          "overall_integration_quality": 0.5429999999999999,
+          "hierarchical_coherence": 0.8170791472113513
+        },
+        "temporal_coherence_details": {
+          "retention_organization": {
+            "micro_retention": 0.0,
+            "short_retention": 0.0,
+            "medium_retention": 0.0,
+            "long_retention": 0.0,
+            "overall_retention_strength": 0.0
+          },
+          "primal_organization": {
+            "primal_intensity": 0.7,
+            "primal_quality": 1.0,
+            "immediacy_factor": 0.7
+          },
+          "protention_organization": {
+            "micro_protention": 0.0,
+            "short_protention": 0.0,
+            "medium_protention": 0.0,
+            "long_protention": 0.0,
+            "overall_protention_strength": 0.0
+          },
+          "living_present_synthesis": {
+            "retention_component": 0.0,
+            "primal_component": 0.7,
+            "protention_component": 0.0,
+            "synthesis_quality": 0.09664983122038884,
+            "living_present_intensity": 0.022551627284757392
+          },
+          "temporal_flow_coherence": 0.5
+        }
+      }
+    },
+    {
+      "test_name": "phenomenological_validity",
+      "success": "False",
+      "phenomenological_validity": 0.6969092979788708,
+      "intentional_structure_preserved": false,
+      "temporal_structure_preserved": "False",
+      "high_quality_clusters": 2,
+      "dynamic_adaptability": true,
+      "boundary_flexibility": 0.5,
+      "temporal_coherence": 0.32303099326290263,
+      "details": {
+        "cluster_analysis": {
+          "perceiving_temporal_1": 3,
+          "mixed_intentional_temporal_1": 3
+        },
+        "quality_analysis": {
+          "perceiving_temporal_1": {
+            "mean_quality": 0.7999999999999999,
+            "quality_variance": 0.001666666666666666,
+            "concept_count": 3
+          },
+          "mixed_intentional_temporal_1": {
+            "mean_quality": 0.9166666666666666,
+            "quality_variance": 0.000555555555555554,
+            "concept_count": 3
+          }
+        }
+      }
+    },
+    {
+      "test_name": "integrated_system_performance",
+      "success": true,
+      "total_processing_time": 0.0028028488159179688,
+      "clustering_time": 0.0009021759033203125,
+      "integration_time": 0.0019006729125976562,
+      "concepts_per_second": 17838.992854712487,
+      "concepts_processed": 50,
+      "clusters_generated": 1,
+      "phenomenological_validity": 0.7397510079670719,
+      "integration_quality": 0.5048874991968804,
+      "quality_maintained": "True",
+      "scalability_acceptable": true,
+      "details": {
+        "clustering_result_summary": {
+          "cluster_count": 1,
+          "temporal_coherence": 0.46583669322357324,
+          "boundary_flexibility": 1.0
+        },
+        "integration_result_summary": {
+          "hierarchical_coherence": 0.9062995610218454,
+          "temporal_flow_coherence": 0.5
+        }
+      }
+    }
+  ],
+  "summary": {
+    "dynamic_clustering_functional": false,
+    "temporal_integration_functional": true,
+    "phenomenological_validity_maintained": "False",
+    "performance_acceptable": true
+  }
+}

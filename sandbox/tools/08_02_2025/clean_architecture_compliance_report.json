@@ -1,0 +1,992 @@
+{
+  "project_name": "IIT 4.0 NewbornAI 2.0",
+  "analysis_timestamp": "2025-08-03 11:41:25",
+  "total_files": 52,
+  "total_violations": 263,
+  "overall_score": 0,
+  "violation_summary": {
+    "Dependency Inversion Principle Violation": 205,
+    "Single Responsibility Principle Violation": 7,
+    "Tight Coupling": 14,
+    "Layer Boundary Violation": 37
+  },
+  "severity_summary": {
+    "HIGH": 242,
+    "MEDIUM": 21
+  },
+  "circular_dependencies": [],
+  "recommendations": [
+    "\ud83d\udd34 Poor Clean Architecture compliance - major refactoring required.",
+    "\ud83d\udccb Address 7 Single Responsibility violations by breaking large classes/functions into smaller, focused units",
+    "\ud83d\udd04 Resolve 205 Dependency Inversion violations by using interfaces and dependency injection",
+    "\ud83c\udfd7\ufe0f  Fix 37 layer boundary violations by enforcing inward-only dependencies"
+  ],
+  "module_analyses": [
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/clean_architecture_proposal.py",
+      "class_count": 20,
+      "function_count": 28,
+      "lines_of_code": 443,
+      "complexity_score": 72.43,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 4,
+      "critical_violations": 0,
+      "high_violations": 4
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/consciousness_events.py",
+      "class_count": 11,
+      "function_count": 23,
+      "lines_of_code": 888,
+      "complexity_score": 53.88,
+      "responsibilities": [
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 0,
+      "critical_violations": 0,
+      "high_violations": 0
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/phase2_layer_boundary_fixes_report.py",
+      "class_count": 0,
+      "function_count": 2,
+      "lines_of_code": 265,
+      "complexity_score": 4.65,
+      "responsibilities": [
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage"
+      ],
+      "violation_count": 2,
+      "critical_violations": 0,
+      "high_violations": 1
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/streaming_phi_calculator.py",
+      "class_count": 8,
+      "function_count": 26,
+      "lines_of_code": 1793,
+      "complexity_score": 59.93,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 6,
+      "critical_violations": 0,
+      "high_violations": 5
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/iit4_core_engine.py",
+      "class_count": 8,
+      "function_count": 40,
+      "lines_of_code": 861,
+      "complexity_score": 64.61,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Logging",
+        "Calculation"
+      ],
+      "violation_count": 1,
+      "critical_violations": 0,
+      "high_violations": 1
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/iit4_newborn_integration_demo.py",
+      "class_count": 7,
+      "function_count": 20,
+      "lines_of_code": 555,
+      "complexity_score": 39.55,
+      "responsibilities": [
+        "Validation",
+        "Logging",
+        "Calculation"
+      ],
+      "violation_count": 2,
+      "critical_violations": 0,
+      "high_violations": 2
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/iit4_experiential_phi_calculator.py",
+      "class_count": 3,
+      "function_count": 17,
+      "lines_of_code": 825,
+      "complexity_score": 31.25,
+      "responsibilities": [
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage"
+      ],
+      "violation_count": 1,
+      "critical_violations": 0,
+      "high_violations": 1
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/final_system_integration_review.py",
+      "class_count": 11,
+      "function_count": 24,
+      "lines_of_code": 1233,
+      "complexity_score": 58.33,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 2,
+      "critical_violations": 0,
+      "high_violations": 1
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/adaptive_stage_thresholds.py",
+      "class_count": 7,
+      "function_count": 24,
+      "lines_of_code": 1356,
+      "complexity_score": 51.56,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 2,
+      "critical_violations": 0,
+      "high_violations": 1
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/system_performance_optimizer.py",
+      "class_count": 10,
+      "function_count": 21,
+      "lines_of_code": 1273,
+      "complexity_score": 53.730000000000004,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 9,
+      "critical_violations": 0,
+      "high_violations": 8
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/consciousness_adapters.py",
+      "class_count": 14,
+      "function_count": 39,
+      "lines_of_code": 768,
+      "complexity_score": 74.68,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 17,
+      "critical_violations": 0,
+      "high_violations": 17
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/iit4_development_stages.py",
+      "class_count": 6,
+      "function_count": 22,
+      "lines_of_code": 1037,
+      "complexity_score": 44.37,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 1,
+      "critical_violations": 0,
+      "high_violations": 1
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/phase3_tight_coupling_fixes.py",
+      "class_count": 21,
+      "function_count": 40,
+      "lines_of_code": 1249,
+      "complexity_score": 94.49,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 4,
+      "critical_violations": 0,
+      "high_violations": 4
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/phase3_decoupling_demonstration.py",
+      "class_count": 6,
+      "function_count": 9,
+      "lines_of_code": 603,
+      "complexity_score": 27.03,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 3,
+      "critical_violations": 0,
+      "high_violations": 3
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/layer_boundary_fixes_demo.py",
+      "class_count": 0,
+      "function_count": 0,
+      "lines_of_code": 228,
+      "complexity_score": 2.28,
+      "responsibilities": [
+        "Configuration",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 7,
+      "critical_violations": 0,
+      "high_violations": 7
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/consciousness_development_analyzer.py",
+      "class_count": 7,
+      "function_count": 36,
+      "lines_of_code": 1898,
+      "complexity_score": 68.98,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 1,
+      "critical_violations": 0,
+      "high_violations": 0
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/consciousness_interfaces.py",
+      "class_count": 18,
+      "function_count": 35,
+      "lines_of_code": 614,
+      "complexity_score": 77.14,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage"
+      ],
+      "violation_count": 9,
+      "critical_violations": 0,
+      "high_violations": 9
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/realtime_iit4_processor.py",
+      "class_count": 8,
+      "function_count": 21,
+      "lines_of_code": 1348,
+      "complexity_score": 50.480000000000004,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 8,
+      "critical_violations": 0,
+      "high_violations": 7
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/test_quality_assurance.py",
+      "class_count": 7,
+      "function_count": 20,
+      "lines_of_code": 1064,
+      "complexity_score": 44.64,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage"
+      ],
+      "violation_count": 6,
+      "critical_violations": 0,
+      "high_violations": 4
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/clean_architecture_compliance_report.py",
+      "class_count": 10,
+      "function_count": 30,
+      "lines_of_code": 921,
+      "complexity_score": 59.21,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 2,
+      "critical_violations": 0,
+      "high_violations": 1
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/dip_violation_comparison.py",
+      "class_count": 0,
+      "function_count": 0,
+      "lines_of_code": 221,
+      "complexity_score": 2.21,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Testing",
+        "Data Processing"
+      ],
+      "violation_count": 10,
+      "critical_violations": 0,
+      "high_violations": 10
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/phase2b_integration_demo.py",
+      "class_count": 1,
+      "function_count": 1,
+      "lines_of_code": 715,
+      "complexity_score": 10.15,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 2,
+      "critical_violations": 0,
+      "high_violations": 2
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/test_iit4_implementation.py",
+      "class_count": 7,
+      "function_count": 18,
+      "lines_of_code": 676,
+      "complexity_score": 38.76,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing"
+      ],
+      "violation_count": 6,
+      "critical_violations": 0,
+      "high_violations": 6
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/test_phase2_integration.py",
+      "class_count": 1,
+      "function_count": 7,
+      "lines_of_code": 639,
+      "complexity_score": 15.39,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing"
+      ],
+      "violation_count": 4,
+      "critical_violations": 0,
+      "high_violations": 4
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/dependency_injection_demo.py",
+      "class_count": 0,
+      "function_count": 0,
+      "lines_of_code": 336,
+      "complexity_score": 3.36,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing"
+      ],
+      "violation_count": 0,
+      "critical_violations": 0,
+      "high_violations": 0
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/simple_layer_boundary_demo.py",
+      "class_count": 13,
+      "function_count": 12,
+      "lines_of_code": 404,
+      "complexity_score": 42.04,
+      "responsibilities": [
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 3,
+      "critical_violations": 0,
+      "high_violations": 3
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/phase3_integration_adapters.py",
+      "class_count": 14,
+      "function_count": 30,
+      "lines_of_code": 848,
+      "complexity_score": 66.48,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 5,
+      "critical_violations": 0,
+      "high_violations": 5
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/api_server.py",
+      "class_count": 4,
+      "function_count": 1,
+      "lines_of_code": 457,
+      "complexity_score": 13.57,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 1,
+      "critical_violations": 0,
+      "high_violations": 1
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/pyphi_iit4_bridge.py",
+      "class_count": 5,
+      "function_count": 14,
+      "lines_of_code": 796,
+      "complexity_score": 31.96,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage"
+      ],
+      "violation_count": 4,
+      "critical_violations": 0,
+      "high_violations": 3
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/architecture_optimization_recommendations.py",
+      "class_count": 5,
+      "function_count": 15,
+      "lines_of_code": 1181,
+      "complexity_score": 36.81,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 11,
+      "critical_violations": 0,
+      "high_violations": 10
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/experiential_tpm_builder.py",
+      "class_count": 4,
+      "function_count": 14,
+      "lines_of_code": 652,
+      "complexity_score": 28.52,
+      "responsibilities": [
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage"
+      ],
+      "violation_count": 2,
+      "critical_violations": 0,
+      "high_violations": 2
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/consciousness_monitor.py",
+      "class_count": 7,
+      "function_count": 13,
+      "lines_of_code": 1377,
+      "complexity_score": 40.769999999999996,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 3,
+      "critical_violations": 0,
+      "high_violations": 2
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/consciousness_system_configuration.py",
+      "class_count": 2,
+      "function_count": 20,
+      "lines_of_code": 521,
+      "complexity_score": 29.21,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing"
+      ],
+      "violation_count": 7,
+      "critical_violations": 0,
+      "high_violations": 7
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/production_deployment_orchestrator.py",
+      "class_count": 12,
+      "function_count": 14,
+      "lines_of_code": 1792,
+      "complexity_score": 55.92,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 10,
+      "critical_violations": 0,
+      "high_violations": 9
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/clean_architecture_tests.py",
+      "class_count": 11,
+      "function_count": 25,
+      "lines_of_code": 443,
+      "complexity_score": 51.43,
+      "responsibilities": [
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 6,
+      "critical_violations": 0,
+      "high_violations": 6
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/test_integration.py",
+      "class_count": 0,
+      "function_count": 0,
+      "lines_of_code": 200,
+      "complexity_score": 2.0,
+      "responsibilities": [
+        "Data Processing",
+        "Testing",
+        "Calculation"
+      ],
+      "violation_count": 1,
+      "critical_violations": 0,
+      "high_violations": 1
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/integration_test_orchestrator.py",
+      "class_count": 7,
+      "function_count": 28,
+      "lines_of_code": 1226,
+      "complexity_score": 54.26,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 4,
+      "critical_violations": 0,
+      "high_violations": 3
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/consciousness_state.py",
+      "class_count": 3,
+      "function_count": 16,
+      "lines_of_code": 552,
+      "complexity_score": 27.52,
+      "responsibilities": [
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Data Processing",
+        "Storage"
+      ],
+      "violation_count": 0,
+      "critical_violations": 0,
+      "high_violations": 0
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/stage_transition_detector.py",
+      "class_count": 8,
+      "function_count": 30,
+      "lines_of_code": 1186,
+      "complexity_score": 57.86,
+      "responsibilities": [
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 1,
+      "critical_violations": 0,
+      "high_violations": 1
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/production_phi_calculator.py",
+      "class_count": 8,
+      "function_count": 13,
+      "lines_of_code": 921,
+      "complexity_score": 38.21,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 4,
+      "critical_violations": 0,
+      "high_violations": 3
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/consciousness_detector.py",
+      "class_count": 8,
+      "function_count": 27,
+      "lines_of_code": 640,
+      "complexity_score": 49.4,
+      "responsibilities": [
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage"
+      ],
+      "violation_count": 0,
+      "critical_violations": 0,
+      "high_violations": 0
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/azure_openai_integration.py",
+      "class_count": 11,
+      "function_count": 17,
+      "lines_of_code": 1205,
+      "complexity_score": 51.05,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 9,
+      "critical_violations": 0,
+      "high_violations": 8
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/validate_iit4_implementation.py",
+      "class_count": 0,
+      "function_count": 6,
+      "lines_of_code": 322,
+      "complexity_score": 9.22,
+      "responsibilities": [
+        "Validation",
+        "Logging",
+        "Calculation",
+        "Testing"
+      ],
+      "violation_count": 4,
+      "critical_violations": 0,
+      "high_violations": 4
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/dependency_injection_container.py",
+      "class_count": 8,
+      "function_count": 29,
+      "lines_of_code": 759,
+      "complexity_score": 52.59,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Data Processing",
+        "Communication"
+      ],
+      "violation_count": 6,
+      "critical_violations": 0,
+      "high_violations": 6
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/tdd_demonstration.py",
+      "class_count": 6,
+      "function_count": 20,
+      "lines_of_code": 918,
+      "complexity_score": 41.18,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage"
+      ],
+      "violation_count": 7,
+      "critical_violations": 0,
+      "high_violations": 6
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/comprehensive_test_suite.py",
+      "class_count": 9,
+      "function_count": 24,
+      "lines_of_code": 1644,
+      "complexity_score": 58.44,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage",
+        "Communication"
+      ],
+      "violation_count": 11,
+      "critical_violations": 0,
+      "high_violations": 9
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/intrinsic_difference.py",
+      "class_count": 6,
+      "function_count": 32,
+      "lines_of_code": 683,
+      "complexity_score": 50.83,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing"
+      ],
+      "violation_count": 1,
+      "critical_violations": 0,
+      "high_violations": 1
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/newborn_ai_2_integrated_system.py",
+      "class_count": 6,
+      "function_count": 31,
+      "lines_of_code": 1033,
+      "complexity_score": 53.33,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage"
+      ],
+      "violation_count": 6,
+      "critical_violations": 0,
+      "high_violations": 5
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/phenomenological_bridge.py",
+      "class_count": 6,
+      "function_count": 26,
+      "lines_of_code": 686,
+      "complexity_score": 44.86,
+      "responsibilities": [
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing",
+        "Storage"
+      ],
+      "violation_count": 1,
+      "critical_violations": 0,
+      "high_violations": 1
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/temporal_consciousness_processor.py",
+      "class_count": 6,
+      "function_count": 17,
+      "lines_of_code": 865,
+      "complexity_score": 37.65,
+      "responsibilities": [
+        "Configuration",
+        "Calculation",
+        "Logging",
+        "Testing",
+        "Data Processing"
+      ],
+      "violation_count": 4,
+      "critical_violations": 0,
+      "high_violations": 4
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/consensus_engine.py",
+      "class_count": 6,
+      "function_count": 29,
+      "lines_of_code": 819,
+      "complexity_score": 49.19,
+      "responsibilities": [
+        "Configuration",
+        "Validation",
+        "Calculation",
+        "Logging",
+        "Storage"
+      ],
+      "violation_count": 1,
+      "critical_violations": 0,
+      "high_violations": 1
+    },
+    {
+      "file_path": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/simple_di_test.py",
+      "class_count": 2,
+      "function_count": 3,
+      "lines_of_code": 183,
+      "complexity_score": 8.83,
+      "responsibilities": [
+        "Validation",
+        "Testing",
+        "Calculation"
+      ],
+      "violation_count": 5,
+      "critical_violations": 0,
+      "high_violations": 5
+    }
+  ]
+}

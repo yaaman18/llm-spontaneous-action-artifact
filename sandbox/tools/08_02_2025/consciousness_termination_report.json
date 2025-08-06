@@ -1,0 +1,74 @@
+{
+  "system_status": {
+    "cycle": 2,
+    "system_phi": 0.0,
+    "active_layers": 0,
+    "terminated_layers": 6,
+    "reversibility_index": 1.0,
+    "is_system_terminated": true
+  },
+  "trends": {
+    "phi_trend": 0.0,
+    "layer_trend": 0.0,
+    "degradation_rate": 0.02
+  },
+  "predictions": {
+    "termination_timeline": {},
+    "collapse_pattern": "順次カスケード崩壊"
+  },
+  "layer_status": {
+    "sensory_integration": {
+      "active": false,
+      "layer_type": "感覚統合層",
+      "dependencies": [],
+      "dependents": []
+    },
+    "temporal_binding": {
+      "active": false,
+      "layer_type": "時間結合層",
+      "dependencies": [
+        "sensory_integration"
+      ],
+      "dependents": []
+    },
+    "conceptual_unity": {
+      "active": false,
+      "layer_type": "概念統一層",
+      "dependencies": [
+        "temporal_binding",
+        "sensory_integration"
+      ],
+      "dependents": []
+    },
+    "metacognitive_oversight": {
+      "active": false,
+      "layer_type": "メタ認知監督層",
+      "dependencies": [
+        "temporal_binding",
+        "sensory_integration",
+        "conceptual_unity"
+      ],
+      "dependents": []
+    },
+    "phenomenal_binding": {
+      "active": false,
+      "layer_type": "現象結合層",
+      "dependencies": [
+        "temporal_binding",
+        "sensory_integration"
+      ],
+      "dependents": []
+    },
+    "narrative_coherence": {
+      "active": false,
+      "layer_type": "物語一貫層",
+      "dependencies": [
+        "phenomenal_binding",
+        "temporal_binding",
+        "sensory_integration",
+        "metacognitive_oversight"
+      ],
+      "dependents": []
+    }
+  }
+}

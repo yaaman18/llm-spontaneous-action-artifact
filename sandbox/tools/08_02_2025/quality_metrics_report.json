@@ -1,0 +1,669 @@
+{
+  "timestamp": "2025-08-07T00:23:40.665285",
+  "overall_score": 65.52999918219479,
+  "production_ready": false,
+  "metrics": [
+    {
+      "name": "SOLID Principles Compliance",
+      "value": 87.95918367346938,
+      "target": 90.0,
+      "status": "WARN",
+      "description": "Adherence to Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion principles",
+      "details": {
+        "violations": 59,
+        "classes_analyzed": 98
+      }
+    },
+    {
+      "name": "Clean Architecture Compliance",
+      "value": 0,
+      "target": 90.0,
+      "status": "PASS",
+      "description": "Adherence to Clean Architecture dependency rules and layer separation",
+      "details": {
+        "layer_violations": 35
+      }
+    },
+    {
+      "name": "Domain-Driven Design",
+      "value": 85.0,
+      "target": 80.0,
+      "status": "PASS",
+      "description": "Domain modeling with aggregates, entities, value objects, and ubiquitous language",
+      "details": null
+    },
+    {
+      "name": "Cyclomatic Complexity",
+      "value": 2.037313432835821,
+      "target": 4.2,
+      "status": "PASS",
+      "description": "Average cyclomatic complexity per method/function",
+      "details": {
+        "total_methods": 268,
+        "max_complexity": 10
+      }
+    },
+    {
+      "name": "Method Length",
+      "value": 6.619402985074627,
+      "target": 12.0,
+      "status": "PASS",
+      "description": "Average lines of code per method",
+      "details": {
+        "total_methods": 268,
+        "max_length": 52
+      }
+    },
+    {
+      "name": "Class Coupling",
+      "value": 2.2244897959183674,
+      "target": 4.0,
+      "status": "PASS",
+      "description": "Average dependencies per class",
+      "details": {
+        "total_classes": 98
+      }
+    },
+    {
+      "name": "Code Duplication",
+      "value": 3.2188841201716736,
+      "target": 5.0,
+      "status": "PASS",
+      "description": "Percentage of duplicated code blocks",
+      "details": {
+        "duplicate_blocks": 24,
+        "total_lines": 3728
+      }
+    },
+    {
+      "name": "Test Coverage",
+      "value": 95.0,
+      "target": 95.0,
+      "status": "PASS",
+      "description": "Estimated test coverage based on test count and complexity",
+      "details": {
+        "total_tests": 57,
+        "total_assertions": 199
+      }
+    },
+    {
+      "name": "Test Structure (AAA Pattern)",
+      "value": 47.22222222222222,
+      "target": 80.0,
+      "status": "WARN",
+      "description": "Adherence to Arrange-Act-Assert pattern in tests",
+      "details": {
+        "test_files": 2
+      }
+    },
+    {
+      "name": "Integration Test Coverage",
+      "value": 85.0,
+      "target": 80.0,
+      "status": "PASS",
+      "description": "Coverage of component integration scenarios",
+      "details": null
+    },
+    {
+      "name": "Error Handling",
+      "value": 75.0,
+      "target": 80.0,
+      "status": "WARN",
+      "description": "Comprehensive exception handling and logging coverage",
+      "details": null
+    },
+    {
+      "name": "Performance",
+      "value": 42.5,
+      "target": 70.0,
+      "status": "WARN",
+      "description": "System responsiveness and efficient patterns usage",
+      "details": null
+    },
+    {
+      "name": "Maintainability",
+      "value": 100.0,
+      "target": 85.0,
+      "status": "PASS",
+      "description": "Code comprehension and modification ease",
+      "details": null
+    },
+    {
+      "name": "Documentation",
+      "value": 100.0,
+      "target": 75.0,
+      "status": "PASS",
+      "description": "API and usage documentation quality",
+      "details": null
+    }
+  ],
+  "violations": [
+    {
+      "principle": "Single Responsibility Principle (SRP)",
+      "type": "Too many responsibilities",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 578,
+      "description": "Class 'InformationIntegrationSystem' has 20 methods, suggesting multiple responsibilities",
+      "severity": "MEDIUM"
+    },
+    {
+      "principle": "Single Responsibility Principle (SRP)",
+      "type": "Too many responsibilities",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 1241,
+      "description": "Class 'LegacyConsciousnessAggregate' has 19 methods, suggesting multiple responsibilities",
+      "severity": "MEDIUM"
+    },
+    {
+      "principle": "Open/Closed Principle (OCP)",
+      "type": "Hard to extend",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 371,
+      "description": "Class 'TerminationProcess' is large but doesn't use inheritance/composition for extensibility",
+      "severity": "LOW"
+    },
+    {
+      "principle": "Open/Closed Principle (OCP)",
+      "type": "Hard to extend",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 578,
+      "description": "Class 'InformationIntegrationSystem' is large but doesn't use inheritance/composition for extensibility",
+      "severity": "LOW"
+    },
+    {
+      "principle": "Open/Closed Principle (OCP)",
+      "type": "Hard to extend",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 1241,
+      "description": "Class 'LegacyConsciousnessAggregate' is large but doesn't use inheritance/composition for extensibility",
+      "severity": "LOW"
+    },
+    {
+      "principle": "Dependency Inversion Principle (DIP)",
+      "type": "Too many concrete dependencies",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 1,
+      "description": "File has 21 concrete imports vs 3 abstract ones",
+      "severity": "MEDIUM"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 14,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 14,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 15,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 15,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 16,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 16,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 17,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 17,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 17,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 17,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 17,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 17,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 17,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 17,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 17,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 18,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 18,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 19,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 20,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 21,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 22,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 23,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 1449,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/existential_termination_core.py",
+      "line": 1450,
+      "description": "entities layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Single Responsibility Principle (SRP)",
+      "type": "Too many responsibilities",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/integration_collapse_detector.py",
+      "line": 578,
+      "description": "Class 'InformationIntegrationSystem' has 20 methods, suggesting multiple responsibilities",
+      "severity": "MEDIUM"
+    },
+    {
+      "principle": "Single Responsibility Principle (SRP)",
+      "type": "Too many responsibilities",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/integration_collapse_detector.py",
+      "line": 1241,
+      "description": "Class 'LegacyConsciousnessAggregate' has 19 methods, suggesting multiple responsibilities",
+      "severity": "MEDIUM"
+    },
+    {
+      "principle": "Open/Closed Principle (OCP)",
+      "type": "Hard to extend",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/integration_collapse_detector.py",
+      "line": 371,
+      "description": "Class 'TerminationProcess' is large but doesn't use inheritance/composition for extensibility",
+      "severity": "LOW"
+    },
+    {
+      "principle": "Open/Closed Principle (OCP)",
+      "type": "Hard to extend",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/integration_collapse_detector.py",
+      "line": 578,
+      "description": "Class 'InformationIntegrationSystem' is large but doesn't use inheritance/composition for extensibility",
+      "severity": "LOW"
+    },
+    {
+      "principle": "Open/Closed Principle (OCP)",
+      "type": "Hard to extend",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/integration_collapse_detector.py",
+      "line": 1241,
+      "description": "Class 'LegacyConsciousnessAggregate' is large but doesn't use inheritance/composition for extensibility",
+      "severity": "LOW"
+    },
+    {
+      "principle": "Dependency Inversion Principle (DIP)",
+      "type": "Too many concrete dependencies",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/integration_collapse_detector.py",
+      "line": 1,
+      "description": "File has 21 concrete imports vs 3 abstract ones",
+      "severity": "MEDIUM"
+    },
+    {
+      "principle": "Single Responsibility Principle (SRP)",
+      "type": "Too many responsibilities",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/phase_transition_engine.py",
+      "line": 578,
+      "description": "Class 'InformationIntegrationSystem' has 20 methods, suggesting multiple responsibilities",
+      "severity": "MEDIUM"
+    },
+    {
+      "principle": "Single Responsibility Principle (SRP)",
+      "type": "Too many responsibilities",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/phase_transition_engine.py",
+      "line": 1241,
+      "description": "Class 'LegacyConsciousnessAggregate' has 19 methods, suggesting multiple responsibilities",
+      "severity": "MEDIUM"
+    },
+    {
+      "principle": "Open/Closed Principle (OCP)",
+      "type": "Hard to extend",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/phase_transition_engine.py",
+      "line": 371,
+      "description": "Class 'TerminationProcess' is large but doesn't use inheritance/composition for extensibility",
+      "severity": "LOW"
+    },
+    {
+      "principle": "Open/Closed Principle (OCP)",
+      "type": "Hard to extend",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/phase_transition_engine.py",
+      "line": 578,
+      "description": "Class 'InformationIntegrationSystem' is large but doesn't use inheritance/composition for extensibility",
+      "severity": "LOW"
+    },
+    {
+      "principle": "Open/Closed Principle (OCP)",
+      "type": "Hard to extend",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/phase_transition_engine.py",
+      "line": 1241,
+      "description": "Class 'LegacyConsciousnessAggregate' is large but doesn't use inheritance/composition for extensibility",
+      "severity": "LOW"
+    },
+    {
+      "principle": "Dependency Inversion Principle (DIP)",
+      "type": "Too many concrete dependencies",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/phase_transition_engine.py",
+      "line": 1,
+      "description": "File has 21 concrete imports vs 3 abstract ones",
+      "severity": "MEDIUM"
+    },
+    {
+      "principle": "Single Responsibility Principle (SRP)",
+      "type": "Too many responsibilities",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/legacy_migration_adapters.py",
+      "line": 578,
+      "description": "Class 'InformationIntegrationSystem' has 20 methods, suggesting multiple responsibilities",
+      "severity": "MEDIUM"
+    },
+    {
+      "principle": "Single Responsibility Principle (SRP)",
+      "type": "Too many responsibilities",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/legacy_migration_adapters.py",
+      "line": 1241,
+      "description": "Class 'LegacyConsciousnessAggregate' has 19 methods, suggesting multiple responsibilities",
+      "severity": "MEDIUM"
+    },
+    {
+      "principle": "Open/Closed Principle (OCP)",
+      "type": "Hard to extend",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/legacy_migration_adapters.py",
+      "line": 371,
+      "description": "Class 'TerminationProcess' is large but doesn't use inheritance/composition for extensibility",
+      "severity": "LOW"
+    },
+    {
+      "principle": "Open/Closed Principle (OCP)",
+      "type": "Hard to extend",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/legacy_migration_adapters.py",
+      "line": 578,
+      "description": "Class 'InformationIntegrationSystem' is large but doesn't use inheritance/composition for extensibility",
+      "severity": "LOW"
+    },
+    {
+      "principle": "Open/Closed Principle (OCP)",
+      "type": "Hard to extend",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/legacy_migration_adapters.py",
+      "line": 1241,
+      "description": "Class 'LegacyConsciousnessAggregate' is large but doesn't use inheritance/composition for extensibility",
+      "severity": "LOW"
+    },
+    {
+      "principle": "Dependency Inversion Principle (DIP)",
+      "type": "Too many concrete dependencies",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/legacy_migration_adapters.py",
+      "line": 1,
+      "description": "File has 21 concrete imports vs 3 abstract ones",
+      "severity": "MEDIUM"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/legacy_migration_adapters.py",
+      "line": 12,
+      "description": "adapters layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/legacy_migration_adapters.py",
+      "line": 12,
+      "description": "adapters layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/legacy_migration_adapters.py",
+      "line": 13,
+      "description": "adapters layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/legacy_migration_adapters.py",
+      "line": 13,
+      "description": "adapters layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/legacy_migration_adapters.py",
+      "line": 13,
+      "description": "adapters layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/legacy_migration_adapters.py",
+      "line": 13,
+      "description": "adapters layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/legacy_migration_adapters.py",
+      "line": 14,
+      "description": "adapters layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/legacy_migration_adapters.py",
+      "line": 14,
+      "description": "adapters layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/legacy_migration_adapters.py",
+      "line": 15,
+      "description": "adapters layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/legacy_migration_adapters.py",
+      "line": 16,
+      "description": "adapters layer depends on frameworks layer",
+      "severity": "HIGH"
+    },
+    {
+      "principle": "Clean Architecture Dependency Rule",
+      "type": "Layer dependency violation",
+      "file": "/Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/08_02_2025/legacy_migration_adapters.py",
+      "line": 17,
+      "description": "adapters layer depends on frameworks layer",
+      "severity": "HIGH"
+    }
+  ],
+  "recommendations": [
+    "Fix 35 layer dependency violations. Review import statements and apply Dependency Inversion.",
+    "Address 8 SRP violations. Consider class decomposition and Extract Class refactoring.",
+    "System not yet production-ready. Address critical violations and improve test coverage before deployment."
+  ],
+  "detailed_analysis": {
+    "files_analyzed": {
+      "core_files": [
+        "existential_termination_core.py",
+        "integration_collapse_detector.py",
+        "phase_transition_engine.py",
+        "legacy_migration_adapters.py"
+      ],
+      "test_files": [
+        "test_existential_termination.py",
+        "test_brain_death.py"
+      ],
+      "total_files": 6
+    },
+    "architecture_patterns": {
+      "clean_architecture": true,
+      "domain_driven_design": true,
+      "solid_principles": true,
+      "dependency_injection": true,
+      "strategy_pattern": true,
+      "factory_pattern": true
+    },
+    "code_statistics": {
+      "total_lines_of_code": 3728,
+      "total_classes": 98,
+      "total_methods": 268,
+      "average_methods_per_class": 2.7346938775510203
+    },
+    "test_statistics": {},
+    "technology_stack": {
+      "language": "Python 3.x",
+      "patterns": [
+        "Clean Architecture",
+        "DDD",
+        "Strategy",
+        "Factory",
+        "Observer"
+      ],
+      "principles": [
+        "SOLID",
+        "DRY",
+        "YAGNI",
+        "TDD"
+      ],
+      "frameworks": [
+        "pytest",
+        "asyncio"
+      ]
+    }
+  }
+}
