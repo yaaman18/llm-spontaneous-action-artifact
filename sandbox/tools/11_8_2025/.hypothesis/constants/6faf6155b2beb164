@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/10_8_2025/enactive-consciousness/src/enactive_consciousness/predictive_coding.py
+# hypothesis_version: 6.137.1
+
+[0.0, 1e-08, 1e-06, 1e-05, 0.0001, 0.001, 0.01, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 0.999, 1.0, 1.2, 1.5, 2.0, 100, 'PredictionScale', 'PredictiveState', '__call__', 'adapted_beta1', 'adapted_beta2', 'adapted_weight_decay', 'beta1', 'beta2', 'body_state', 'convergence_achieved', 'convergence_rate', 'current_state', 'error_history_mean', 'error_history_std', 'final_accuracy', 'future_states', 'initial_accuracy', 'learning_rate', 'macro', 'meso', 'micro', 'next_state', 'overall_confidence', 'temporal_moment', 'weight_decay']

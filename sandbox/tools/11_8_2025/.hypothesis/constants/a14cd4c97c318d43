@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/11_8_2025/domain/value_objects/probability_distribution.py
+# hypothesis_version: 6.137.1
+
+[-0.5, 0.0, 1e-10, 1e-06, 0.95, 0.99, 1.0, 1.01, 'beta', 'categorical', 'concentration', 'confidence_level', 'distribution_type', 'empirical', 'entropy', 'entropy_normalized', 'exponential', 'from_samples', 'gamma', 'gaussian', 'initialization', 'is_deterministic', 'is_uniform', 'max_probability', 'mean', 'metadata', 'mode_index', 'mode_value', 'n_points', 'n_samples', 'normal', 'parameters', 'probabilities', 'size', 'std_dev', 'support', 'uniform', 'variance']

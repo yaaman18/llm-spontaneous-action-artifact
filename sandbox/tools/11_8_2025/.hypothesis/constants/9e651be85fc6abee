@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/11_8_2025/domain/value_objects/prediction_state.py
+# hypothesis_version: 6.137.1
+
+[0.0, 0.001, 0.01, 0.99, 1.0, 1.1, 10.0, 'PredictionState', 'converged', 'convergence_status', 'converging', 'diverged', 'hierarchical_errors', 'initialized', 'is_converged', 'is_stable', 'learning_iteration', 'mean_error', 'metadata', 'not_converged', 'prediction_quality', 'timestamp', 'total_error']

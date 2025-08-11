@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/11_8_2025/application/services/predictive_coding_training_service.py
+# hypothesis_version: 6.137.1
+
+[0.0, 1e-10, 0.001, 0.01, 0.1, 0.5, 0.8, 0.9, 0.95, 1.0, 1.1, 100.0, 100, 1000, 'adaptive', 'completed', 'convergence_achieved', 'convergence_rate', 'epoch', 'exponential', 'final_error', 'final_free_energy', 'final_learning_rate', 'fixed', 'free_energy', 'in_progress', 'inf', 'learning_rate', 'metrics', 'model_state', 'nan', 'not_trained', 'precision_entropy', 'stability_measure', 'status', 'to_dict', 'total_epochs', 'total_error', 'training_duration']

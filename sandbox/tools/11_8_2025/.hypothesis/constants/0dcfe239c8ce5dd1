@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/11_8_2025/domain/value_objects/spatial_organization_state.py
+# hypothesis_version: 6.137.1
+
+[0.0, 0.1, 0.2, 0.25, 0.3, 0.5, 0.7, 0.75, 0.8, 0.85, 1.0, 2.0, 'activation_history', 'coherence', 'initialized', 'is_well_organized', 'map_dimensions', 'metadata', 'organization', 'organization_quality', 'phenomenological', 'quantization_error', 'spatial_stability', 'structural_coherence', 'temporal', 'temporal_consistency', 'timestamp', 'well_organized']

@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/10_8_2025/enactive-consciousness/src/enactive_consciousness/jit_utils.py
+# hypothesis_version: 6.137.1
+
+['DEFAULT_JIT_STRATEGY', 'F', 'JITCompilationError', 'JITStrategy', 'available_backends', 'backend', 'config', 'create_jit_factory', 'device', 'devices', 'donate_argnums', 'get_jit_info', 'jax_version', 'jit_enabled', 'safe_jit', 'static_argnames', 'static_argnums', 'validate_static_args', 'xla_flags']

@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/11_8_2025/ngc_learn_adapter.py
+# hypothesis_version: 6.137.1
+
+[-1.0, 0.0, 0.002, 0.005, 0.01, 0.02, 0.1, 0.8, 1.0, 100.0, '__array__', '__main__', 'avg_processing_time', 'confidence_interval', 'converged', 'convergence_metrics', 'convergence_rates', 'converging', 'decreasing', 'energy_consumption', 'energy_cost', 'energy_efficiency', 'engine_type', 'error', 'error_fallback', 'error_trend', 'fallback', 'forward_prediction', 'hierarchical_errors', 'hierarchy_levels', 'increasing', 'input_dimensions', 'jax-fallback', 'max_processing_time', 'metadata', 'neural_params', 'neural_timing_params', 'ngc-learn', 'ngc_learn_available', 'no_data', 'not_converged', 'performance_metrics', 'precision_weight', 'processing_time', 'processing_times', 'spike_rate_limit', 'stable', 'synaptic_delay', '後方互換性テスト: ✅ 成功']

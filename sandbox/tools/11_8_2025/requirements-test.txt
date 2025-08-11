@@ -1,0 +1,111 @@
+# Testing requirements for enactive consciousness system
+# Comprehensive TDD test suite dependencies
+
+# Core testing framework
+pytest>=7.0.0
+pytest-cov>=4.0.0              # Coverage reporting
+pytest-mock>=3.0.0             # Mocking utilities
+pytest-asyncio>=0.21.0         # Async test support
+pytest-xdist>=3.0.0            # Parallel test execution
+pytest-benchmark>=4.0.0        # Performance benchmarking
+pytest-timeout>=2.0.0          # Test timeout handling
+pytest-html>=3.0.0             # HTML test reports
+pytest-json-report>=1.5.0      # JSON test reports
+
+# Property-based testing
+hypothesis>=6.0.0               # Property-based testing framework
+hypothesis[numpy]>=6.0.0       # NumPy integration for Hypothesis
+
+# Test data generation and utilities
+faker>=18.0.0                   # Fake data generation
+factory-boy>=3.0.0             # Test data factories
+freezegun>=1.2.0               # Time mocking
+responses>=0.23.0              # HTTP response mocking
+requests-mock>=1.10.0          # HTTP request mocking
+
+# Scientific computing for tests
+numpy>=1.21.0                   # Numerical computing
+scipy>=1.9.0                    # Scientific computing
+matplotlib>=3.5.0              # Plotting for test visualization
+pandas>=1.5.0                   # Data analysis for test results
+
+# Japanese text handling for GUI tests
+mecab-python3>=1.0.0           # Japanese text processing
+jaconv>=0.3.0                   # Japanese text conversion
+pykakasi>=2.2.0                # Japanese text analysis
+
+# Database testing
+pytest-postgresql>=4.0.0       # PostgreSQL testing
+pytest-sqlite>=1.0.0          # SQLite testing
+alembic>=1.8.0                 # Database migrations for testing
+
+# Web/GUI testing simulation
+selenium>=4.0.0                # Web browser automation
+playwright>=1.30.0             # Modern web testing
+pillow>=9.0.0                  # Image processing for screenshot comparison
+
+# Memory and performance profiling
+memory-profiler>=0.60.0        # Memory usage profiling
+psutil>=5.9.0                  # System resource monitoring
+line-profiler>=3.5.0          # Line-by-line profiling
+
+# Code quality and linting for tests
+black>=22.0.0                  # Code formatting
+flake8>=5.0.0                  # Code linting
+mypy>=1.0.0                    # Type checking
+isort>=5.10.0                  # Import sorting
+
+# Test reporting and visualization
+coverage[toml]>=7.0.0          # Coverage with TOML support
+pytest-clarity>=1.0.1         # Better test failure output
+pytest-sugar>=0.9.6           # Better test output formatting
+allure-pytest>=2.12.0         # Allure test reporting
+
+# Parallel and distributed testing
+pytest-parallel>=0.1.1        # Parallel test execution
+pytest-worker>=1.0.0          # Worker process management
+
+# Load testing and stress testing
+locust>=2.0.0                  # Load testing framework
+stress-ng>=0.14.0             # System stress testing
+
+# Mathematical verification
+sympy>=1.11.0                 # Symbolic mathematics for property verification
+mpmath>=1.3.0                 # Arbitrary precision arithmetic
+
+# Documentation testing
+pytest-doctestplus>=0.12.0    # Enhanced doctest support
+sphinx>=5.0.0                 # Documentation generation for test docs
+
+# Development and debugging
+pdb++>=0.10.3                 # Enhanced Python debugger
+ipdb>=0.13.0                  # IPython debugger
+pytest-pdb>=0.2.0            # PDB integration with pytest
+
+# Async and concurrency testing
+aioresponses>=0.7.4           # Async HTTP mocking
+pytest-trio>=0.8.0           # Trio async framework testing
+pytest-tornasync>=0.6.0      # Tornado async testing
+
+# Japanese font and rendering testing (for GUI tests)
+fonttools>=4.38.0             # Font manipulation and analysis
+pillow>=9.0.0                 # Image processing for font rendering tests
+
+# Configuration and environment management
+python-dotenv>=0.20.0         # Environment variable management
+pydantic>=1.10.0              # Data validation for test configurations
+
+# Network and API testing
+httpx>=0.24.0                 # Modern HTTP client for testing
+websockets>=11.0.0            # WebSocket testing support
+
+# Time and date testing utilities
+python-dateutil>=2.8.0       # Date/time utilities
+pytz>=2022.7                  # Timezone handling
+
+# Random data generation with seeds
+numpy-random>=1.21.0          # Reproducible random number generation
+
+# Test database seeding and fixtures
+pytest-fixtures>=0.1.0       # Enhanced fixture management
+pytest-lazy-fixture>=0.6.3   # Lazy fixture evaluation

@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/11_8_2025/domain/services/bayesian_inference_service.py
+# hypothesis_version: 6.137.1
+
+['bayes_factor', 'monte_carlo']

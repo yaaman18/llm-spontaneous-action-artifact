@@ -1,0 +1,105 @@
+# Coverage configuration for comprehensive test suite
+
+[run]
+# Source code to analyze
+source = src/enactive_consciousness
+
+# Include specific modules for coverage
+include = 
+    src/enactive_consciousness/information_theory.py
+    src/enactive_consciousness/dynamic_networks.py
+    src/enactive_consciousness/sparse_representations.py
+    src/enactive_consciousness/predictive_coding.py
+    src/enactive_consciousness/continuous_dynamics.py
+
+# Exclude files/patterns from coverage
+omit = 
+    */tests/*
+    */test_*.py
+    */*_test.py
+    */conftest.py
+    */__pycache__/*
+    */.*
+    setup.py
+    */site-packages/*
+    */build/*
+    */dist/*
+    */venv/*
+    */.venv/*
+    */experiential_memory_corrupted.py
+
+# Branch coverage
+branch = true
+
+# Data file for coverage results
+data_file = .coverage
+
+# Parallel processing support
+parallel = false
+
+[report]
+# Reporting options
+precision = 2
+show_missing = true
+skip_covered = false
+skip_empty = true
+
+# Sort by coverage percentage
+sort = Cover
+
+# Include branches in report
+show_branches = true
+
+# Exclude lines from coverage reporting
+exclude_lines = 
+    # Have to re-enable the standard pragma
+    pragma: no cover
+    
+    # Don't complain about missing debug-only code
+    def __repr__
+    if self\.debug
+    
+    # Don't complain if tests don't hit defensive assertion code
+    raise AssertionError
+    raise NotImplementedError
+    
+    # Don't complain if non-runnable code isn't run
+    if 0:
+    if False:
+    if __name__ == .__main__.:
+    
+    # Abstract methods
+    @abstract
+    @abc.abstractmethod
+    
+    # Type checking imports
+    if TYPE_CHECKING:
+    
+    # Platform-specific code
+    if sys.platform
+    
+    # Debug code
+    if DEBUG:
+    
+    # Placeholder implementations
+    pass
+    ...
+
+# Fail if coverage is below threshold
+fail_under = 85
+
+[html]
+# HTML report configuration
+directory = htmlcov
+title = Enactive Consciousness Test Coverage Report
+show_contexts = true
+
+[xml]
+# XML report configuration
+output = coverage.xml
+
+[json]
+# JSON report configuration
+output = coverage.json
+pretty_print = true
+show_contexts = true

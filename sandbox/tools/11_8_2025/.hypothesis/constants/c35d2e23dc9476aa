@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/10_8_2025/enactive-consciousness/src/enactive_consciousness/__init__.py
+# hypothesis_version: 6.137.1
+
+['0.1.0', '=', 'AdaptationMechanism', 'Array', 'ArrayLike', 'BodySchemaConfig', 'BodyState', 'ConsciousnessLevel', 'CouplingStrength', 'EmbodimentProcessor', 'FrameworkConfig', 'NetworkError', 'NetworkIntegrator', 'NetworkState', 'NetworkTopology', 'PRNGKey', 'PredictionScale', 'PredictiveState', 'TemporalMoment', 'TemporalProcessor', '__author__', '__main__', '__version__', 'complexity_measure', 'description', 'entropy_rate', 'name', 'transfer_entropy', 'version']

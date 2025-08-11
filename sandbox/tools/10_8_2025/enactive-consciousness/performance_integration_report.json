@@ -1,0 +1,41 @@
+{
+  "test_timestamp": 1754868410.290227,
+  "system_configuration": {
+    "base_state_dim": 64,
+    "base_environment_dim": 24,
+    "base_context_dim": 32
+  },
+  "basic_performance": {
+    "processing_time_ms": 0.0,
+    "memory_usage_mb": 0.0546875,
+    "success": false
+  },
+  "individual_measurements": [
+    {
+      "operation": "create_system_report_system",
+      "duration_ms": 128.94444999983534,
+      "memory_before_mb": 1558.44140625,
+      "memory_after_mb": 1565.42578125,
+      "success": true
+    },
+    {
+      "operation": "comprehensive_report_basic_test",
+      "duration_ms": 0.0,
+      "memory_before_mb": 1565.61328125,
+      "memory_after_mb": 1565.66796875,
+      "success": false
+    }
+  ],
+  "scalability_results": {},
+  "performance_summary": {
+    "total_operations_tested": 2,
+    "successful_operations": 1,
+    "total_test_time_ms": 128.94444999983534,
+    "avg_operation_time_ms": 128.94444999983534
+  },
+  "quality_assessment": {
+    "performance_acceptable": true,
+    "memory_efficiency_good": true,
+    "overall_integration_success": false
+  }
+}

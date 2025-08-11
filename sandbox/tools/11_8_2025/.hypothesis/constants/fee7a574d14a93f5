@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/10_8_2025/enactive-consciousness/src/enactive_consciousness/core.py
+# hypothesis_version: 6.137.1
+
+[-10.0, 0.0, 1e-06, 1.0, 10.0, 1024.0, 100, 1000, 'ArrayValidator', 'ConfigurableMixin', 'ERROR_HANDLER', 'ErrorHandler', 'GLOBAL_METRICS', 'JITCompiler', 'MemoryManager', 'MetricCollector', 'PerformanceConfig', 'ProcessorBase', 'StateT', 'StateValidationMixin', 'T', 'array', 'config', 'count', 'duration', 'latest', 'max', 'max_memory_mb', 'mean', 'min', 'optimize_for_memory', 'recent_operations', 'std', 'timestamp', 'tracked_operations', 'value']

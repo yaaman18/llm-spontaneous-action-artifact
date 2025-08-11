@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/11_8_2025/domain/value_objects/learning_parameters.py
+# hypothesis_version: 6.137.1
+
+[0.001, 0.01, 0.1, 0.5, 1.0, 2.0, 5.0, 100, 500, 1000, 5000, 'LearningParameters', 'algorithm', 'constant', 'cosine_annealing', 'decay_rate', 'defaults', 'exponential_decay', 'final_learning_rate', 'final_radius', 'initial_radius', 'inverse_time_decay', 'iterations', 'learning_rates', 'learning_schedule', 'linear_decay', 'max_iterations', 'metadata', 'predictive_coding', 'radii', 'radius_schedule', 'som', 'step_decay', 'step_size']

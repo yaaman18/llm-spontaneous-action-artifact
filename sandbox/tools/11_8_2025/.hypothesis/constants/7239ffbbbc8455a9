@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/11_8_2025/domain/value_objects/som_topology.py
+# hypothesis_version: 6.137.1
+
+[0.0, 0.5, 1.0, 1.5, 3.0, 'SOMTopology', 'bubble', 'chebyshev', 'cylindrical', 'distance_metric', 'euclidean', 'gaussian', 'hexagonal', 'hexagonal_grid', 'is_periodic', 'manhattan', 'metadata', 'mexican_hat', 'periodic_boundary', 'rectangular', 'rectangular_grid', 'standard', 'supports_wrap_around', 'topology_type', 'toroidal', 'toroidal_grid', 'triangular', 'wrap_around']

@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/11_8_2025/domain/value_objects/precision_weights.py
+# hypothesis_version: 6.137.1
+
+[0.0, 1e-10, 1e-06, 0.01, 1.0, 5.0, 'PrecisionWeights', 'adaptation_rate', 'attention_focus', 'dominant_level', 'entropy', 'focus_level', 'focused', 'hierarchy_levels', 'initialization', 'max_normalize', 'metadata', 'none', 'normalization_method', 'normalized_weights', 'softmax', 'sum_to_one', 'temperature', 'uniform', 'weights']

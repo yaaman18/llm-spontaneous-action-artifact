@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/11_8_2025/enactive_som.py
+# hypothesis_version: 6.137.1
+
+[0.0, 1e-08, 0.1, 0.3, 0.4, 0.5, 0.6, 0.8, 0.9, 0.99, 1.0, 2.0, 5.0, 100, '__main__', '_last_inputs', 'activation_history', 'organization_score', 'phenomenological_map', 'prediction_errors', 'quantization_error', 'temporal_coherence', 'topological_error', 'weights']

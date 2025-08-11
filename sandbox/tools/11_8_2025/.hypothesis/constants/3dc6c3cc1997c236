@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/10_8_2025/enactive-consciousness/src/enactive_consciousness/embodiment.py
+# hypothesis_version: 6.137.1
+
+[0.0, 0.01, 0.1, 0.2, 0.3, 0.4, 0.5, 0.7, 0.9, 1.0, 2.0, 10.0, 'BodyBoundaryDetector', 'BodySchemaConfig', 'MotorSchemaNetwork', 'ProprioceptiveMap', 'boundary_clarity', 'command', 'confidence', 'config', 'integrated_schema', 'motor_clarity', 'motor_prediction', 'new_state', 'overall_embodiment', 'proprioceptive_input', 'schema_confidence', 'self', 'signal', 'tactile_feedback']

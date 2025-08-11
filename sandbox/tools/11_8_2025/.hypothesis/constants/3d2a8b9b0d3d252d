@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/11_8_2025/ngc_learn_core_implementation.py
+# hypothesis_version: 6.137.1
+
+[-70.0, -55.0, -10.0, -5.0, -1.0, 0.0, 1e-06, 0.001, 0.002, 0.01, 0.02, 0.1, 0.7, 0.8, 1.0, 2.0, 5.0, 10.0, 100.0, '__main__', 'activity_state', 'dimensions', 'error_units', 'layer_id', 'learning_rate', 'max_firing_rate', 'plasticity_window', 'precision_units', 'prediction_units', 'refractory_period', 'resting_potential', 'spike_threshold', 'synaptic_delay', 'synaptic_weights']

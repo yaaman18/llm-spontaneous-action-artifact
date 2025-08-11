@@ -1,0 +1,213 @@
+[build-system]
+requires = ["hatchling>=1.13.0", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "enactive-consciousness"
+version = "0.1.0"
+description = "Enactivism-based consciousness framework with phenomenological foundations"
+authors = [
+    {name = "Enactivism Research Team", email = "research@example.com"},
+]
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Typing :: Typed",
+]
+
+dependencies = [
+    # Core JAX ecosystem
+    "jax>=0.4.20",
+    "jaxlib>=0.4.20",
+    "equinox>=0.11.0",
+    "optax>=0.1.7",
+    
+    # Predictive coding frameworks
+    "ngc-learn>=1.0.0",
+    
+    # Scientific computing
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "einops>=0.6.0",
+    
+    # Data handling and validation
+    "pydantic>=2.0.0",
+    "pandas>=2.0.0",
+    
+    # Self-organizing maps
+    "minisom>=2.3.0",
+    
+    # Probabilistic programming
+    "numpyro>=0.13.0",
+    "distrax>=0.1.4",
+    
+    # Visualization
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "plotly>=5.15.0",
+    
+    # Configuration management
+    "hydra-core>=1.3.0",
+    "omegaconf>=2.3.0",
+    
+    # Time series & dynamic systems
+    "diffrax>=0.4.0",
+    
+    # Dynamic network structures
+    "jraph>=0.0.6dev0",
+    "networkx>=3.1.0",
+    
+    # Information theory & sparse learning
+    "scikit-learn>=1.3.0",
+    "cvxpy>=1.4.0",
+    
+    # Information theory measures
+    "pyinform>=0.8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    # Testing
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "pytest-mock>=3.11.0",
+    "pytest-xdist>=3.3.0",
+    "pytest-benchmark>=4.0.0",
+    "hypothesis>=6.82.0",
+    
+    # Type checking
+    "mypy>=1.5.0",
+    "types-setuptools",
+    
+    # Code quality
+    "black>=23.7.0",
+    "isort>=5.12.0",
+    "flake8>=6.0.0",
+    "flake8-docstrings>=1.7.0",
+    "pre-commit>=3.3.0",
+    
+    # Documentation
+    "sphinx>=7.1.0",
+    "sphinx-rtd-theme>=1.3.0",
+    "myst-parser>=2.0.0",
+]
+
+neuromorphic = [
+    "brian2>=2.5.0",
+    "nest-simulator>=3.5.0",
+]
+
+research = [
+    "jupyter>=1.0.0",
+    "ipywidgets>=8.0.0",
+    "papermill>=2.4.0",
+]
+
+[project.urls]
+Documentation = "https://enactive-consciousness.readthedocs.io"
+Repository = "https://github.com/research/enactive-consciousness"
+"Bug Tracker" = "https://github.com/research/enactive-consciousness/issues"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/enactive_consciousness"]
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+extend-exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 88
+multi_line_output = 3
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[[tool.mypy.overrides]]
+module = [
+    "jax.*",
+    "equinox.*",
+    "optax.*",
+    "ngc_learn.*",
+    "minisom.*",
+    "numpyro.*",
+    "distrax.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--cov=src/enactive_consciousness",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+    "--cov-fail-under=85",
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+    "performance: marks tests as performance benchmarks",
+]
+
+[tool.coverage.run]
+source = ["src/enactive_consciousness"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]

@@ -1,0 +1,5 @@
+{
+  "multi_modal_consciousness": {
+    "error": "Failed to integrate conscious moment: Failed to integrate body schema: dot_general requires contracting dimensions to have the same shape, got (80,) and (88,)."
+  }
+}
