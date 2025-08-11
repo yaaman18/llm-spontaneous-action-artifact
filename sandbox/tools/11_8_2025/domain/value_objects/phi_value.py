@@ -71,7 +71,7 @@ class PhiValue:
 
     def _validate_computation_method(self) -> None:
         """Validate computation method."""
-        valid_methods = {"exact", "approximate", "heuristic", "empirical"}
+        valid_methods = {"exact", "approximate", "heuristic", "empirical", "enactivist_initialization"}
         if self.computation_method not in valid_methods:
             raise ValueError(f"Invalid computation method: {self.computation_method}")
 

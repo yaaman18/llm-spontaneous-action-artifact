@@ -67,6 +67,18 @@ class ConsciousnessEmergencePolicy(ConsciousnessPolicy):
         self.environmental_coupling_weight = environmental_coupling_weight
         self.metacognitive_amplification = metacognitive_amplification
     
+    def apply(self, context: ConsciousnessState) -> ConsciousnessState:
+        """
+        Apply the consciousness emergence policy to the given state.
+        
+        Args:
+            context: Consciousness state to apply emergence regulation to
+            
+        Returns:
+            Regulated consciousness state
+        """
+        return self.apply_emergence_regulation(context)
+    
     def apply_emergence_regulation(self, consciousness_state: ConsciousnessState) -> ConsciousnessState:
         """
         Apply emergence regulation to consciousness state.
@@ -101,6 +113,7 @@ class ConsciousnessEmergencePolicy(ConsciousnessPolicy):
             phi_value=regulated_phi,
             prediction_state=consciousness_state.prediction_state,
             uncertainty_distribution=consciousness_state.uncertainty_distribution,
+            spatial_organization=consciousness_state.spatial_organization,
             metacognitive_confidence=regulated_metacognitive,
             attention_weights=consciousness_state.attention_weights,
             phenomenological_markers=self._update_emergence_markers(
@@ -245,6 +258,20 @@ class AttentionRegulationPolicy(ConsciousnessPolicy):
         self.max_dispersion_allowed = max_dispersion_allowed
         self.environmental_bias_strength = environmental_bias_strength
         self.coherence_reinforcement = coherence_reinforcement
+    
+    def apply(self, context: Any) -> List[float]:
+        """
+        Apply attention regulation policy.
+        
+        Args:
+            context: Dict containing 'weights' and 'consciousness_state'
+            
+        Returns:
+            Regulated attention weights
+        """
+        proposed_weights = context.get('weights', [])
+        consciousness_state = context.get('consciousness_state')
+        return self.regulate_attention_weights(proposed_weights, consciousness_state)
     
     def regulate_attention_weights(
         self,
@@ -447,6 +474,20 @@ class MetacognitiveMonitoringPolicy(ConsciousnessPolicy):
         self.environmental_coherence_weight = environmental_coherence_weight
         self.temporal_consistency_weight = temporal_consistency_weight
     
+    def apply(self, context: Any) -> ConsciousnessState:
+        """
+        Apply metacognitive monitoring policy.
+        
+        Args:
+            context: Dict containing 'consciousness_state' and 'state_history'
+            
+        Returns:
+            Consciousness state with updated metacognitive confidence
+        """
+        consciousness_state = context.get('consciousness_state')
+        state_history = context.get('state_history', [])
+        return self.apply_metacognitive_monitoring(consciousness_state, state_history)
+    
     def apply_metacognitive_monitoring(
         self,
         consciousness_state: ConsciousnessState,
@@ -477,6 +518,7 @@ class MetacognitiveMonitoringPolicy(ConsciousnessPolicy):
             phi_value=consciousness_state.phi_value,
             prediction_state=consciousness_state.prediction_state,
             uncertainty_distribution=consciousness_state.uncertainty_distribution,
+            spatial_organization=consciousness_state.spatial_organization,
             metacognitive_confidence=new_confidence,
             attention_weights=consciousness_state.attention_weights,
             phenomenological_markers=updated_markers

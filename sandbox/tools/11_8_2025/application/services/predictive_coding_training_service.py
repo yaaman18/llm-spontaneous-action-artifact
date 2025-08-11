@@ -109,7 +109,7 @@ class PredictiveCodingTrainingService:
         self._domain_events: List[DomainEvent] = []
         
         # Adaptive learning rate state
-        self._current_learning_rate = learning_parameters.base_learning_rate
+        self._current_learning_rate = learning_parameters.initial_learning_rate
         self._learning_rate_history: List[float] = []
         
     def train_online(
@@ -400,15 +400,15 @@ class PredictiveCodingTrainingService:
             # Clamp learning rate
             self._current_learning_rate = np.clip(
                 self._current_learning_rate, 
-                self._learning_params.min_learning_rate,
-                self._learning_params.max_learning_rate
+                self._learning_params.final_learning_rate,
+                self._learning_params.initial_learning_rate
             )
         
         elif self._config.learning_rate_schedule == "exponential":
             # Exponential decay
             decay_rate = 0.95
             self._current_learning_rate = (
-                self._learning_params.base_learning_rate * 
+                self._learning_params.initial_learning_rate * 
                 (decay_rate ** self._current_epoch)
             )
         

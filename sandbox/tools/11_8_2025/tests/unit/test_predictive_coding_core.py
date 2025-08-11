@@ -74,7 +74,7 @@ class MockPredictiveCodingCore(PredictiveCodingCore):
         # Apply precision weighting
         propagated_errors = []
         for i, error in enumerate(prediction_errors):
-            weight = precision_weights.get_weight_at_level(i) if i < precision_weights.num_levels else 1.0
+            weight = precision_weights.get_weight_at_level(i) if i < precision_weights.hierarchy_levels else 1.0
             weighted_error = error * weight
             propagated_errors.append(weighted_error)
         
@@ -184,7 +184,7 @@ class TestPredictiveCodingCoreAbstractMethods:
         # Arrange
         core = MockPredictiveCodingCore(hierarchy_levels=3, input_dimensions=10)
         input_data = np.random.rand(10)
-        precision_weights = PrecisionWeights([1.0, 0.8, 0.6])
+        precision_weights = PrecisionWeights(np.array([1.0, 0.8, 0.6]))
         
         # Act
         predictions = core.generate_predictions(input_data, precision_weights)
@@ -229,7 +229,7 @@ class TestPredictiveCodingCoreAbstractMethods:
             np.array([0.3]),
             np.array([-0.1, 0.2, -0.3])
         ]
-        precision_weights = PrecisionWeights([2.0, 1.5, 1.0])
+        precision_weights = PrecisionWeights(np.array([2.0, 1.5, 1.0]))
         
         # Act
         propagated_errors, prediction_state = core.propagate_errors(prediction_errors, precision_weights)
@@ -275,7 +275,7 @@ class TestPredictiveCodingCoreTemplateMethod:
         # Arrange
         core = MockPredictiveCodingCore(hierarchy_levels=3, input_dimensions=10)
         input_data = np.random.rand(10)
-        precision_weights = PrecisionWeights([1.0, 0.8, 0.6])
+        precision_weights = PrecisionWeights(np.array([1.0, 0.8, 0.6]))
         learning_rate = 0.01
         
         # Act
@@ -294,7 +294,7 @@ class TestPredictiveCodingCoreTemplateMethod:
         # Arrange
         core = MockPredictiveCodingCore(hierarchy_levels=2, input_dimensions=5)
         input_data = np.random.rand(5)
-        precision_weights = PrecisionWeights([1.0, 0.8])
+        precision_weights = PrecisionWeights(np.array([1.0, 0.8]))
         
         # Act
         prediction_state = core.process_input(input_data, precision_weights)
@@ -307,7 +307,7 @@ class TestPredictiveCodingCoreTemplateMethod:
         # Arrange
         core = MockPredictiveCodingCore(hierarchy_levels=2, input_dimensions=5)
         input_data = np.random.rand(5)
-        precision_weights = PrecisionWeights([1.0, 0.8])
+        precision_weights = PrecisionWeights(np.array([1.0, 0.8]))
         
         # Verify initial state
         assert core.current_state is None
@@ -354,7 +354,7 @@ class TestPredictiveCodingCoreTemplateMethod:
         core.update_predictions = track_update
         
         input_data = np.random.rand(5)
-        precision_weights = PrecisionWeights([1.0, 0.8])
+        precision_weights = PrecisionWeights(np.array([1.0, 0.8]))
         
         # Act
         core.process_input(input_data, precision_weights)
@@ -372,7 +372,7 @@ class TestPredictiveCodingCoreStateManagement:
         # Arrange
         core = MockPredictiveCodingCore(hierarchy_levels=2, input_dimensions=5)
         input_data = np.random.rand(5)
-        precision_weights = PrecisionWeights([1.0, 0.8])
+        precision_weights = PrecisionWeights(np.array([1.0, 0.8]))
         
         # Set initial state
         core.process_input(input_data, precision_weights)
@@ -389,7 +389,7 @@ class TestPredictiveCodingCoreStateManagement:
         # Arrange
         core = MockPredictiveCodingCore(hierarchy_levels=2, input_dimensions=5)
         input_data = np.random.rand(5)
-        precision_weights = PrecisionWeights([1.0, 0.8])
+        precision_weights = PrecisionWeights(np.array([1.0, 0.8]))
         
         # Process input to create state
         prediction_state = core.process_input(input_data, precision_weights)
@@ -422,7 +422,7 @@ class TestPredictiveCodingCoreErrorHandling:
         # Arrange
         core = MockPredictiveCodingCore(hierarchy_levels=2, input_dimensions=5)
         wrong_size_input = np.random.rand(10)  # Wrong size
-        precision_weights = PrecisionWeights([1.0, 0.8])
+        precision_weights = PrecisionWeights(np.array([1.0, 0.8]))
         
         # For this mock implementation, we don't enforce input size validation
         # But a real implementation should validate input dimensions
@@ -440,7 +440,7 @@ class TestPredictiveCodingCoreIntegration:
         """Test multiple processing cycles maintain consistency."""
         # Arrange
         core = MockPredictiveCodingCore(hierarchy_levels=3, input_dimensions=8)
-        precision_weights = PrecisionWeights([1.0, 0.8, 0.6])
+        precision_weights = PrecisionWeights(np.array([1.0, 0.8, 0.6]))
         learning_rate = 0.05
         
         # Act - process multiple inputs
@@ -463,7 +463,7 @@ class TestPredictiveCodingCoreIntegration:
         """Test processing with different error patterns."""
         # Arrange
         core = MockPredictiveCodingCore(hierarchy_levels=4, input_dimensions=6)
-        precision_weights = PrecisionWeights([1.0, 0.8, 0.6, 0.4])
+        precision_weights = PrecisionWeights(np.array([1.0, 0.8, 0.6, 0.4]))
         
         # Create mock that returns specific error patterns
         def mock_propagate_errors(prediction_errors, precision_weights):
@@ -493,8 +493,8 @@ class TestPredictiveCodingCoreIntegration:
         core = MockPredictiveCodingCore(hierarchy_levels=3, input_dimensions=5)
         
         # Test with different precision weight configurations
-        high_precision = PrecisionWeights([2.0, 2.0, 2.0])
-        low_precision = PrecisionWeights([0.1, 0.1, 0.1])
+        high_precision = PrecisionWeights(np.array([2.0, 2.0, 2.0]))
+        low_precision = PrecisionWeights(np.array([0.1, 0.1, 0.1]))
         
         input_data = np.random.rand(5)
         
@@ -520,8 +520,8 @@ class TestPredictiveCodingCorePerformance:
         small_core = MockPredictiveCodingCore(hierarchy_levels=2, input_dimensions=10)
         large_core = MockPredictiveCodingCore(hierarchy_levels=5, input_dimensions=50)
         
-        precision_weights_small = PrecisionWeights([1.0, 0.8])
-        precision_weights_large = PrecisionWeights([1.0, 0.8, 0.6, 0.4, 0.2])
+        precision_weights_small = PrecisionWeights(np.array([1.0, 0.8]))
+        precision_weights_large = PrecisionWeights(np.array([1.0, 0.8, 0.6, 0.4, 0.2]))
         
         # Act & Measure
         performance_timer.start()
@@ -548,7 +548,7 @@ class TestPredictiveCodingCorePerformance:
         
         # Arrange
         core = MockPredictiveCodingCore(hierarchy_levels=3, input_dimensions=20)
-        precision_weights = PrecisionWeights([1.0, 0.8, 0.6])
+        precision_weights = PrecisionWeights(np.array([1.0, 0.8, 0.6]))
         
         # Act - perform many processing cycles
         for i in range(100):

@@ -92,7 +92,7 @@ class MockSelfOrganizingMap(SelfOrganizingMap):
         
         # Gaussian neighborhood function
         neighborhood = np.zeros((height, width))
-        radius = learning_params.current_neighborhood_radius(current_iteration)
+        radius = learning_params.current_radius(current_iteration)
         
         for i in range(width):
             for j in range(height):
@@ -873,7 +873,7 @@ class TestSelfOrganizingMapIntegration:
         
         def track_neighborhood_radius(*args, **kwargs):
             iteration = args[1]
-            radius = learning_params.current_neighborhood_radius(iteration)
+            radius = learning_params.current_radius(iteration)
             neighborhood_radii.append(radius)
             return original_neighborhood(*args, **kwargs)
         

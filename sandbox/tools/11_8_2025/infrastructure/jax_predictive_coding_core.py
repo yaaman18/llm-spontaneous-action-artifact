@@ -717,18 +717,25 @@ class JaxPredictiveCodingCore(PredictiveCodingCore):
                 # Higher levels: targets come from lower level predictions
                 prev_prediction = predictions[level-1]
                 
-                # Ensure shape compatibility
-                if prev_prediction.shape != prediction.shape:
-                    # Aggregate or project to match target shape
-                    if np.prod(prev_prediction.shape) >= np.prod(prediction.shape):
-                        # Downsample
-                        target = np.mean(prev_prediction.reshape(-1, np.prod(prediction.shape)), axis=0).reshape(prediction.shape)
-                    else:
-                        # Upsample via repetition
-                        repeat_factor = np.prod(prediction.shape) // np.prod(prev_prediction.shape)
-                        target = np.repeat(prev_prediction.flatten(), repeat_factor)[:np.prod(prediction.shape)].reshape(prediction.shape)
+                # Create target with same shape as prediction
+                target = np.zeros(prediction.shape)
+                
+                # Fill with aggregated information from previous level
+                prev_flat = prev_prediction.flatten()
+                target_flat = target.flatten()
+                
+                # Map previous prediction to target shape
+                if len(prev_flat) >= len(target_flat):
+                    # Downsample by taking every nth element
+                    step = len(prev_flat) // len(target_flat)
+                    for i in range(len(target_flat)):
+                        target_flat[i] = prev_flat[min(i * step, len(prev_flat) - 1)]
                 else:
-                    target = prev_prediction.copy()
+                    # Upsample by repeating elements
+                    for i in range(len(target_flat)):
+                        target_flat[i] = prev_flat[i % len(prev_flat)]
+                
+                target = target_flat.reshape(prediction.shape)
                 
                 # Add small noise for learning dynamics
                 target = target + np.random.randn(*prediction.shape) * 0.01

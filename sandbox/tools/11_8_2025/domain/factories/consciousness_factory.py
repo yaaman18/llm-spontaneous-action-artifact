@@ -14,6 +14,7 @@ from ..value_objects.consciousness_state import ConsciousnessState
 from ..value_objects.phi_value import PhiValue
 from ..value_objects.prediction_state import PredictionState
 from ..value_objects.probability_distribution import ProbabilityDistribution
+from ..value_objects.spatial_organization_state import SpatialOrganizationState
 
 
 class ConsciousnessFactory:
@@ -71,11 +72,15 @@ class ConsciousnessFactory:
             initial_coupling_strength, environmental_richness
         )
         
+        # Create initial spatial organization
+        initial_spatial_organization = SpatialOrganizationState.create_initial()
+        
         # Create consciousness state
         initial_state = ConsciousnessState(
             phi_value=initial_phi,
             prediction_state=initial_prediction,
             uncertainty_distribution=initial_uncertainty,
+            spatial_organization=initial_spatial_organization,
             metacognitive_confidence=initial_metacognitive,
             phenomenological_markers=initial_markers
         )
@@ -144,10 +149,14 @@ class ConsciousnessFactory:
             environmental_input, coupling_strength, prediction_errors
         )
         
+        # Create spatial organization for emergence
+        emergence_spatial_organization = SpatialOrganizationState.create_initial()
+        
         consciousness_state = ConsciousnessState(
             phi_value=emergence_phi,
             prediction_state=prediction_state,
             uncertainty_distribution=uncertainty_dist,
+            spatial_organization=emergence_spatial_organization,
             metacognitive_confidence=metacognitive_confidence,
             attention_weights=attention_weights,
             phenomenological_markers=emergence_markers
@@ -206,10 +215,14 @@ class ConsciousnessFactory:
             target_consciousness_level, attention_focus_areas
         )
         
+        # Create well-organized spatial organization for stability
+        stable_spatial_organization = SpatialOrganizationState.create_well_organized()
+        
         consciousness_state = ConsciousnessState(
             phi_value=stable_phi,
             prediction_state=stable_prediction,
             uncertainty_distribution=stable_uncertainty,
+            spatial_organization=stable_spatial_organization,
             metacognitive_confidence=stable_metacognitive,
             attention_weights=stable_attention,
             phenomenological_markers=stability_markers
@@ -288,7 +301,7 @@ class ConsciousnessFactory:
             # Create a peaked distribution with some spread
             probabilities = np.exp(-np.arange(distribution_size) * 0.2)
             probabilities = probabilities / probabilities.sum()
-            return ProbabilityDistribution(probabilities.tolist())
+            return ProbabilityDistribution(probabilities)
     
     def _calculate_initial_metacognitive_confidence(
         self,
@@ -339,7 +352,7 @@ class ConsciousnessFactory:
             complexity=complexity,
             integration=integration,
             system_size=len(prediction_errors),
-            computation_method="enactivist_emergence",
+            computation_method="enactivist_initialization",
             confidence=coupling_strength
         )
     
@@ -351,7 +364,7 @@ class ConsciousnessFactory:
         return PredictionState(
             hierarchical_errors=prediction_errors,
             timestamp=datetime.now(),
-            convergence_status="emerging" if sum(abs(e) for e in prediction_errors) < 2.0 else "not_converged",
+            convergence_status="converging" if sum(abs(e) for e in prediction_errors) < 2.0 else "not_converged",
             learning_iteration=0,
             metadata={'emergence_created': True}
         )
@@ -376,7 +389,7 @@ class ConsciousnessFactory:
             # Low variance -> more peaked distribution
             probabilities = np.exp(-np.arange(distribution_size) * (2.0 - input_variance))
             probabilities = probabilities / probabilities.sum()
-            return ProbabilityDistribution(probabilities.tolist())
+            return ProbabilityDistribution(probabilities)
     
     def _calculate_emergence_metacognitive_confidence(
         self,
@@ -432,7 +445,7 @@ class ConsciousnessFactory:
             'prediction_error_total': sum(abs(e) for e in prediction_errors),
             'emergence_quality': coupling_strength * (1.0 / (1.0 + sum(abs(e) for e in prediction_errors))),
             'emergence_timestamp': datetime.now().isoformat(),
-            'enactivist_emergence': True
+            'enactivist_initialization': True
         }
     
     def _create_phi_for_consciousness_level(

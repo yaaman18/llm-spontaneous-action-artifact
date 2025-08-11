@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/11_8_2025/infrastructure/jax_predictive_coding_core.py
+# hypothesis_version: 6.137.1
+
+[-0.5, 0.0, 1e-06, 0.001, 0.01, 0.1, 0.5, 0.7, 0.95, 1.0, 2.0, 10.0, 1000000.0, 1000, 'converged', 'converging', 'diverged', 'enabled', 'enhancement_active', 'free_energy_estimate', 'inf', 'not_converged', 'not_integrated', 'random', 'softmax', 'som_dimensions', 'som_input_dimensions', 'som_trained', 'status', 'temporal_window', 'topology', 'updated_by']
