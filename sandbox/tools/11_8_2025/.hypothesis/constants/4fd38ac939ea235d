@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/11_8_2025/domain/value_objects/language_cluster.py
+# hypothesis_version: 6.137.1
+
+[0.0, 1e-08, 0.5, 0.7, 0.8, 1.0, 'ARABIC', 'CHINESE', 'CYRILLIC', 'DEVANAGARI', 'JAPANESE', 'LATIN', 'LanguageCluster', 'MIXED', 'UNKNOWN', 'character_statistics', 'cluster_id', 'confidence_threshold', 'creation_timestamp', 'pattern_signatures', 'sample_count', 'signature_hash']

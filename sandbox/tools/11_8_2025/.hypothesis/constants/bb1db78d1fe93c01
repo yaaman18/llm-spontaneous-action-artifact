@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/11_8_2025/domain/value_objects/visual_symbol.py
+# hypothesis_version: 6.137.1
+
+[0.0, 1e-06, 0.1, 0.2, 0.3, 0.4, 0.6, 0.7, 1.0, 100.0, 'VisualSymbol', 'age_days', 'aspect_ratio', 'color_histogram', 'confidence', 'contour_count', 'creation_timestamp', 'days_since_update', 'edge_density', 'edge_histogram', 'emergence_instances', 'extent', 'last_updated', 'prototype_complexity', 'solidity', 'symbol_id', 'usage_frequency', 'variation_width']

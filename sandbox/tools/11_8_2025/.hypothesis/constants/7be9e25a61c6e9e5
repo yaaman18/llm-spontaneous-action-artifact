@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/11_8_2025/domain/entities/visual_symbol_recognizer.py
+# hypothesis_version: 6.137.1
+
+[0.0, 1e-06, 0.1, 0.3, 0.4, 0.7, 1.0, 255.0, -100, 100, 1000, 'ambiguous_cases', 'ambiguous_rate', 'aspect_ratio', 'circularity', 'color_histogram', 'color_similarity', 'compactness', 'confidence', 'creation_date', 'days_since_creation', 'dominant_colors', 'edge_density', 'edge_histogram', 'edge_similarity', 'error', 'error_rate', 'extent', 'is_stable', 'last_used', 'low_confidence_cases', 'low_confidence_rate', 'overall_similarity', 'processing_errors', 'recent_usage_count', 'rectangularity', 'semantic_label', 'shape_similarity', 'solidity', 'success_rate', 'symbol_id', 'total_recognitions', 'total_symbols', 'unknown_objects', 'unknown_rate', 'usage_frequency']

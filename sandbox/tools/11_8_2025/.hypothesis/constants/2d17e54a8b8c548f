@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/11_8_2025/domain/value_objects/visual_feature.py
+# hypothesis_version: 6.137.1
+
+[0.0, 1e-06, 0.1, 0.3, 0.5, 1.0, 2.0, 4.0, 20.0, 1000.0, 'VisualFeature', 'aspect_ratio', 'color_histogram', 'contour_count', 'edge_density', 'edge_histogram', 'extent', 'solidity']

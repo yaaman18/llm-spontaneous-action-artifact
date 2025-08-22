@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/11_8_2025/domain/entities/multilingual_tokenizer.py
+# hypothesis_version: 6.137.1
+
+[0.0, 0.01, 0.1, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, -1000, -100, 100, 1000, 'TokenizationContext', 'avg_chars_per_second', 'avg_processing_time', 'avg_tokens_per_text', 'bayesian_service', 'chars_per_second', 'converging', 'cyrillic', 'hiragana', 'kanji', 'katakana', 'language_clusters', 'latin', 'learning_rate', 'max_clusters', 'other', 'performance_metrics', 'predictive_coder', 'processing_time', 'rb', 'similarity_threshold', 'som', 'text_length', 'timestamp', 'token_count', 'tokenization_history', 'total_tokenizations', 'wb', 'Ѐ', 'ӿ', '\u3040', 'ゟ', '゠', 'ヿ', '一', '\u9fff']

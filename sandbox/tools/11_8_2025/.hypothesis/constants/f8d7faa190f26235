@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/11_8_2025/infrastructure/image_processing/opencv_feature_extractor.py
+# hypothesis_version: 6.137.1
+
+[0.0, 0.01, 0.2, 0.4, 0.5, 1.0, 2.0, 5.0, 255.0, 1000.0, 100, 150, 180, 255, 256, 512, 'aspect_ratio', 'circularity', 'color_histogram', 'color_moments', 'compactness', 'contour_areas_stats', 'contour_count', 'dominant_colors', 'edge_density', 'edge_histogram', 'edges', 'energy', 'entropy', 'extent', 'hsv_mean', 'hsv_std', 'major_contour_areas', 'mean', 'rectangularity', 'solidity', 'std', 'variance']

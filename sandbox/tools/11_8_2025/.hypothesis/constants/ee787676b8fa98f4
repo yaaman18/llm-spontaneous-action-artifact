@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/11_8_2025/domain/value_objects/recognition_result.py
+# hypothesis_version: 6.137.1
+
+[0.0, 0.1, 0.2, 0.3, 0.5, 0.6, 0.7, 1.0, 2.0, 5.0, 10.0, 'RecognitionResult', 'alternative_count', 'ambiguous', 'confidence', 'confidence_gap', 'create_new_symbol', 'error_message', 'feature_quality', 'input_complexity', 'input_confidence', 'input_features', 'learning_type', 'low_confidence', 'processing_error', 'processing_time', 'quality_score', 'recognized_symbol_id', 'status', 'success', 'suggested_actions', 'timestamp', 'unknown', '予期しない認識結果です', '認識信頼度が不足しています']

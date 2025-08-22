@@ -28,7 +28,9 @@ from ngc_learn_core_implementation import EnhancedNGCLearnEngine, EnergyConsumpt
 # NGC-Learn統合の準備（Conditional Import Pattern）
 try:
     import ngclearn as ngc
+    import ngcsimlib
     NGC_LEARN_AVAILABLE = True
+    logging.info(f"NGC-Learn {ngc.__version__} loaded successfully")
 except ImportError:
     NGC_LEARN_AVAILABLE = False
     ngc = None

@@ -1,6 +1,10 @@
 *.pdf
 *.pyc
 __pycache__/
+venv/
+.venv/
+env/
+.env/
 
 # NewbornAI 2.0 private data - do not publish
 sandbox/tools/08_02_2025/sandbox/tools/08_02_2025/newborn_ai_2_0/

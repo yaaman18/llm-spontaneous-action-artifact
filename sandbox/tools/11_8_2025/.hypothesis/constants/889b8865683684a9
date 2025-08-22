@@ -1,0 +1,4 @@
+# file: /Users/yamaguchimitsuyuki/omoikane-lab/sandbox/tools/11_8_2025/domain/value_objects/phi_value.py
+# hypothesis_version: 6.138.2
+
+[0.0, 1e-10, 0.1, 0.2, 0.5, 0.8, 1.0, 5.0, 'PhiValue', 'approximate', 'complexity', 'computation_method', 'confidence', 'consciousness_level', 'efficiency', 'empirical', 'exact', 'heuristic', 'high', 'integration', 'is_conscious', 'metadata', 'minimal', 'moderate', 'normalized_value', 'phi_difference', 'phi_ratio', 'state', 'system_size', 'theoretical_maximum', 'unconscious', 'value', 'very_high']
